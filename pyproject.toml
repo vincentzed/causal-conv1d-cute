@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "causal-conv1d-cute"
+dynamic = ["version"]
+requires-python = ">=3.10"
+description = "Depthwise causal conv1d (prefill + decode) in CuTe DSL, tuned per shape for Blackwell"
+readme = "README.md"
+license = "Apache-2.0"
+dependencies = [
+    "nvidia-cutlass-dsl>=4.6",
+    "torch",
+    "apache-tvm-ffi>=0.1.6,<0.2",
+]
+
+[project.entry-points."sglang.srt.plugins"]
+causal_conv1d_cute = "causal_conv1d_cute.sglang_compat:plugin"
+
+[project.optional-dependencies]
+cu13 = ["nvidia-cutlass-dsl[cu13]>=4.6"]
+bench = ["flashinfer-python", "cupti-python"]
+dev = [
+    "pre-commit",
+    "pytest",
+    "pytest-xdist",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["causal_conv1d_cute*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "causal_conv1d_cute.__version__"}
+
+[tool.setuptools.package-data]
+causal_conv1d_cute = ["tuned.json"]
+
+[[tool.uv.index]]
+name = "pytorch-cu132"
+url = "https://download.pytorch.org/whl/cu132"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu132", marker = "extra == 'cu13'" },
+]
+
+[tool.pytest.ini_options]
+addopts = "-p no:cacheprovider -p no:unraisableexception -p no:threadexception"
+
+[tool.ruff]
+line-length = 100
+exclude = [".#*"]
+
+[tool.ruff.lint]
+extend-select = ["B904"]
+ignore = [
+    "E731",
+    "E741",
+    "F841",
+]

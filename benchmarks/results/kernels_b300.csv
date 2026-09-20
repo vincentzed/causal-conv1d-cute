@@ -1,0 +1,1575 @@
+model,kind,D,W,B,L,layout,bias,act,provider,status,ulp_err,bwd_err,us_cold,us_cold_lo,us_cold_hi,us_warm,gb_per_s_cold,note
+lfm2-1.2b,fwd,2048,3,1,512,btd,0,none,cute,ok,0.5,0.00389,2.896,2.865,2.944,2.048,1448.3,
+lfm2-1.2b,fwd,2048,3,1,512,btd,0,none,cute_pad,ok,0.5,0.00389,2.848,2.817,2.896,2.079,1472.7,
+lfm2-1.2b,fwd,2048,3,1,512,btd,0,none,cute_ring,ok,0.5,0.00389,2.912,2.880,2.944,2.080,1440.4,
+lfm2-1.2b,fwd,2048,3,1,512,btd,0,none,dao,ok,0.5,0.00389,3.888,3.872,3.888,2.881,1078.8,
+lfm2-1.2b,fwd,2048,3,1,512,btd,0,none,fla_triton,ok,0.5,0.00389,3.232,3.200,3.264,2.175,1297.7,
+lfm2-1.2b,fwd,2048,3,1,512,btd,0,none,cudnn,ok,0.5,0.00389,17.376,16.863,17.503,16.481,241.4,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,1,512,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,1,512,btd,0,none,cudnn_nwh,ok,0.5,0.00389,9.216,8.960,9.408,6.398,455.1,
+lfm2-1.2b,fwd,2048,3,1,512,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+lfm2-1.2b,fwd,2048,3,1,512,btd,0,none,torch_conv1d,ok,0.5,0.00389,18.126,18.097,18.430,17.313,231.4,
+lfm2-1.2b,fwd,2048,3,1,2048,btd,0,none,cute,ok,0.5,0.00389,5.152,5.120,5.184,3.392,3256.4,
+lfm2-1.2b,fwd,2048,3,1,2048,btd,0,none,cute_pad,ok,0.5,0.00389,5.136,5.104,5.137,3.361,3266.9,
+lfm2-1.2b,fwd,2048,3,1,2048,btd,0,none,cute_ring,ok,0.5,0.00389,5.152,5.120,5.184,3.393,3256.4,
+lfm2-1.2b,fwd,2048,3,1,2048,btd,0,none,dao,ok,0.5,0.00389,6.623,6.593,6.624,5.008,2533.2,
+lfm2-1.2b,fwd,2048,3,1,2048,btd,0,none,fla_triton,ok,0.5,0.00389,6.400,6.368,6.417,4.671,2621.4,
+lfm2-1.2b,fwd,2048,3,1,2048,btd,0,none,cudnn,ok,0.5,0.00389,46.097,45.938,46.160,44.519,364.0,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,1,2048,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,1,2048,btd,0,none,cudnn_nwh,ok,0.5,0.00389,24.225,24.206,24.352,14.710,692.6,
+lfm2-1.2b,fwd,2048,3,1,2048,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+lfm2-1.2b,fwd,2048,3,1,2048,btd,0,none,torch_conv1d,ok,0.5,0.00389,60.065,59.933,60.193,58.394,279.3,
+lfm2-1.2b,fwd,2048,3,1,8192,btd,0,none,cute,ok,0.5,0.00389,13.104,13.066,13.120,8.226,5121.3,
+lfm2-1.2b,fwd,2048,3,1,8192,btd,0,none,cute_pad,ok,0.5,0.00389,12.912,12.880,12.946,8.257,5197.4,
+lfm2-1.2b,fwd,2048,3,1,8192,btd,0,none,cute_ring,ok,0.5,0.00389,13.088,13.055,13.200,8.256,5127.5,
+lfm2-1.2b,fwd,2048,3,1,8192,btd,0,none,dao,ok,0.5,0.00389,18.513,18.465,18.592,15.199,3625.1,
+lfm2-1.2b,fwd,2048,3,1,8192,btd,0,none,fla_triton,ok,0.5,0.00389,18.063,18.018,18.080,14.242,3715.3,
+lfm2-1.2b,fwd,2048,3,1,8192,btd,0,none,cudnn,ok,0.5,0.00389,155.294,155.146,155.546,154.722,432.1,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,1,8192,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,1,8192,btd,0,none,cudnn_nwh,ok,0.5,0.00389,84.941,84.771,85.057,53.915,790.1,
+lfm2-1.2b,fwd,2048,3,1,8192,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+lfm2-1.2b,fwd,2048,3,1,8192,btd,0,none,torch_conv1d,ok,0.5,0.00389,217.286,217.211,217.370,217.085,308.9,
+lfm2-1.2b,fwd,2048,3,8,2048,btd,0,none,cute,ok,0.5,0.00389,22.992,22.944,23.424,21.200,5837.5,
+lfm2-1.2b,fwd,2048,3,8,2048,btd,0,none,cute_pad,ok,0.5,0.00389,23.011,22.976,23.169,20.960,5832.8,
+lfm2-1.2b,fwd,2048,3,8,2048,btd,0,none,cute_ring,ok,0.5,0.00389,22.561,22.495,22.592,20.863,5949.2,
+lfm2-1.2b,fwd,2048,3,8,2048,btd,0,none,dao,ok,0.5,0.00389,32.453,32.413,32.510,31.760,4135.8,
+lfm2-1.2b,fwd,2048,3,8,2048,btd,0,none,fla_triton,ok,0.5,0.00389,35.538,35.486,35.584,33.386,3776.7,
+lfm2-1.2b,fwd,2048,3,8,2048,btd,0,none,cudnn,ok,0.5,0.00389,281.886,281.822,282.048,281.573,476.1,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,8,2048,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,8,2048,btd,0,none,cudnn_nwh,ok,0.5,0.00389,58.017,57.952,58.159,54.848,2313.4,
+lfm2-1.2b,fwd,2048,3,8,2048,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+lfm2-1.2b,fwd,2048,3,8,2048,btd,0,none,torch_conv1d,ok,0.5,0.00389,436.292,436.228,436.371,436.073,307.6,
+lfm2-1.2b,fwd,2048,3,32,512,btd,0,none,cute,ok,0.5,0.00389,22.511,22.464,22.593,20.896,5962.3,
+lfm2-1.2b,fwd,2048,3,32,512,btd,0,none,cute_pad,ok,0.5,0.00389,22.688,22.622,22.707,20.864,5915.8,
+lfm2-1.2b,fwd,2048,3,32,512,btd,0,none,cute_ring,ok,0.5,0.00389,22.462,22.448,22.783,20.974,5975.3,
+lfm2-1.2b,fwd,2048,3,32,512,btd,0,none,dao,ok,0.5,0.00389,32.611,32.575,32.657,31.728,4115.7,
+lfm2-1.2b,fwd,2048,3,32,512,btd,0,none,fla_triton,ok,0.5,0.00389,35.376,35.264,35.502,33.152,3794.0,
+lfm2-1.2b,fwd,2048,3,32,512,btd,0,none,cudnn,ok,0.5,0.00389,286.109,285.935,286.127,285.425,469.1,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,32,512,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,32,512,btd,0,none,cudnn_nwh,ok,0.5,0.00389,57.487,57.474,57.697,54.465,2334.7,
+lfm2-1.2b,fwd,2048,3,32,512,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+lfm2-1.2b,fwd,2048,3,32,512,btd,0,none,torch_conv1d,ok,0.5,0.00389,442.069,441.878,442.392,441.382,303.6,
+lfm2-1.2b,fwd,2048,3,1,2047,btd,0,none,cute,ok,0.5,0.00389,5.280,5.216,5.344,3.393,3176.0,
+lfm2-1.2b,fwd,2048,3,1,2047,btd,0,none,cute_pad,ok,0.5,0.00389,5.280,5.232,5.281,3.361,3176.0,
+lfm2-1.2b,fwd,2048,3,1,2047,btd,0,none,cute_ring,ok,0.5,0.00389,5.280,5.229,5.345,3.393,3176.0,
+lfm2-1.2b,fwd,2048,3,1,2047,btd,0,none,dao,ok,0.5,0.00389,6.816,6.800,6.817,5.024,2460.2,
+lfm2-1.2b,fwd,2048,3,1,2047,btd,0,none,fla_triton,ok,0.5,0.00389,6.432,6.400,6.448,4.672,2607.1,
+lfm2-1.2b,fwd,2048,3,1,2047,btd,0,none,cudnn,ok,0.5,0.00389,47.553,47.327,47.649,45.792,352.6,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,1,2047,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,1,2047,btd,0,none,cudnn_nwh,ok,0.5,0.00389,25.598,25.343,25.760,15.360,655.1,
+lfm2-1.2b,fwd,2048,3,1,2047,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+lfm2-1.2b,fwd,2048,3,1,2047,btd,0,none,torch_conv1d,ok,0.5,0.00389,59.909,59.888,60.097,58.459,279.9,
+lfm2-1.2b,fwd,2048,3,1,512,bdl,0,none,cute,ok,0.5,0.00389,2.752,2.720,2.768,1.536,1524.1,
+lfm2-1.2b,fwd,2048,3,1,512,bdl,0,none,cute_pad,ok,0.5,0.00389,2.656,2.624,2.657,1.537,1579.2,
+lfm2-1.2b,fwd,2048,3,1,512,bdl,0,none,cute_ring,ok,0.5,0.00389,2.752,2.736,2.816,1.536,1524.1,
+lfm2-1.2b,fwd,2048,3,1,512,bdl,0,none,dao,ok,0.5,0.00389,3.665,3.648,3.681,2.656,1144.6,
+lfm2-1.2b,fwd,2048,3,1,512,bdl,0,none,fla_triton,ok,0.5,0.00389,3.248,3.232,3.264,2.176,1291.3,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-1.2b,fwd,2048,3,1,512,bdl,0,none,cudnn,ok,0.5,0.00389,5.248,5.088,5.280,3.360,799.2,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,1,512,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,1,512,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-1.2b,fwd,2048,3,1,512,bdl,0,none,subq_ops,ok,0.5,0.00389,5.216,5.056,5.280,3.488,804.1,
+lfm2-1.2b,fwd,2048,3,1,512,bdl,0,none,torch_conv1d,ok,0.5,0.00389,11.776,11.744,11.808,11.201,356.2,
+lfm2-1.2b,fwd,2048,3,1,2048,bdl,0,none,cute,ok,0.5,0.00389,4.608,4.592,4.655,2.784,3640.9,
+lfm2-1.2b,fwd,2048,3,1,2048,bdl,0,none,cute_pad,ok,0.5,0.00389,4.800,4.784,4.897,2.784,3495.3,
+lfm2-1.2b,fwd,2048,3,1,2048,bdl,0,none,cute_ring,ok,0.5,0.00389,4.608,4.576,4.640,2.784,3640.9,
+lfm2-1.2b,fwd,2048,3,1,2048,bdl,0,none,dao,ok,0.5,0.00389,5.952,5.952,6.016,3.872,2818.8,
+lfm2-1.2b,fwd,2048,3,1,2048,bdl,0,none,fla_triton,ok,0.5,0.00389,6.449,6.433,6.465,4.671,2601.7,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-1.2b,fwd,2048,3,1,2048,bdl,0,none,cudnn,ok,0.5,0.00389,10.528,10.433,10.592,5.728,1593.6,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,1,2048,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,1,2048,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-1.2b,fwd,2048,3,1,2048,bdl,0,none,subq_ops,ok,0.5,0.00389,10.544,10.464,10.623,5.888,1591.2,
+lfm2-1.2b,fwd,2048,3,1,2048,bdl,0,none,torch_conv1d,ok,0.5,0.00389,40.768,40.736,40.803,39.302,411.5,
+lfm2-1.2b,fwd,2048,3,1,8192,bdl,0,none,cute,ok,0.5,0.00389,12.385,12.361,12.498,7.120,5418.6,
+lfm2-1.2b,fwd,2048,3,1,8192,bdl,0,none,cute_pad,ok,0.5,0.00389,12.291,12.286,12.353,7.072,5460.0,
+lfm2-1.2b,fwd,2048,3,1,8192,bdl,0,none,cute_ring,ok,0.5,0.00389,12.304,12.288,12.349,6.992,5454.0,
+lfm2-1.2b,fwd,2048,3,1,8192,bdl,0,none,dao,ok,0.5,0.00389,15.024,14.960,15.056,9.152,4466.8,
+lfm2-1.2b,fwd,2048,3,1,8192,bdl,0,none,fla_triton,ok,0.5,0.00389,18.465,18.401,18.482,14.016,3634.5,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-1.2b,fwd,2048,3,1,8192,bdl,0,none,cudnn,ok,0.5,0.00389,27.553,27.489,27.652,14.721,2435.7,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,1,8192,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,1,8192,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-1.2b,fwd,2048,3,1,8192,bdl,0,none,subq_ops,ok,0.5,0.00389,27.552,27.454,27.615,14.687,2435.7,
+lfm2-1.2b,fwd,2048,3,1,8192,bdl,0,none,torch_conv1d,ok,0.5,0.00389,153.914,153.842,153.987,149.635,436.0,
+lfm2-1.2b,fwd,2048,3,8,2048,bdl,0,none,cute,ok,0.5,0.00389,22.448,22.370,22.495,19.518,5979.1,
+lfm2-1.2b,fwd,2048,3,8,2048,bdl,0,none,cute_pad,ok,0.5,0.00389,22.672,22.574,23.296,19.340,5920.0,
+lfm2-1.2b,fwd,2048,3,8,2048,bdl,0,none,cute_ring,ok,0.5,0.00389,22.767,22.685,23.104,19.425,5895.1,
+lfm2-1.2b,fwd,2048,3,8,2048,bdl,0,none,dao,ok,0.5,0.00389,27.363,27.230,27.394,25.252,4905.2,
+lfm2-1.2b,fwd,2048,3,8,2048,bdl,0,none,fla_triton,ok,0.5,0.00389,35.441,35.399,35.486,33.241,3787.0,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-1.2b,fwd,2048,3,8,2048,bdl,0,none,cudnn,ok,0.5,0.00389,28.512,28.387,28.697,26.208,4707.3,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,8,2048,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,8,2048,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-1.2b,fwd,2048,3,8,2048,bdl,0,none,subq_ops,ok,0.5,0.00389,28.515,28.254,28.641,26.095,4706.9,
+lfm2-1.2b,fwd,2048,3,8,2048,bdl,0,none,torch_conv1d,ok,0.5,0.00389,306.176,306.110,306.211,305.918,438.4,
+lfm2-1.2b,fwd,2048,3,32,512,bdl,0,none,cute,ok,0.5,0.00389,22.512,22.464,22.592,18.736,5962.1,
+lfm2-1.2b,fwd,2048,3,32,512,bdl,0,none,cute_pad,ok,0.5,0.00389,22.431,22.405,22.511,18.781,5983.6,
+lfm2-1.2b,fwd,2048,3,32,512,bdl,0,none,cute_ring,ok,0.5,0.00389,22.528,22.416,22.725,18.690,5957.8,
+lfm2-1.2b,fwd,2048,3,32,512,bdl,0,none,dao,ok,0.5,0.00389,47.892,47.842,47.968,47.425,2802.5,
+lfm2-1.2b,fwd,2048,3,32,512,bdl,0,none,fla_triton,ok,0.5,0.00389,35.617,35.598,35.714,33.099,3768.4,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-1.2b,fwd,2048,3,32,512,bdl,0,none,cudnn,ok,0.5,0.00389,30.288,30.194,30.386,28.351,4431.5,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,32,512,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,32,512,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-1.2b,fwd,2048,3,32,512,bdl,0,none,subq_ops,ok,0.5,0.00389,30.157,29.980,30.290,28.386,4450.6,
+lfm2-1.2b,fwd,2048,3,32,512,bdl,0,none,torch_conv1d,ok,0.5,0.00389,309.490,309.482,309.523,309.367,433.7,
+lfm2-1.2b,fwd,2048,3,1,2047,bdl,0,none,cute,ok,0.5,0.00389,5.984,5.952,5.985,4.512,2802.3,
+lfm2-1.2b,fwd,2048,3,1,2047,bdl,0,none,cute_pad,ok,0.5,0.00389,6.016,5.985,6.048,4.512,2787.4,
+lfm2-1.2b,fwd,2048,3,1,2047,bdl,0,none,cute_ring,ok,0.5,0.00389,5.983,5.952,5.984,4.511,2802.8,
+lfm2-1.2b,fwd,2048,3,1,2047,bdl,0,none,dao,ok,0.5,0.00389,9.056,8.991,9.119,7.038,1851.7,
+lfm2-1.2b,fwd,2048,3,1,2047,bdl,0,none,fla_triton,ok,0.5,0.00389,6.336,6.320,6.369,4.670,2646.6,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-1.2b,fwd,2048,3,1,2047,bdl,0,none,cudnn,ok,0.5,0.00389,11.870,11.759,11.937,8.097,1412.7,route=generic-cudnn
+lfm2-1.2b,fwd,2048,3,1,2047,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-1.2b,fwd,2048,3,1,2047,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-1.2b,fwd,2048,3,1,2047,bdl,0,none,subq_ops,ok,0.5,0.00389,11.777,11.697,11.905,7.936,1423.8,
+lfm2-1.2b,fwd,2048,3,1,2047,bdl,0,none,torch_conv1d,ok,0.5,0.00389,40.897,40.881,40.931,39.458,410.0,
+lfm2-1.2b,update,2048,3,1,1,bdl,0,none,cute,ok,0.5,0.00353,1.760,1.744,1.856,1.056,14.0,
+lfm2-1.2b,update,2048,3,1,1,bdl,0,none,cute_pad,ok,0.5,0.00353,1.696,1.632,1.712,0.992,14.5,
+lfm2-1.2b,update,2048,3,1,1,bdl,0,none,cute_ring,ok,0.5,0.00353,1.792,1.760,1.856,1.056,13.7,
+lfm2-1.2b,update,2048,3,1,1,bdl,0,none,dao,ok,0.5,0.00353,2.848,2.720,2.928,1.664,8.6,
+lfm2-1.2b,update,2048,3,1,1,bdl,0,none,fla_triton,ok,0.5,0.00353,2.016,1.984,2.048,1.376,12.2,
+lfm2-1.2b,update,2048,3,1,1,bdl,0,none,cudnn,skip,,,,,,,,"NotImplementedError: the current native causal_conv1d_update kernel supports only one-token x[N, D], weight[D, 4], conv_state[S, D, L] with L"
+lfm2-1.2b,update,2048,3,1,1,bdl,0,none,cudnn_st4,skip,,,,,,,,native update is width 4 only
+lfm2-1.2b,update,2048,3,1,1,bdl,0,none,cudnn_nwh,skip,,,,,,,,no update
+lfm2-1.2b,update,2048,3,1,1,bdl,0,none,subq_ops,skip,,,,,,,,no update
+lfm2-1.2b,update,2048,3,1,1,bdl,0,none,torch_conv1d,ok,0.5,0.00353,13.232,13.136,14.096,12.064,1.9,
+lfm2-1.2b,update,2048,3,8,1,bdl,0,none,cute,ok,0.5,0.00379,1.920,1.920,1.936,1.120,102.4,
+lfm2-1.2b,update,2048,3,8,1,bdl,0,none,cute_pad,ok,0.5,0.00379,1.920,1.920,1.920,1.088,102.4,
+lfm2-1.2b,update,2048,3,8,1,bdl,0,none,cute_ring,ok,0.5,0.00379,1.984,1.952,2.016,1.152,99.1,
+lfm2-1.2b,update,2048,3,8,1,bdl,0,none,dao,ok,0.5,0.00379,3.104,3.072,3.104,1.888,63.3,
+lfm2-1.2b,update,2048,3,8,1,bdl,0,none,fla_triton,ok,0.5,0.00379,2.176,2.144,2.176,1.504,90.4,
+lfm2-1.2b,update,2048,3,8,1,bdl,0,none,cudnn,skip,,,,,,,,"NotImplementedError: the current native causal_conv1d_update kernel supports only one-token x[N, D], weight[D, 4], conv_state[S, D, L] with L"
+lfm2-1.2b,update,2048,3,8,1,bdl,0,none,cudnn_st4,skip,,,,,,,,native update is width 4 only
+lfm2-1.2b,update,2048,3,8,1,bdl,0,none,cudnn_nwh,skip,,,,,,,,no update
+lfm2-1.2b,update,2048,3,8,1,bdl,0,none,subq_ops,skip,,,,,,,,no update
+lfm2-1.2b,update,2048,3,8,1,bdl,0,none,torch_conv1d,ok,0.5,0.00379,15.168,14.897,15.841,13.568,13.0,
+lfm2-1.2b,update,2048,3,64,1,bdl,0,none,cute,ok,0.5,0.00389,2.240,2.208,2.240,1.280,702.2,
+lfm2-1.2b,update,2048,3,64,1,bdl,0,none,cute_pad,ok,0.5,0.00389,2.304,2.296,2.353,1.376,682.5,
+lfm2-1.2b,update,2048,3,64,1,bdl,0,none,cute_ring,ok,0.5,0.00389,2.272,2.272,2.304,1.344,692.3,
+lfm2-1.2b,update,2048,3,64,1,bdl,0,none,dao,ok,0.5,0.00389,3.520,3.520,3.584,2.656,446.8,
+lfm2-1.2b,update,2048,3,64,1,bdl,0,none,fla_triton,ok,0.5,0.00389,2.848,2.816,2.880,2.432,552.3,
+lfm2-1.2b,update,2048,3,64,1,bdl,0,none,cudnn,skip,,,,,,,,"NotImplementedError: the current native causal_conv1d_update kernel supports only one-token x[N, D], weight[D, 4], conv_state[S, D, L] with L"
+lfm2-1.2b,update,2048,3,64,1,bdl,0,none,cudnn_st4,skip,,,,,,,,native update is width 4 only
+lfm2-1.2b,update,2048,3,64,1,bdl,0,none,cudnn_nwh,skip,,,,,,,,no update
+lfm2-1.2b,update,2048,3,64,1,bdl,0,none,subq_ops,skip,,,,,,,,no update
+lfm2-1.2b,update,2048,3,64,1,bdl,0,none,torch_conv1d,ok,0.5,0.00389,16.351,16.321,16.481,15.876,96.2,
+lfm2-1.2b,update,2048,3,256,1,bdl,0,none,cute,ok,0.5,0.00389,2.945,2.912,2.976,1.760,2136.3,
+lfm2-1.2b,update,2048,3,256,1,bdl,0,none,cute_pad,ok,0.5,0.00389,3.648,3.616,3.680,2.016,1724.6,
+lfm2-1.2b,update,2048,3,256,1,bdl,0,none,cute_ring,ok,0.5,0.00389,3.392,3.360,3.425,1.824,1854.8,
+lfm2-1.2b,update,2048,3,256,1,bdl,0,none,dao,ok,0.5,0.00389,6.800,6.752,6.801,5.952,925.2,
+lfm2-1.2b,update,2048,3,256,1,bdl,0,none,fla_triton,ok,0.5,0.00389,6.880,6.848,6.880,5.568,914.5,
+lfm2-1.2b,update,2048,3,256,1,bdl,0,none,cudnn,skip,,,,,,,,"NotImplementedError: the current native causal_conv1d_update kernel supports only one-token x[N, D], weight[D, 4], conv_state[S, D, L] with L"
+lfm2-1.2b,update,2048,3,256,1,bdl,0,none,cudnn_st4,skip,,,,,,,,native update is width 4 only
+lfm2-1.2b,update,2048,3,256,1,bdl,0,none,cudnn_nwh,skip,,,,,,,,no update
+lfm2-1.2b,update,2048,3,256,1,bdl,0,none,subq_ops,skip,,,,,,,,no update
+lfm2-1.2b,update,2048,3,256,1,bdl,0,none,torch_conv1d,ok,0.5,0.00389,28.766,28.639,28.928,28.145,218.7,
+lfm2-350m,fwd,1024,3,1,512,btd,0,none,cute,ok,0.5,0.00388,2.432,2.400,2.480,1.728,862.3,
+lfm2-350m,fwd,1024,3,1,512,btd,0,none,cute_pad,ok,0.5,0.00388,2.528,2.496,2.592,1.728,829.6,
+lfm2-350m,fwd,1024,3,1,512,btd,0,none,cute_ring,ok,0.5,0.00388,2.464,2.432,2.496,1.728,851.1,
+lfm2-350m,fwd,1024,3,1,512,btd,0,none,dao,ok,0.5,0.00388,3.264,3.232,3.296,2.336,642.5,
+lfm2-350m,fwd,1024,3,1,512,btd,0,none,fla_triton,ok,0.5,0.00388,3.008,3.008,3.008,1.856,697.2,
+lfm2-350m,fwd,1024,3,1,512,btd,0,none,cudnn,ok,0.5,0.00388,13.792,13.312,13.888,11.904,152.1,route=generic-cudnn
+lfm2-350m,fwd,1024,3,1,512,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,1,512,btd,0,none,cudnn_nwh,ok,0.5,0.00388,8.608,8.576,8.848,6.143,243.6,
+lfm2-350m,fwd,1024,3,1,512,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1024, we don't support this kernel size!
+"
+lfm2-350m,fwd,1024,3,1,512,btd,0,none,torch_conv1d,ok,0.5,0.00388,12.640,12.544,12.992,11.055,165.9,
+lfm2-350m,fwd,1024,3,1,2048,btd,0,none,cute,ok,0.5,0.00389,3.616,3.584,3.633,2.592,2319.5,
+lfm2-350m,fwd,1024,3,1,2048,btd,0,none,cute_pad,ok,0.5,0.00389,3.616,3.616,3.648,2.592,2319.5,
+lfm2-350m,fwd,1024,3,1,2048,btd,0,none,cute_ring,ok,0.5,0.00389,3.616,3.616,3.648,2.592,2319.9,
+lfm2-350m,fwd,1024,3,1,2048,btd,0,none,dao,ok,0.5,0.00389,4.880,4.864,4.897,3.584,1719.0,
+lfm2-350m,fwd,1024,3,1,2048,btd,0,none,fla_triton,ok,0.5,0.00389,4.480,4.480,4.481,3.232,1872.5,
+lfm2-350m,fwd,1024,3,1,2048,btd,0,none,cudnn,ok,0.5,0.00389,28.481,28.323,28.542,27.869,294.5,route=generic-cudnn
+lfm2-350m,fwd,1024,3,1,2048,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,1,2048,btd,0,none,cudnn_nwh,ok,0.5,0.00389,23.715,23.582,23.791,14.691,353.7,
+lfm2-350m,fwd,1024,3,1,2048,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1024, we don't support this kernel size!
+"
+lfm2-350m,fwd,1024,3,1,2048,btd,0,none,torch_conv1d,ok,0.5,0.00389,32.099,32.065,32.319,31.648,261.3,
+lfm2-350m,fwd,1024,3,1,8192,btd,0,none,cute,ok,0.5,0.00389,7.408,7.360,7.441,4.705,4529.5,
+lfm2-350m,fwd,1024,3,1,8192,btd,0,none,cute_pad,ok,0.5,0.00389,7.375,7.360,7.392,4.703,4550.1,
+lfm2-350m,fwd,1024,3,1,8192,btd,0,none,cute_ring,ok,0.5,0.00389,7.360,7.328,7.456,4.705,4559.0,
+lfm2-350m,fwd,1024,3,1,8192,btd,0,none,dao,ok,0.5,0.00389,10.816,10.768,10.879,8.384,3102.2,
+lfm2-350m,fwd,1024,3,1,8192,btd,0,none,fla_triton,ok,0.5,0.00389,10.017,10.016,10.048,8.511,3349.9,
+lfm2-350m,fwd,1024,3,1,8192,btd,0,none,cudnn,ok,0.5,0.00389,84.734,84.621,84.814,83.521,396.0,route=generic-cudnn
+lfm2-350m,fwd,1024,3,1,8192,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,1,8192,btd,0,none,cudnn_nwh,ok,0.5,0.00389,81.285,81.157,81.451,49.983,412.8,
+lfm2-350m,fwd,1024,3,1,8192,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1024, we don't support this kernel size!
+"
+lfm2-350m,fwd,1024,3,1,8192,btd,0,none,torch_conv1d,ok,0.5,0.00389,111.275,111.251,111.547,110.145,301.5,
+lfm2-350m,fwd,1024,3,8,2048,btd,0,none,cute,ok,0.5,0.00389,12.832,12.773,12.832,7.874,5229.8,
+lfm2-350m,fwd,1024,3,8,2048,btd,0,none,cute_pad,ok,0.5,0.00389,12.786,12.704,12.800,7.824,5248.6,
+lfm2-350m,fwd,1024,3,8,2048,btd,0,none,cute_ring,ok,0.5,0.00389,12.800,12.784,12.800,7.808,5242.9,
+lfm2-350m,fwd,1024,3,8,2048,btd,0,none,dao,ok,0.5,0.00389,18.496,18.368,18.606,15.204,3628.2,
+lfm2-350m,fwd,1024,3,8,2048,btd,0,none,fla_triton,ok,0.5,0.00389,17.248,17.216,17.312,15.076,3890.8,
+lfm2-350m,fwd,1024,3,8,2048,btd,0,none,cudnn,ok,0.5,0.00389,146.673,146.526,146.757,146.184,457.5,route=generic-cudnn
+lfm2-350m,fwd,1024,3,8,2048,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,8,2048,btd,0,none,cudnn_nwh,ok,0.5,0.00389,31.267,31.041,31.344,24.688,2146.4,
+lfm2-350m,fwd,1024,3,8,2048,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1024, we don't support this kernel size!
+"
+lfm2-350m,fwd,1024,3,8,2048,btd,0,none,torch_conv1d,ok,0.5,0.00389,219.391,219.332,219.519,218.718,305.9,
+lfm2-350m,fwd,1024,3,32,512,btd,0,none,cute,ok,0.5,0.00389,12.482,12.480,12.544,7.903,5376.5,
+lfm2-350m,fwd,1024,3,32,512,btd,0,none,cute_pad,ok,0.5,0.00389,12.416,12.385,12.480,7.890,5405.0,
+lfm2-350m,fwd,1024,3,32,512,btd,0,none,cute_ring,ok,0.5,0.00389,12.528,12.496,12.575,7.872,5356.7,
+lfm2-350m,fwd,1024,3,32,512,btd,0,none,dao,ok,0.5,0.00389,18.559,18.527,18.671,15.200,3616.0,
+lfm2-350m,fwd,1024,3,32,512,btd,0,none,fla_triton,ok,0.5,0.00389,17.007,16.944,17.153,15.072,3946.0,
+lfm2-350m,fwd,1024,3,32,512,btd,0,none,cudnn,ok,0.5,0.00389,148.898,148.832,149.182,148.591,450.7,route=generic-cudnn
+lfm2-350m,fwd,1024,3,32,512,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,32,512,btd,0,none,cudnn_nwh,ok,0.5,0.00389,32.385,32.367,32.464,25.183,2072.2,
+lfm2-350m,fwd,1024,3,32,512,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1024, we don't support this kernel size!
+"
+lfm2-350m,fwd,1024,3,32,512,btd,0,none,torch_conv1d,ok,0.5,0.00389,223.057,222.978,223.311,222.310,300.9,
+lfm2-350m,fwd,1024,3,1,2047,btd,0,none,cute,ok,0.5,0.00389,3.633,3.600,3.712,2.624,2308.2,
+lfm2-350m,fwd,1024,3,1,2047,btd,0,none,cute_pad,ok,0.5,0.00389,3.680,3.616,3.728,2.624,2278.4,
+lfm2-350m,fwd,1024,3,1,2047,btd,0,none,cute_ring,ok,0.5,0.00389,3.648,3.600,3.760,2.593,2298.1,
+lfm2-350m,fwd,1024,3,1,2047,btd,0,none,dao,ok,0.5,0.00389,4.960,4.960,5.040,3.616,1690.4,
+lfm2-350m,fwd,1024,3,1,2047,btd,0,none,fla_triton,ok,0.5,0.00389,4.512,4.460,4.576,3.232,1858.3,
+lfm2-350m,fwd,1024,3,1,2047,btd,0,none,cudnn,ok,0.5,0.00389,29.391,29.312,29.427,28.594,285.3,route=generic-cudnn
+lfm2-350m,fwd,1024,3,1,2047,btd,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,1,2047,btd,0,none,cudnn_nwh,ok,0.5,0.00389,24.383,24.352,24.659,15.136,343.9,
+lfm2-350m,fwd,1024,3,1,2047,btd,0,none,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1024, we don't support this kernel size!
+"
+lfm2-350m,fwd,1024,3,1,2047,btd,0,none,torch_conv1d,ok,0.5,0.00389,32.282,32.193,32.369,31.651,259.7,
+lfm2-350m,fwd,1024,3,1,512,bdl,0,none,cute,ok,0.5,0.00389,2.304,2.272,2.304,1.344,910.2,
+lfm2-350m,fwd,1024,3,1,512,bdl,0,none,cute_pad,ok,0.5,0.00389,2.272,2.272,2.304,1.344,923.0,
+lfm2-350m,fwd,1024,3,1,512,bdl,0,none,cute_ring,ok,0.5,0.00389,2.304,2.272,2.304,1.344,910.2,
+lfm2-350m,fwd,1024,3,1,512,bdl,0,none,dao,ok,0.5,0.00389,2.960,2.944,3.008,1.952,708.5,
+lfm2-350m,fwd,1024,3,1,512,bdl,0,none,fla_triton,ok,0.5,0.00389,2.880,2.848,2.912,1.856,728.2,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-350m,fwd,1024,3,1,512,bdl,0,none,cudnn,ok,0.5,0.00389,4.832,4.720,4.881,3.072,434.0,route=generic-cudnn
+lfm2-350m,fwd,1024,3,1,512,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,1,512,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-350m,fwd,1024,3,1,512,bdl,0,none,subq_ops,ok,0.5,0.00389,4.832,4.671,4.928,3.232,434.0,
+lfm2-350m,fwd,1024,3,1,512,bdl,0,none,torch_conv1d,ok,0.5,0.00389,7.457,7.423,7.536,6.911,281.2,
+lfm2-350m,fwd,1024,3,1,2048,bdl,0,none,cute,ok,0.5,0.00389,3.488,3.471,3.521,1.920,2405.0,
+lfm2-350m,fwd,1024,3,1,2048,bdl,0,none,cute_pad,ok,0.5,0.00389,3.647,3.552,3.664,1.952,2299.8,
+lfm2-350m,fwd,1024,3,1,2048,bdl,0,none,cute_ring,ok,0.5,0.00389,3.504,3.488,3.536,1.920,2394.0,
+lfm2-350m,fwd,1024,3,1,2048,bdl,0,none,dao,ok,0.5,0.00389,4.512,4.480,4.544,2.640,1859.2,
+lfm2-350m,fwd,1024,3,1,2048,bdl,0,none,fla_triton,ok,0.5,0.00389,4.353,4.352,4.409,3.232,1927.1,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-350m,fwd,1024,3,1,2048,bdl,0,none,cudnn,ok,0.5,0.00389,9.584,9.552,9.696,5.120,875.2,route=generic-cudnn
+lfm2-350m,fwd,1024,3,1,2048,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,1,2048,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-350m,fwd,1024,3,1,2048,bdl,0,none,subq_ops,ok,0.5,0.00389,9.568,9.536,9.680,5.248,876.7,
+lfm2-350m,fwd,1024,3,1,2048,bdl,0,none,torch_conv1d,ok,0.5,0.00389,21.473,21.472,21.519,20.544,390.6,
+lfm2-350m,fwd,1024,3,1,8192,bdl,0,none,cute,ok,0.5,0.00389,7.424,7.392,7.439,4.256,4519.7,
+lfm2-350m,fwd,1024,3,1,8192,bdl,0,none,cute_pad,ok,0.5,0.00389,7.583,7.536,7.600,4.255,4425.0,
+lfm2-350m,fwd,1024,3,1,8192,bdl,0,none,cute_ring,ok,0.5,0.00389,7.312,7.296,7.360,4.256,4589.3,
+lfm2-350m,fwd,1024,3,1,8192,bdl,0,none,dao,ok,0.5,0.00389,10.527,10.495,10.544,5.951,3187.5,
+lfm2-350m,fwd,1024,3,1,8192,bdl,0,none,fla_triton,ok,0.5,0.00389,10.048,9.983,10.112,8.512,3339.4,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-350m,fwd,1024,3,1,8192,bdl,0,none,cudnn,ok,0.5,0.00389,24.323,24.221,24.398,13.119,1379.5,route=generic-cudnn
+lfm2-350m,fwd,1024,3,1,8192,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,1,8192,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-350m,fwd,1024,3,1,8192,bdl,0,none,subq_ops,ok,0.5,0.00389,24.322,24.226,24.355,13.135,1379.6,
+lfm2-350m,fwd,1024,3,1,8192,bdl,0,none,torch_conv1d,ok,0.5,0.00389,78.332,78.304,78.401,75.930,428.4,
+lfm2-350m,fwd,1024,3,8,2048,bdl,0,none,cute,ok,0.5,0.00389,12.608,12.591,12.673,6.878,5322.7,
+lfm2-350m,fwd,1024,3,8,2048,bdl,0,none,cute_pad,ok,0.5,0.00389,12.737,12.720,12.768,6.928,5268.8,
+lfm2-350m,fwd,1024,3,8,2048,bdl,0,none,cute_ring,ok,0.5,0.00389,12.352,12.273,12.393,6.912,5433.0,
+lfm2-350m,fwd,1024,3,8,2048,bdl,0,none,dao,ok,0.5,0.00389,14.976,14.943,15.120,10.400,4480.9,
+lfm2-350m,fwd,1024,3,8,2048,bdl,0,none,fla_triton,ok,0.5,0.00389,16.960,16.930,16.993,14.881,3956.9,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-350m,fwd,1024,3,8,2048,bdl,0,none,cudnn,ok,0.5,0.00389,16.448,16.432,16.640,10.400,4080.1,route=generic-cudnn
+lfm2-350m,fwd,1024,3,8,2048,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,8,2048,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-350m,fwd,1024,3,8,2048,bdl,0,none,subq_ops,ok,0.5,0.00389,16.432,16.353,16.641,10.368,4084.2,
+lfm2-350m,fwd,1024,3,8,2048,bdl,0,none,torch_conv1d,ok,0.5,0.00389,154.544,154.278,154.657,150.948,434.2,
+lfm2-350m,fwd,1024,3,32,512,bdl,0,none,cute,ok,0.5,0.00389,12.608,12.544,12.671,6.910,5322.7,
+lfm2-350m,fwd,1024,3,32,512,bdl,0,none,cute_pad,ok,0.5,0.00389,12.577,12.510,12.671,6.913,5336.1,
+lfm2-350m,fwd,1024,3,32,512,bdl,0,none,cute_ring,ok,0.5,0.00389,12.609,12.546,12.656,6.911,5322.3,
+lfm2-350m,fwd,1024,3,32,512,bdl,0,none,dao,ok,0.5,0.00389,25.298,25.216,25.378,23.035,2652.7,
+lfm2-350m,fwd,1024,3,32,512,bdl,0,none,fla_triton,ok,0.5,0.00389,16.958,16.928,17.008,14.879,3957.4,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-350m,fwd,1024,3,32,512,bdl,0,none,cudnn,ok,0.5,0.00389,16.897,16.768,16.990,12.287,3971.8,route=generic-cudnn
+lfm2-350m,fwd,1024,3,32,512,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,32,512,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-350m,fwd,1024,3,32,512,bdl,0,none,subq_ops,ok,0.5,0.00389,16.929,16.832,17.040,12.303,3964.1,
+lfm2-350m,fwd,1024,3,32,512,bdl,0,none,torch_conv1d,ok,0.5,0.00389,156.241,156.206,156.305,153.260,429.5,
+lfm2-350m,fwd,1024,3,1,2047,bdl,0,none,cute,ok,0.5,0.00389,3.968,3.936,4.000,3.200,2113.0,
+lfm2-350m,fwd,1024,3,1,2047,bdl,0,none,cute_pad,ok,0.5,0.00389,3.952,3.936,3.984,3.200,2121.6,
+lfm2-350m,fwd,1024,3,1,2047,bdl,0,none,cute_ring,ok,0.5,0.00389,3.936,3.904,3.937,3.200,2130.2,
+lfm2-350m,fwd,1024,3,1,2047,bdl,0,none,dao,ok,0.5,0.00389,5.504,5.504,5.504,4.352,1523.3,
+lfm2-350m,fwd,1024,3,1,2047,bdl,0,none,fla_triton,ok,0.5,0.00389,4.321,4.320,4.379,3.232,1940.6,"input pre-copied to [B,T,D] outside the timed region"
+lfm2-350m,fwd,1024,3,1,2047,bdl,0,none,cudnn,ok,0.5,0.00389,10.576,10.432,10.624,6.671,792.8,route=generic-cudnn
+lfm2-350m,fwd,1024,3,1,2047,bdl,0,none,cudnn_st4,skip,,,,,,,,decode-only variant
+lfm2-350m,fwd,1024,3,1,2047,bdl,0,none,cudnn_nwh,skip,,,,,,,,NWH storage only
+lfm2-350m,fwd,1024,3,1,2047,bdl,0,none,subq_ops,ok,0.5,0.00389,10.529,10.464,10.751,6.561,796.3,
+lfm2-350m,fwd,1024,3,1,2047,bdl,0,none,torch_conv1d,ok,0.5,0.00389,21.456,21.407,21.503,20.543,390.8,
+lfm2-350m,update,1024,3,1,1,bdl,0,none,cute,ok,0.5,0.00335,1.696,1.664,1.696,0.992,7.2,
+lfm2-350m,update,1024,3,1,1,bdl,0,none,cute_pad,ok,0.5,0.00335,1.632,1.632,1.664,0.960,7.5,
+lfm2-350m,update,1024,3,1,1,bdl,0,none,cute_ring,ok,0.5,0.00335,1.728,1.696,1.840,0.992,7.1,
+lfm2-350m,update,1024,3,1,1,bdl,0,none,dao,ok,0.5,0.00335,2.944,2.912,3.008,1.697,4.2,
+lfm2-350m,update,1024,3,1,1,bdl,0,none,fla_triton,ok,0.5,0.00335,1.856,1.824,1.920,1.344,6.6,
+lfm2-350m,update,1024,3,1,1,bdl,0,none,cudnn,skip,,,,,,,,"NotImplementedError: the current native causal_conv1d_update kernel supports only one-token x[N, D], weight[D, 4], conv_state[S, D, L] with L"
+lfm2-350m,update,1024,3,1,1,bdl,0,none,cudnn_st4,skip,,,,,,,,native update is width 4 only
+lfm2-350m,update,1024,3,1,1,bdl,0,none,cudnn_nwh,skip,,,,,,,,no update
+lfm2-350m,update,1024,3,1,1,bdl,0,none,subq_ops,skip,,,,,,,,no update
+lfm2-350m,update,1024,3,1,1,bdl,0,none,torch_conv1d,ok,0.5,0.00335,12.478,12.337,13.408,11.392,1.0,
+lfm2-350m,update,1024,3,8,1,bdl,0,none,cute,ok,0.5,0.00377,1.760,1.728,1.792,1.024,55.9,
+lfm2-350m,update,1024,3,8,1,bdl,0,none,cute_pad,ok,0.5,0.00377,1.920,1.872,1.952,1.120,51.2,
+lfm2-350m,update,1024,3,8,1,bdl,0,none,cute_ring,ok,0.5,0.00377,1.856,1.856,1.952,1.120,53.0,
+lfm2-350m,update,1024,3,8,1,bdl,0,none,dao,ok,0.5,0.00377,3.040,3.008,3.072,1.888,32.3,
+lfm2-350m,update,1024,3,8,1,bdl,0,none,fla_triton,ok,0.5,0.00377,2.240,2.240,2.272,1.664,43.9,
+lfm2-350m,update,1024,3,8,1,bdl,0,none,cudnn,skip,,,,,,,,"NotImplementedError: the current native causal_conv1d_update kernel supports only one-token x[N, D], weight[D, 4], conv_state[S, D, L] with L"
+lfm2-350m,update,1024,3,8,1,bdl,0,none,cudnn_st4,skip,,,,,,,,native update is width 4 only
+lfm2-350m,update,1024,3,8,1,bdl,0,none,cudnn_nwh,skip,,,,,,,,no update
+lfm2-350m,update,1024,3,8,1,bdl,0,none,subq_ops,skip,,,,,,,,no update
+lfm2-350m,update,1024,3,8,1,bdl,0,none,torch_conv1d,ok,0.5,0.00377,15.201,14.848,15.714,13.525,6.5,
+lfm2-350m,update,1024,3,64,1,bdl,0,none,cute,ok,0.5,0.00388,2.080,2.048,2.097,1.184,378.1,
+lfm2-350m,update,1024,3,64,1,bdl,0,none,cute_pad,ok,0.5,0.00388,2.144,2.080,2.176,1.216,366.8,
+lfm2-350m,update,1024,3,64,1,bdl,0,none,cute_ring,ok,0.5,0.00388,2.176,2.175,2.240,1.248,361.4,
+lfm2-350m,update,1024,3,64,1,bdl,0,none,dao,ok,0.5,0.00388,3.296,3.232,3.296,2.080,238.6,
+lfm2-350m,update,1024,3,64,1,bdl,0,none,fla_triton,ok,0.5,0.00388,6.080,6.064,6.143,5.535,129.3,
+lfm2-350m,update,1024,3,64,1,bdl,0,none,cudnn,skip,,,,,,,,"NotImplementedError: the current native causal_conv1d_update kernel supports only one-token x[N, D], weight[D, 4], conv_state[S, D, L] with L"
+lfm2-350m,update,1024,3,64,1,bdl,0,none,cudnn_st4,skip,,,,,,,,native update is width 4 only
+lfm2-350m,update,1024,3,64,1,bdl,0,none,cudnn_nwh,skip,,,,,,,,no update
+lfm2-350m,update,1024,3,64,1,bdl,0,none,subq_ops,skip,,,,,,,,no update
+lfm2-350m,update,1024,3,64,1,bdl,0,none,torch_conv1d,ok,0.5,0.00388,14.594,14.560,14.832,14.142,53.9,
+lfm2-350m,update,1024,3,256,1,bdl,0,none,cute,ok,0.5,0.00389,2.416,2.400,2.464,1.440,1302.0,
+lfm2-350m,update,1024,3,256,1,bdl,0,none,cute_pad,ok,0.5,0.00389,2.720,2.720,2.752,1.601,1156.3,
+lfm2-350m,update,1024,3,256,1,bdl,0,none,cute_ring,ok,0.5,0.00389,2.528,2.528,2.528,1.632,1244.4,
+lfm2-350m,update,1024,3,256,1,bdl,0,none,dao,ok,0.5,0.00389,4.609,4.608,4.641,3.808,682.5,
+lfm2-350m,update,1024,3,256,1,bdl,0,none,fla_triton,ok,0.5,0.00389,18.784,18.784,18.817,18.240,167.5,
+lfm2-350m,update,1024,3,256,1,bdl,0,none,cudnn,skip,,,,,,,,"NotImplementedError: the current native causal_conv1d_update kernel supports only one-token x[N, D], weight[D, 4], conv_state[S, D, L] with L"
+lfm2-350m,update,1024,3,256,1,bdl,0,none,cudnn_st4,skip,,,,,,,,native update is width 4 only
+lfm2-350m,update,1024,3,256,1,bdl,0,none,cudnn_nwh,skip,,,,,,,,no update
+lfm2-350m,update,1024,3,256,1,bdl,0,none,subq_ops,skip,,,,,,,,no update
+lfm2-350m,update,1024,3,256,1,bdl,0,none,torch_conv1d,ok,0.5,0.00389,19.425,19.392,19.600,19.202,161.9,
+nemotron3-nano-30b,fwd,6144,4,1,512,btd,1,silu,cute,ok,0.502,0.00387,5.248,5.217,5.248,3.585,2397.7,
+nemotron3-nano-30b,fwd,6144,4,1,512,btd,1,silu,cute_pad,ok,0.502,0.00387,5.152,5.136,5.200,3.584,2442.1,
+nemotron3-nano-30b,fwd,6144,4,1,512,btd,1,silu,cute_ring,ok,0.502,0.00387,5.248,5.248,5.279,3.584,2397.7,
+nemotron3-nano-30b,fwd,6144,4,1,512,btd,1,silu,dao,ok,0.5,0.00387,6.480,6.433,6.496,4.784,1941.8,
+nemotron3-nano-30b,fwd,6144,4,1,512,btd,1,silu,fla_triton,ok,0.5,0.00387,8.096,8.064,8.144,5.888,1554.2,
+nemotron3-nano-30b,fwd,6144,4,1,512,btd,1,silu,cudnn,ok,0.502,0.00387,9.024,8.976,9.056,5.056,1394.4,route=native-inference
+nemotron3-nano-30b,fwd,6144,4,1,512,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,1,512,btd,1,silu,cudnn_nwh,ok,0.5,0.00387,10.272,10.240,10.320,8.064,1225.0,
+nemotron3-nano-30b,fwd,6144,4,1,512,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 6144, we don't support this kernel size!
+"
+nemotron3-nano-30b,fwd,6144,4,1,512,btd,1,silu,torch_conv1d,lowprec,1.58,0.00693,56.512,56.064,56.593,54.497,222.7,
+nemotron3-nano-30b,fwd,6144,4,1,2048,btd,1,silu,cute,ok,0.503,0.00389,12.097,12.033,12.127,8.257,4160.7,
+nemotron3-nano-30b,fwd,6144,4,1,2048,btd,1,silu,cute_pad,ok,0.503,0.00389,12.128,11.980,12.164,8.274,4150.0,
+nemotron3-nano-30b,fwd,6144,4,1,2048,btd,1,silu,cute_ring,ok,0.503,0.00389,12.096,12.065,12.127,8.258,4161.0,
+nemotron3-nano-30b,fwd,6144,4,1,2048,btd,1,silu,dao,ok,0.5,0.00389,16.848,16.802,16.898,13.057,2987.4,
+nemotron3-nano-30b,fwd,6144,4,1,2048,btd,1,silu,fla_triton,ok,0.5,0.00389,20.561,20.446,20.640,17.345,2448.0,
+nemotron3-nano-30b,fwd,6144,4,1,2048,btd,1,silu,cudnn,ok,0.503,0.00389,20.943,20.912,21.072,12.769,2403.3,route=native-inference
+nemotron3-nano-30b,fwd,6144,4,1,2048,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,1,2048,btd,1,silu,cudnn_nwh,ok,0.5,0.00389,31.966,31.744,32.017,26.308,1574.5,
+nemotron3-nano-30b,fwd,6144,4,1,2048,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 6144, we don't support this kernel size!
+"
+nemotron3-nano-30b,fwd,6144,4,1,2048,btd,1,silu,torch_conv1d,lowprec,1.58,0.00694,192.346,192.082,192.415,191.207,261.7,
+nemotron3-nano-30b,fwd,6144,4,1,8192,btd,1,silu,cute,ok,0.503,0.00389,35.556,35.536,35.620,34.483,5662.2,
+nemotron3-nano-30b,fwd,6144,4,1,8192,btd,1,silu,cute_pad,ok,0.503,0.00389,35.489,35.426,35.616,34.527,5673.0,
+nemotron3-nano-30b,fwd,6144,4,1,8192,btd,1,silu,cute_ring,ok,0.503,0.00389,35.584,35.551,35.712,34.469,5657.8,
+nemotron3-nano-30b,fwd,6144,4,1,8192,btd,1,silu,dao,ok,0.5,0.00389,53.408,53.285,53.525,51.984,3769.6,
+nemotron3-nano-30b,fwd,6144,4,1,8192,btd,1,silu,fla_triton,ok,0.5,0.00389,69.087,69.059,69.142,67.711,2914.1,
+nemotron3-nano-30b,fwd,6144,4,1,8192,btd,1,silu,cudnn,ok,0.503,0.00389,62.129,62.109,62.276,60.785,3240.5,route=native-inference
+nemotron3-nano-30b,fwd,6144,4,1,8192,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,1,8192,btd,1,silu,cudnn_nwh,ok,0.5,0.00389,116.600,116.256,117.137,116.748,1726.6,
+nemotron3-nano-30b,fwd,6144,4,1,8192,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 6144, we don't support this kernel size!
+"
+nemotron3-nano-30b,fwd,6144,4,1,8192,btd,1,silu,torch_conv1d,lowprec,1.58,0.00694,767.205,766.981,767.704,766.997,262.4,
+nemotron3-nano-30b,fwd,6144,4,8,2048,btd,1,silu,cute,ok,0.503,0.00389,65.189,65.138,65.264,63.953,6176.7,
+nemotron3-nano-30b,fwd,6144,4,8,2048,btd,1,silu,cute_pad,ok,0.503,0.00389,65.153,65.104,65.199,63.924,6180.2,
+nemotron3-nano-30b,fwd,6144,4,8,2048,btd,1,silu,cute_ring,ok,0.503,0.00389,65.137,65.029,65.189,63.920,6181.6,
+nemotron3-nano-30b,fwd,6144,4,8,2048,btd,1,silu,dao,ok,0.5,0.00389,98.063,97.358,98.127,97.120,4106.1,
+nemotron3-nano-30b,fwd,6144,4,8,2048,btd,1,silu,fla_triton,ok,0.5,0.00389,133.093,132.880,133.151,131.589,3025.4,
+nemotron3-nano-30b,fwd,6144,4,8,2048,btd,1,silu,cudnn,ok,0.503,0.00389,116.338,116.276,116.411,115.088,3461.1,route=native-inference
+nemotron3-nano-30b,fwd,6144,4,8,2048,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,8,2048,btd,1,silu,cudnn_nwh,ok,0.5,0.00389,174.316,174.096,174.486,170.513,2309.9,
+nemotron3-nano-30b,fwd,6144,4,8,2048,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 6144, we don't support this kernel size!
+"
+nemotron3-nano-30b,fwd,6144,4,8,2048,btd,1,silu,torch_conv1d,lowprec,1.58,0.00694,1529.852,1528.970,1529.974,1529.425,263.2,
+nemotron3-nano-30b,fwd,6144,4,32,512,btd,1,silu,cute,ok,0.503,0.00389,65.585,65.457,65.616,64.529,6139.4,
+nemotron3-nano-30b,fwd,6144,4,32,512,btd,1,silu,cute_pad,ok,0.503,0.00389,65.509,65.463,65.617,64.453,6146.5,
+nemotron3-nano-30b,fwd,6144,4,32,512,btd,1,silu,cute_ring,ok,0.503,0.00389,65.453,65.359,65.520,64.453,6151.8,
+nemotron3-nano-30b,fwd,6144,4,32,512,btd,1,silu,dao,ok,0.5,0.00389,97.168,96.864,97.275,95.554,4143.9,
+nemotron3-nano-30b,fwd,6144,4,32,512,btd,1,silu,fla_triton,ok,0.5,0.00389,133.084,132.894,133.138,131.818,3025.6,
+nemotron3-nano-30b,fwd,6144,4,32,512,btd,1,silu,cudnn,ok,0.503,0.00389,116.433,116.367,116.466,115.265,3458.2,route=native-inference
+nemotron3-nano-30b,fwd,6144,4,32,512,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,32,512,btd,1,silu,cudnn_nwh,ok,0.5,0.00389,174.113,173.841,174.368,171.073,2312.6,
+nemotron3-nano-30b,fwd,6144,4,32,512,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 6144, we don't support this kernel size!
+"
+nemotron3-nano-30b,fwd,6144,4,32,512,btd,1,silu,torch_conv1d,lowprec,1.58,0.00694,1553.049,1552.313,1553.278,1552.170,259.3,
+nemotron3-nano-30b,fwd,6144,4,1,2047,btd,1,silu,cute,ok,0.503,0.00389,11.856,11.792,11.857,8.255,4243.2,
+nemotron3-nano-30b,fwd,6144,4,1,2047,btd,1,silu,cute_pad,ok,0.503,0.00389,11.904,11.873,11.921,8.240,4226.1,
+nemotron3-nano-30b,fwd,6144,4,1,2047,btd,1,silu,cute_ring,ok,0.503,0.00389,11.809,11.776,11.889,8.224,4260.1,
+nemotron3-nano-30b,fwd,6144,4,1,2047,btd,1,silu,dao,ok,0.5,0.00389,16.945,16.849,17.008,13.072,2968.9,
+nemotron3-nano-30b,fwd,6144,4,1,2047,btd,1,silu,fla_triton,ok,0.5,0.00389,20.289,20.239,20.320,17.376,2479.6,
+nemotron3-nano-30b,fwd,6144,4,1,2047,btd,1,silu,cudnn,ok,0.503,0.00389,20.832,20.768,21.040,12.736,2414.9,route=native-inference
+nemotron3-nano-30b,fwd,6144,4,1,2047,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,1,2047,btd,1,silu,cudnn_nwh,ok,0.5,0.00389,33.248,33.183,33.392,26.721,1513.1,
+nemotron3-nano-30b,fwd,6144,4,1,2047,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 6144, we don't support this kernel size!
+"
+nemotron3-nano-30b,fwd,6144,4,1,2047,btd,1,silu,torch_conv1d,lowprec,1.58,0.00694,192.226,192.161,192.335,191.522,261.7,
+nemotron3-nano-30b,fwd,6144,4,1,512,bdl,1,silu,cute,ok,0.502,0.00383,4.160,4.129,4.176,2.720,3024.7,
+nemotron3-nano-30b,fwd,6144,4,1,512,bdl,1,silu,cute_pad,ok,0.502,0.00383,4.192,4.160,4.192,2.752,3002.0,
+nemotron3-nano-30b,fwd,6144,4,1,512,bdl,1,silu,cute_ring,ok,0.502,0.00383,4.224,4.192,4.256,2.751,2978.9,
+nemotron3-nano-30b,fwd,6144,4,1,512,bdl,1,silu,dao,ok,0.5,0.00383,7.969,7.936,8.032,6.848,1579.0,
+nemotron3-nano-30b,fwd,6144,4,1,512,bdl,1,silu,fla_triton,ok,0.5,0.00383,8.063,8.032,8.096,5.856,1560.6,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-nano-30b,fwd,6144,4,1,512,bdl,1,silu,cudnn,ok,0.5,0.00383,5.855,5.840,5.888,4.224,2149.1,route=generic-cudnn
+nemotron3-nano-30b,fwd,6144,4,1,512,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,1,512,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-nano-30b,fwd,6144,4,1,512,bdl,1,silu,subq_ops,ok,0.5,0.00383,5.856,5.791,5.904,4.224,2148.7,
+nemotron3-nano-30b,fwd,6144,4,1,512,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,39.759,39.605,39.808,39.136,316.5,
+nemotron3-nano-30b,fwd,6144,4,1,2048,bdl,1,silu,cute,ok,0.503,0.00389,9.873,9.823,9.905,6.655,5097.9,
+nemotron3-nano-30b,fwd,6144,4,1,2048,bdl,1,silu,cute_pad,ok,0.503,0.00389,10.048,10.015,10.048,6.639,5009.1,
+nemotron3-nano-30b,fwd,6144,4,1,2048,bdl,1,silu,cute_ring,ok,0.503,0.00389,9.871,9.840,9.951,6.640,5098.9,
+nemotron3-nano-30b,fwd,6144,4,1,2048,bdl,1,silu,dao,ok,0.5,0.00389,13.119,13.087,13.152,10.448,3836.5,
+nemotron3-nano-30b,fwd,6144,4,1,2048,bdl,1,silu,fla_triton,ok,0.5,0.00389,20.546,20.513,20.607,17.343,2449.7,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-nano-30b,fwd,6144,4,1,2048,bdl,1,silu,cudnn,ok,0.5,0.00389,14.750,14.639,14.816,11.518,3412.3,route=generic-cudnn
+nemotron3-nano-30b,fwd,6144,4,1,2048,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,1,2048,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-nano-30b,fwd,6144,4,1,2048,bdl,1,silu,subq_ops,ok,0.5,0.00389,14.690,14.623,14.752,11.524,3426.3,
+nemotron3-nano-30b,fwd,6144,4,1,2048,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,140.959,140.888,141.130,138.253,357.1,
+nemotron3-nano-30b,fwd,6144,4,1,8192,bdl,1,silu,cute,ok,0.503,0.00388,31.965,31.841,32.093,30.905,6298.3,
+nemotron3-nano-30b,fwd,6144,4,1,8192,bdl,1,silu,cute_pad,ok,0.503,0.00388,32.212,32.131,32.484,30.913,6250.1,
+nemotron3-nano-30b,fwd,6144,4,1,8192,bdl,1,silu,cute_ring,ok,0.503,0.00388,32.001,31.907,32.083,30.932,6291.3,
+nemotron3-nano-30b,fwd,6144,4,1,8192,bdl,1,silu,dao,ok,0.5,0.00388,40.004,39.996,40.049,38.784,5032.7,
+nemotron3-nano-30b,fwd,6144,4,1,8192,bdl,1,silu,fla_triton,ok,0.5,0.00388,69.008,68.827,69.110,67.457,2917.4,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-nano-30b,fwd,6144,4,1,8192,bdl,1,silu,cudnn,ok,0.5,0.00388,47.357,47.333,47.520,46.529,4251.3,route=generic-cudnn
+nemotron3-nano-30b,fwd,6144,4,1,8192,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,1,8192,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-nano-30b,fwd,6144,4,1,8192,bdl,1,silu,subq_ops,ok,0.5,0.00388,47.392,47.291,47.523,46.465,4248.1,
+nemotron3-nano-30b,fwd,6144,4,1,8192,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,566.688,566.469,566.836,566.599,355.3,
+nemotron3-nano-30b,fwd,6144,4,8,2048,bdl,1,silu,cute,ok,0.503,0.00389,60.596,60.577,60.740,59.640,6644.9,
+nemotron3-nano-30b,fwd,6144,4,8,2048,bdl,1,silu,cute_pad,ok,0.503,0.00389,61.217,61.184,61.354,60.129,6577.5,
+nemotron3-nano-30b,fwd,6144,4,8,2048,bdl,1,silu,cute_ring,ok,0.503,0.00389,61.200,61.025,61.408,59.870,6579.3,
+nemotron3-nano-30b,fwd,6144,4,8,2048,bdl,1,silu,dao,ok,0.5,0.00389,78.720,78.528,78.798,77.713,5115.0,
+nemotron3-nano-30b,fwd,6144,4,8,2048,bdl,1,silu,fla_triton,ok,0.5,0.00389,133.151,133.088,133.282,131.503,3024.0,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-nano-30b,fwd,6144,4,8,2048,bdl,1,silu,cudnn,ok,0.5,0.00389,83.945,83.876,83.974,82.712,4796.6,route=generic-cudnn
+nemotron3-nano-30b,fwd,6144,4,8,2048,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,8,2048,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-nano-30b,fwd,6144,4,8,2048,bdl,1,silu,subq_ops,ok,0.5,0.00389,83.969,83.919,84.082,82.718,4795.2,
+nemotron3-nano-30b,fwd,6144,4,8,2048,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,1134.102,1133.749,1134.298,1133.997,355.0,
+nemotron3-nano-30b,fwd,6144,4,32,512,bdl,1,silu,cute,ok,0.503,0.00389,62.305,62.204,62.423,60.111,6462.6,
+nemotron3-nano-30b,fwd,6144,4,32,512,bdl,1,silu,cute_pad,ok,0.503,0.00389,61.578,61.485,61.789,60.209,6538.9,
+nemotron3-nano-30b,fwd,6144,4,32,512,bdl,1,silu,cute_ring,ok,0.503,0.00389,62.276,62.183,62.394,60.258,6465.6,
+nemotron3-nano-30b,fwd,6144,4,32,512,bdl,1,silu,dao,ok,0.5,0.00389,174.300,174.279,174.320,174.073,2310.1,
+nemotron3-nano-30b,fwd,6144,4,32,512,bdl,1,silu,fla_triton,ok,0.5,0.00389,133.481,133.393,133.904,131.843,3016.6,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-nano-30b,fwd,6144,4,32,512,bdl,1,silu,cudnn,ok,0.5,0.00389,96.794,96.679,96.897,95.727,4159.9,route=generic-cudnn
+nemotron3-nano-30b,fwd,6144,4,32,512,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,32,512,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-nano-30b,fwd,6144,4,32,512,bdl,1,silu,subq_ops,ok,0.5,0.00389,96.769,96.673,96.863,95.682,4161.0,
+nemotron3-nano-30b,fwd,6144,4,32,512,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,1155.736,1155.639,1156.280,1156.201,348.4,
+nemotron3-nano-30b,fwd,6144,4,1,2047,bdl,1,silu,cute,ok,0.503,0.00389,12.720,12.703,12.879,9.346,3955.0,
+nemotron3-nano-30b,fwd,6144,4,1,2047,bdl,1,silu,cute_pad,ok,0.503,0.00389,12.832,12.769,12.879,9.390,3920.4,
+nemotron3-nano-30b,fwd,6144,4,1,2047,bdl,1,silu,cute_ring,ok,0.503,0.00389,12.752,12.672,12.913,9.374,3945.2,
+nemotron3-nano-30b,fwd,6144,4,1,2047,bdl,1,silu,dao,ok,0.5,0.00389,21.037,20.960,21.072,17.856,2391.4,
+nemotron3-nano-30b,fwd,6144,4,1,2047,bdl,1,silu,fla_triton,ok,0.5,0.00389,20.354,20.288,20.416,17.344,2471.6,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-nano-30b,fwd,6144,4,1,2047,bdl,1,silu,cudnn,ok,0.5,0.00389,22.739,22.594,22.899,16.704,2212.4,route=generic-cudnn
+nemotron3-nano-30b,fwd,6144,4,1,2047,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-nano-30b,fwd,6144,4,1,2047,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-nano-30b,fwd,6144,4,1,2047,bdl,1,silu,subq_ops,ok,0.5,0.00389,22.675,22.590,22.947,16.701,2218.6,
+nemotron3-nano-30b,fwd,6144,4,1,2047,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,140.904,140.802,140.944,138.235,357.0,
+nemotron3-nano-30b,update,6144,4,1,1,bdl,1,silu,cute,ok,0.5,0.00362,2.016,1.984,2.048,1.280,48.8,
+nemotron3-nano-30b,update,6144,4,1,1,bdl,1,silu,cute_pad,ok,0.5,0.00362,1.952,1.936,1.979,1.184,50.4,
+nemotron3-nano-30b,update,6144,4,1,1,bdl,1,silu,cute_ring,ok,0.5,0.00362,1.984,1.952,2.016,1.248,49.5,
+nemotron3-nano-30b,update,6144,4,1,1,bdl,1,silu,dao,ok,0.5,0.00362,3.456,3.456,3.520,2.208,28.4,
+nemotron3-nano-30b,update,6144,4,1,1,bdl,1,silu,fla_triton,ok,0.5,0.00362,2.112,2.048,2.112,1.344,46.5,
+nemotron3-nano-30b,update,6144,4,1,1,bdl,1,silu,cudnn,ok,0.5,0.00362,2.000,1.984,2.016,1.408,49.2,
+nemotron3-nano-30b,update,6144,4,1,1,bdl,1,silu,cudnn_st4,ok,0.5,0.00362,1.935,1.889,1.984,1.248,50.8,
+nemotron3-nano-30b,update,6144,4,1,1,bdl,1,silu,cudnn_nwh,skip,,,,,,,,no update
+nemotron3-nano-30b,update,6144,4,1,1,bdl,1,silu,subq_ops,skip,,,,,,,,no update
+nemotron3-nano-30b,update,6144,4,1,1,bdl,1,silu,torch_conv1d,ok,0.5,0.00362,19.215,18.768,19.424,16.800,5.1,
+nemotron3-nano-30b,update,6144,4,8,1,bdl,1,silu,cute,ok,0.501,0.00373,2.128,2.048,2.176,1.376,369.6,
+nemotron3-nano-30b,update,6144,4,8,1,bdl,1,silu,cute_pad,ok,0.501,0.00373,2.080,2.048,2.096,1.280,378.1,
+nemotron3-nano-30b,update,6144,4,8,1,bdl,1,silu,cute_ring,ok,0.501,0.00373,2.144,2.144,2.176,1.344,366.8,
+nemotron3-nano-30b,update,6144,4,8,1,bdl,1,silu,dao,ok,0.5,0.00373,3.873,3.872,3.888,2.624,203.1,
+nemotron3-nano-30b,update,6144,4,8,1,bdl,1,silu,fla_triton,ok,0.5,0.00373,2.688,2.656,2.688,2.080,292.6,
+nemotron3-nano-30b,update,6144,4,8,1,bdl,1,silu,cudnn,ok,0.501,0.00373,2.208,2.208,2.240,1.536,356.2,
+nemotron3-nano-30b,update,6144,4,8,1,bdl,1,silu,cudnn_st4,ok,0.501,0.00373,2.096,2.080,2.208,1.280,375.2,
+nemotron3-nano-30b,update,6144,4,8,1,bdl,1,silu,cudnn_nwh,skip,,,,,,,,no update
+nemotron3-nano-30b,update,6144,4,8,1,bdl,1,silu,subq_ops,skip,,,,,,,,no update
+nemotron3-nano-30b,update,6144,4,8,1,bdl,1,silu,torch_conv1d,ok,0.5,0.00373,19.344,19.234,19.393,18.596,40.7,
+nemotron3-nano-30b,update,6144,4,64,1,bdl,1,silu,cute,ok,0.502,0.00377,3.136,3.104,3.200,1.936,2006.2,
+nemotron3-nano-30b,update,6144,4,64,1,bdl,1,silu,cute_pad,ok,0.502,0.00377,3.296,3.280,3.328,1.920,1908.8,
+nemotron3-nano-30b,update,6144,4,64,1,bdl,1,silu,cute_ring,ok,0.502,0.00377,3.488,3.456,3.520,1.952,1803.7,
+nemotron3-nano-30b,update,6144,4,64,1,bdl,1,silu,dao,ok,0.5,0.00377,7.616,7.568,7.664,5.344,826.1,
+nemotron3-nano-30b,update,6144,4,64,1,bdl,1,silu,fla_triton,ok,0.5,0.00377,8.544,8.544,8.576,7.840,736.4,
+nemotron3-nano-30b,update,6144,4,64,1,bdl,1,silu,cudnn,ok,0.502,0.00377,4.080,4.032,4.143,2.945,1542.0,
+nemotron3-nano-30b,update,6144,4,64,1,bdl,1,silu,cudnn_st4,ok,0.502,0.00377,3.936,3.904,3.968,2.432,1598.4,
+nemotron3-nano-30b,update,6144,4,64,1,bdl,1,silu,cudnn_nwh,skip,,,,,,,,no update
+nemotron3-nano-30b,update,6144,4,64,1,bdl,1,silu,subq_ops,skip,,,,,,,,no update
+nemotron3-nano-30b,update,6144,4,64,1,bdl,1,silu,torch_conv1d,ok,0.5,0.00377,37.233,37.150,37.264,36.144,169.0,
+nemotron3-nano-30b,update,6144,4,256,1,bdl,1,silu,cute,ok,0.502,0.00388,6.336,6.320,6.337,4.351,3971.9,
+nemotron3-nano-30b,update,6144,4,256,1,bdl,1,silu,cute_pad,ok,0.502,0.00388,6.976,6.944,7.007,4.320,3607.7,
+nemotron3-nano-30b,update,6144,4,256,1,bdl,1,silu,cute_ring,ok,0.502,0.00388,6.176,6.112,6.208,3.776,4074.8,
+nemotron3-nano-30b,update,6144,4,256,1,bdl,1,silu,dao,ok,0.5,0.00388,19.231,19.136,19.296,14.848,1308.6,
+nemotron3-nano-30b,update,6144,4,256,1,bdl,1,silu,fla_triton,ok,0.5,0.00388,27.648,27.552,27.697,26.720,910.2,
+nemotron3-nano-30b,update,6144,4,256,1,bdl,1,silu,cudnn,ok,0.502,0.00388,9.376,9.344,9.408,7.136,2684.1,
+nemotron3-nano-30b,update,6144,4,256,1,bdl,1,silu,cudnn_st4,ok,0.502,0.00388,9.152,9.120,9.216,5.824,2749.8,
+nemotron3-nano-30b,update,6144,4,256,1,bdl,1,silu,cudnn_nwh,skip,,,,,,,,no update
+nemotron3-nano-30b,update,6144,4,256,1,bdl,1,silu,subq_ops,skip,,,,,,,,no update
+nemotron3-nano-30b,update,6144,4,256,1,bdl,1,silu,torch_conv1d,ok,0.5,0.00388,102.177,102.078,102.402,101.601,246.3,
+nemotron3-super-tp4,fwd,2560,4,1,512,btd,1,silu,cute,ok,0.502,0.00387,3.968,3.936,3.968,2.944,1321.3,
+nemotron3-super-tp4,fwd,2560,4,1,512,btd,1,silu,cute_pad,ok,0.502,0.00387,3.920,3.904,3.936,2.944,1337.5,
+nemotron3-super-tp4,fwd,2560,4,1,512,btd,1,silu,cute_ring,ok,0.502,0.00387,3.968,3.936,3.968,2.944,1321.3,
+nemotron3-super-tp4,fwd,2560,4,1,512,btd,1,silu,dao,ok,0.5,0.00387,4.800,4.768,4.864,3.616,1092.3,
+nemotron3-super-tp4,fwd,2560,4,1,512,btd,1,silu,fla_triton,ok,0.5,0.00387,4.768,4.752,4.800,3.584,1099.6,
+nemotron3-super-tp4,fwd,2560,4,1,512,btd,1,silu,cudnn,ok,0.502,0.00387,7.776,7.776,7.840,4.353,674.2,route=native-inference
+nemotron3-super-tp4,fwd,2560,4,1,512,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,1,512,btd,1,silu,cudnn_nwh,ok,0.5,0.00387,8.768,8.720,8.816,5.568,598.0,
+nemotron3-super-tp4,fwd,2560,4,1,512,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+nemotron3-super-tp4,fwd,2560,4,1,512,btd,1,silu,torch_conv1d,lowprec,1.57,0.00692,30.288,29.633,30.304,26.722,173.1,
+nemotron3-super-tp4,fwd,2560,4,1,2048,btd,1,silu,cute,ok,0.502,0.00387,6.208,6.208,6.255,4.352,3378.1,
+nemotron3-super-tp4,fwd,2560,4,1,2048,btd,1,silu,cute_pad,ok,0.502,0.00387,6.192,6.176,6.240,4.352,3386.9,
+nemotron3-super-tp4,fwd,2560,4,1,2048,btd,1,silu,cute_ring,ok,0.502,0.00387,6.176,6.176,6.240,4.369,3395.6,
+nemotron3-super-tp4,fwd,2560,4,1,2048,btd,1,silu,dao,ok,0.5,0.00387,8.369,8.352,8.384,6.368,2505.9,
+nemotron3-super-tp4,fwd,2560,4,1,2048,btd,1,silu,fla_triton,ok,0.5,0.00387,9.873,9.855,9.984,7.841,2124.1,
+nemotron3-super-tp4,fwd,2560,4,1,2048,btd,1,silu,cudnn,ok,0.502,0.00387,13.488,13.440,13.617,7.936,1554.8,route=native-inference
+nemotron3-super-tp4,fwd,2560,4,1,2048,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,1,2048,btd,1,silu,cudnn_nwh,ok,0.5,0.00387,26.496,26.465,26.625,16.671,791.5,
+nemotron3-super-tp4,fwd,2560,4,1,2048,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+nemotron3-super-tp4,fwd,2560,4,1,2048,btd,1,silu,torch_conv1d,lowprec,1.58,0.00694,84.832,84.769,84.962,82.691,247.2,
+nemotron3-super-tp4,fwd,2560,4,1,8192,btd,1,silu,cute,ok,0.502,0.00389,17.728,17.696,17.760,13.697,4731.8,
+nemotron3-super-tp4,fwd,2560,4,1,8192,btd,1,silu,cute_pad,ok,0.502,0.00389,17.552,17.505,17.632,13.504,4779.2,
+nemotron3-super-tp4,fwd,2560,4,1,8192,btd,1,silu,cute_ring,ok,0.502,0.00389,17.729,17.632,17.792,13.665,4731.7,
+nemotron3-super-tp4,fwd,2560,4,1,8192,btd,1,silu,dao,ok,0.5,0.00389,25.345,25.296,25.377,20.560,3309.8,
+nemotron3-super-tp4,fwd,2560,4,1,8192,btd,1,silu,fla_triton,ok,0.5,0.00389,29.072,28.960,29.088,26.338,2885.5,
+nemotron3-super-tp4,fwd,2560,4,1,8192,btd,1,silu,cudnn,ok,0.502,0.00389,30.528,30.448,30.592,22.945,2747.8,route=native-inference
+nemotron3-super-tp4,fwd,2560,4,1,8192,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,1,8192,btd,1,silu,cudnn_nwh,ok,0.5,0.00389,97.345,97.329,97.425,80.257,861.7,
+nemotron3-super-tp4,fwd,2560,4,1,8192,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+nemotron3-super-tp4,fwd,2560,4,1,8192,btd,1,silu,torch_conv1d,lowprec,1.58,0.00694,312.117,311.959,312.167,311.861,268.8,
+nemotron3-super-tp4,fwd,2560,4,8,2048,btd,1,silu,cute,ok,0.503,0.00389,30.560,30.544,30.609,29.409,5489.9,
+nemotron3-super-tp4,fwd,2560,4,8,2048,btd,1,silu,cute_pad,ok,0.503,0.00389,30.400,30.352,30.448,29.377,5518.8,
+nemotron3-super-tp4,fwd,2560,4,8,2048,btd,1,silu,cute_ring,ok,0.503,0.00389,30.433,30.401,30.449,29.391,5512.9,
+nemotron3-super-tp4,fwd,2560,4,8,2048,btd,1,silu,dao,ok,0.5,0.00389,44.129,44.081,44.417,42.628,3801.9,
+nemotron3-super-tp4,fwd,2560,4,8,2048,btd,1,silu,fla_triton,ok,0.5,0.00389,53.873,53.825,53.904,52.755,3114.2,
+nemotron3-super-tp4,fwd,2560,4,8,2048,btd,1,silu,cudnn,ok,0.503,0.00389,55.488,55.473,55.521,54.146,3023.6,route=native-inference
+nemotron3-super-tp4,fwd,2560,4,8,2048,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,8,2048,btd,1,silu,cudnn_nwh,ok,0.5,0.00389,85.057,84.995,85.248,82.096,1972.5,
+nemotron3-super-tp4,fwd,2560,4,8,2048,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+nemotron3-super-tp4,fwd,2560,4,8,2048,btd,1,silu,torch_conv1d,lowprec,1.58,0.00694,639.083,639.031,639.242,638.680,262.5,
+nemotron3-super-tp4,fwd,2560,4,32,512,btd,1,silu,cute,ok,0.503,0.00389,30.433,30.336,30.434,29.424,5512.8,
+nemotron3-super-tp4,fwd,2560,4,32,512,btd,1,silu,cute_pad,ok,0.503,0.00389,30.576,30.528,30.689,29.456,5487.0,
+nemotron3-super-tp4,fwd,2560,4,32,512,btd,1,silu,cute_ring,ok,0.503,0.00389,30.369,30.304,30.480,29.455,5524.5,
+nemotron3-super-tp4,fwd,2560,4,32,512,btd,1,silu,dao,ok,0.5,0.00389,43.297,43.041,43.426,42.272,3875.0,
+nemotron3-super-tp4,fwd,2560,4,32,512,btd,1,silu,fla_triton,ok,0.5,0.00389,54.066,53.968,54.112,53.120,3103.1,
+nemotron3-super-tp4,fwd,2560,4,32,512,btd,1,silu,cudnn,ok,0.503,0.00389,55.488,55.424,55.537,54.143,3023.6,route=native-inference
+nemotron3-super-tp4,fwd,2560,4,32,512,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,32,512,btd,1,silu,cudnn_nwh,ok,0.5,0.00389,76.465,76.335,76.514,73.857,2194.1,
+nemotron3-super-tp4,fwd,2560,4,32,512,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+nemotron3-super-tp4,fwd,2560,4,32,512,btd,1,silu,torch_conv1d,lowprec,1.58,0.00694,650.183,649.987,650.245,649.435,258.0,
+nemotron3-super-tp4,fwd,2560,4,1,2047,btd,1,silu,cute,ok,0.502,0.00387,6.208,6.208,6.240,4.384,3376.5,
+nemotron3-super-tp4,fwd,2560,4,1,2047,btd,1,silu,cute_pad,ok,0.502,0.00387,6.208,6.208,6.240,4.384,3376.5,
+nemotron3-super-tp4,fwd,2560,4,1,2047,btd,1,silu,cute_ring,ok,0.502,0.00387,6.224,6.192,6.256,4.369,3367.8,
+nemotron3-super-tp4,fwd,2560,4,1,2047,btd,1,silu,dao,ok,0.5,0.00387,8.352,8.320,8.384,6.368,2509.7,
+nemotron3-super-tp4,fwd,2560,4,1,2047,btd,1,silu,fla_triton,ok,0.5,0.00387,9.617,9.616,9.648,7.840,2179.7,
+nemotron3-super-tp4,fwd,2560,4,1,2047,btd,1,silu,cudnn,ok,0.502,0.00387,13.168,13.136,13.216,7.936,1591.8,route=native-inference
+nemotron3-super-tp4,fwd,2560,4,1,2047,btd,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,1,2047,btd,1,silu,cudnn_nwh,ok,0.5,0.00387,27.968,27.920,28.015,17.088,749.5,
+nemotron3-super-tp4,fwd,2560,4,1,2047,btd,1,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+nemotron3-super-tp4,fwd,2560,4,1,2047,btd,1,silu,torch_conv1d,lowprec,1.58,0.00694,84.831,84.768,85.011,82.686,247.1,
+nemotron3-super-tp4,fwd,2560,4,1,512,bdl,1,silu,cute,ok,0.502,0.00382,2.976,2.944,2.992,1.984,1761.7,
+nemotron3-super-tp4,fwd,2560,4,1,512,bdl,1,silu,cute_pad,ok,0.502,0.00382,3.008,2.976,3.040,1.984,1743.0,
+nemotron3-super-tp4,fwd,2560,4,1,512,bdl,1,silu,cute_ring,ok,0.502,0.00382,3.008,2.976,3.040,1.984,1743.0,
+nemotron3-super-tp4,fwd,2560,4,1,512,bdl,1,silu,dao,ok,0.5,0.00382,4.880,4.864,4.896,3.712,1074.4,
+nemotron3-super-tp4,fwd,2560,4,1,512,bdl,1,silu,fla_triton,ok,0.5,0.00382,4.736,4.736,4.768,3.584,1107.0,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-super-tp4,fwd,2560,4,1,512,bdl,1,silu,cudnn,ok,0.5,0.00382,4.480,4.432,4.513,2.816,1170.3,route=generic-cudnn
+nemotron3-super-tp4,fwd,2560,4,1,512,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,1,512,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-super-tp4,fwd,2560,4,1,512,bdl,1,silu,subq_ops,ok,0.5,0.00382,4.480,4.447,4.576,2.816,1170.3,
+nemotron3-super-tp4,fwd,2560,4,1,512,bdl,1,silu,torch_conv1d,lowprec,1.57,0.00694,19.808,19.681,19.842,19.264,264.7,
+nemotron3-super-tp4,fwd,2560,4,1,2048,bdl,1,silu,cute,ok,0.503,0.00389,5.728,5.712,5.760,3.616,3661.2,
+nemotron3-super-tp4,fwd,2560,4,1,2048,bdl,1,silu,cute_pad,ok,0.503,0.00389,5.872,5.856,5.952,3.648,3571.4,
+nemotron3-super-tp4,fwd,2560,4,1,2048,bdl,1,silu,cute_ring,ok,0.503,0.00389,5.760,5.680,5.760,3.633,3640.9,
+nemotron3-super-tp4,fwd,2560,4,1,2048,bdl,1,silu,dao,ok,0.5,0.00389,7.472,7.424,7.488,5.600,2806.7,
+nemotron3-super-tp4,fwd,2560,4,1,2048,bdl,1,silu,fla_triton,ok,0.5,0.00389,9.713,9.696,9.792,7.840,2159.2,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-super-tp4,fwd,2560,4,1,2048,bdl,1,silu,cudnn,ok,0.5,0.00389,10.465,10.432,10.527,6.431,2004.0,route=generic-cudnn
+nemotron3-super-tp4,fwd,2560,4,1,2048,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,1,2048,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-super-tp4,fwd,2560,4,1,2048,bdl,1,silu,subq_ops,ok,0.5,0.00389,10.448,10.401,10.512,6.401,2007.2,
+nemotron3-super-tp4,fwd,2560,4,1,2048,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,61.825,61.632,61.856,60.224,339.2,
+nemotron3-super-tp4,fwd,2560,4,1,8192,bdl,1,silu,cute,ok,0.503,0.00388,15.072,15.024,15.105,10.464,5565.7,
+nemotron3-super-tp4,fwd,2560,4,1,8192,bdl,1,silu,cute_pad,ok,0.503,0.00388,15.024,14.976,15.088,10.496,5583.5,
+nemotron3-super-tp4,fwd,2560,4,1,8192,bdl,1,silu,cute_ring,ok,0.503,0.00388,15.008,14.913,15.024,10.447,5589.4,
+nemotron3-super-tp4,fwd,2560,4,1,8192,bdl,1,silu,dao,ok,0.5,0.00388,21.456,21.344,21.569,15.312,3909.8,
+nemotron3-super-tp4,fwd,2560,4,1,8192,bdl,1,silu,fla_triton,ok,0.5,0.00388,29.089,29.056,29.119,26.211,2883.8,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-super-tp4,fwd,2560,4,1,8192,bdl,1,silu,cudnn,ok,0.5,0.00388,31.777,31.650,31.856,24.673,2639.8,route=generic-cudnn
+nemotron3-super-tp4,fwd,2560,4,1,8192,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,1,8192,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-super-tp4,fwd,2560,4,1,8192,bdl,1,silu,subq_ops,ok,0.5,0.00388,31.712,31.680,31.824,24.593,2645.2,
+nemotron3-super-tp4,fwd,2560,4,1,8192,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,231.266,231.170,231.345,231.280,362.7,
+nemotron3-super-tp4,fwd,2560,4,8,2048,bdl,1,silu,cute,ok,0.503,0.00389,27.696,27.601,27.744,26.624,6057.6,
+nemotron3-super-tp4,fwd,2560,4,8,2048,bdl,1,silu,cute_pad,ok,0.503,0.00389,27.456,27.345,27.617,26.335,6110.6,
+nemotron3-super-tp4,fwd,2560,4,8,2048,bdl,1,silu,cute_ring,ok,0.503,0.00389,27.632,27.616,27.712,26.529,6071.6,
+nemotron3-super-tp4,fwd,2560,4,8,2048,bdl,1,silu,dao,ok,0.5,0.00389,35.376,35.296,35.423,34.176,4742.6,
+nemotron3-super-tp4,fwd,2560,4,8,2048,bdl,1,silu,fla_triton,ok,0.5,0.00389,53.856,53.824,53.969,52.706,3115.2,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-super-tp4,fwd,2560,4,8,2048,bdl,1,silu,cudnn,ok,0.5,0.00389,38.736,38.688,38.785,37.393,4331.1,route=generic-cudnn
+nemotron3-super-tp4,fwd,2560,4,8,2048,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,8,2048,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-super-tp4,fwd,2560,4,8,2048,bdl,1,silu,subq_ops,ok,0.5,0.00389,38.672,38.623,38.817,37.410,4338.3,
+nemotron3-super-tp4,fwd,2560,4,8,2048,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,475.281,475.048,475.397,475.033,353.0,
+nemotron3-super-tp4,fwd,2560,4,32,512,bdl,1,silu,cute,ok,0.502,0.00389,27.263,27.120,27.281,26.192,6153.8,
+nemotron3-super-tp4,fwd,2560,4,32,512,bdl,1,silu,cute_pad,ok,0.502,0.00389,27.456,27.440,27.519,26.481,6110.6,
+nemotron3-super-tp4,fwd,2560,4,32,512,bdl,1,silu,cute_ring,ok,0.502,0.00389,27.233,27.184,27.328,26.127,6160.6,
+nemotron3-super-tp4,fwd,2560,4,32,512,bdl,1,silu,dao,ok,0.5,0.00389,74.257,74.207,74.290,74.019,2259.3,
+nemotron3-super-tp4,fwd,2560,4,32,512,bdl,1,silu,fla_triton,ok,0.5,0.00389,54.159,54.142,54.224,52.864,3097.8,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-super-tp4,fwd,2560,4,32,512,bdl,1,silu,cudnn,ok,0.5,0.00389,42.961,42.928,43.055,41.712,3905.2,route=generic-cudnn
+nemotron3-super-tp4,fwd,2560,4,32,512,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,32,512,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-super-tp4,fwd,2560,4,32,512,bdl,1,silu,subq_ops,ok,0.5,0.00389,43.088,42.992,43.105,41.730,3893.7,
+nemotron3-super-tp4,fwd,2560,4,32,512,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,484.330,484.205,484.440,484.150,346.4,
+nemotron3-super-tp4,fwd,2560,4,1,2047,bdl,1,silu,cute,ok,0.503,0.00389,7.904,7.904,8.096,5.952,2652.0,
+nemotron3-super-tp4,fwd,2560,4,1,2047,bdl,1,silu,cute_pad,ok,0.503,0.00389,7.904,7.857,8.016,5.983,2651.8,
+nemotron3-super-tp4,fwd,2560,4,1,2047,bdl,1,silu,cute_ring,ok,0.503,0.00389,7.904,7.792,7.985,5.968,2652.0,
+nemotron3-super-tp4,fwd,2560,4,1,2047,bdl,1,silu,dao,ok,0.5,0.00389,11.040,10.977,11.056,8.768,1898.7,
+nemotron3-super-tp4,fwd,2560,4,1,2047,bdl,1,silu,fla_triton,ok,0.5,0.00389,9.536,9.473,9.552,7.841,2198.1,"input pre-copied to [B,T,D] outside the timed region"
+nemotron3-super-tp4,fwd,2560,4,1,2047,bdl,1,silu,cudnn,ok,0.5,0.00389,12.256,12.224,12.288,8.960,1710.3,route=generic-cudnn
+nemotron3-super-tp4,fwd,2560,4,1,2047,bdl,1,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+nemotron3-super-tp4,fwd,2560,4,1,2047,bdl,1,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+nemotron3-super-tp4,fwd,2560,4,1,2047,bdl,1,silu,subq_ops,ok,0.5,0.00389,12.288,12.224,12.320,8.944,1705.8,
+nemotron3-super-tp4,fwd,2560,4,1,2047,bdl,1,silu,torch_conv1d,lowprec,1.58,0.00694,61.729,61.633,61.761,60.130,339.6,
+nemotron3-super-tp4,update,2560,4,1,1,bdl,1,silu,cute,ok,0.5,0.00338,1.888,1.856,1.952,1.312,21.7,
+nemotron3-super-tp4,update,2560,4,1,1,bdl,1,silu,cute_pad,ok,0.5,0.00338,1.936,1.856,1.968,1.216,21.2,
+nemotron3-super-tp4,update,2560,4,1,1,bdl,1,silu,cute_ring,ok,0.5,0.00338,2.016,1.984,2.048,1.280,20.3,
+nemotron3-super-tp4,update,2560,4,1,1,bdl,1,silu,dao,ok,0.5,0.00338,3.424,3.345,3.504,2.240,12.0,
+nemotron3-super-tp4,update,2560,4,1,1,bdl,1,silu,fla_triton,ok,0.5,0.00338,2.144,2.080,2.176,1.440,19.1,
+nemotron3-super-tp4,update,2560,4,1,1,bdl,1,silu,cudnn,ok,0.5,0.00338,1.952,1.904,2.016,1.440,21.0,
+nemotron3-super-tp4,update,2560,4,1,1,bdl,1,silu,cudnn_st4,ok,0.5,0.00338,1.872,1.856,1.984,1.248,21.9,
+nemotron3-super-tp4,update,2560,4,1,1,bdl,1,silu,cudnn_nwh,skip,,,,,,,,no update
+nemotron3-super-tp4,update,2560,4,1,1,bdl,1,silu,subq_ops,skip,,,,,,,,no update
+nemotron3-super-tp4,update,2560,4,1,1,bdl,1,silu,torch_conv1d,ok,0.5,0.00338,19.295,18.978,19.552,17.311,2.1,
+nemotron3-super-tp4,update,2560,4,8,1,bdl,1,silu,cute,ok,0.5,0.00366,2.064,2.016,2.112,1.376,158.8,
+nemotron3-super-tp4,update,2560,4,8,1,bdl,1,silu,cute_pad,ok,0.5,0.00366,2.032,1.984,2.048,1.248,161.3,
+nemotron3-super-tp4,update,2560,4,8,1,bdl,1,silu,cute_ring,ok,0.5,0.00366,2.080,2.048,2.127,1.312,157.5,
+nemotron3-super-tp4,update,2560,4,8,1,bdl,1,silu,dao,ok,0.5,0.00366,3.616,3.584,3.632,2.464,90.6,
+nemotron3-super-tp4,update,2560,4,8,1,bdl,1,silu,fla_triton,ok,0.5,0.00366,2.272,2.192,2.272,1.472,144.2,
+nemotron3-super-tp4,update,2560,4,8,1,bdl,1,silu,cudnn,ok,0.5,0.00366,2.112,2.080,2.144,1.504,155.2,
+nemotron3-super-tp4,update,2560,4,8,1,bdl,1,silu,cudnn_st4,ok,0.5,0.00366,2.080,2.048,2.112,1.248,157.5,
+nemotron3-super-tp4,update,2560,4,8,1,bdl,1,silu,cudnn_nwh,skip,,,,,,,,no update
+nemotron3-super-tp4,update,2560,4,8,1,bdl,1,silu,subq_ops,skip,,,,,,,,no update
+nemotron3-super-tp4,update,2560,4,8,1,bdl,1,silu,torch_conv1d,ok,0.5,0.00366,18.782,18.625,18.880,18.240,17.4,
+nemotron3-super-tp4,update,2560,4,64,1,bdl,1,silu,cute,ok,0.502,0.00377,2.464,2.464,2.496,1.600,1063.9,
+nemotron3-super-tp4,update,2560,4,64,1,bdl,1,silu,cute_pad,ok,0.502,0.00377,2.592,2.575,2.624,1.600,1011.4,
+nemotron3-super-tp4,update,2560,4,64,1,bdl,1,silu,cute_ring,ok,0.502,0.00377,2.544,2.528,2.591,1.632,1030.4,
+nemotron3-super-tp4,update,2560,4,64,1,bdl,1,silu,dao,ok,0.5,0.00377,5.088,4.992,5.168,3.600,515.2,
+nemotron3-super-tp4,update,2560,4,64,1,bdl,1,silu,fla_triton,ok,0.5,0.00377,3.728,3.712,3.728,2.592,703.2,
+nemotron3-super-tp4,update,2560,4,64,1,bdl,1,silu,cudnn,ok,0.502,0.00377,2.752,2.752,2.800,1.952,952.6,
+nemotron3-super-tp4,update,2560,4,64,1,bdl,1,silu,cudnn_st4,ok,0.502,0.00377,2.880,2.800,2.881,1.664,910.2,
+nemotron3-super-tp4,update,2560,4,64,1,bdl,1,silu,cudnn_nwh,skip,,,,,,,,no update
+nemotron3-super-tp4,update,2560,4,64,1,bdl,1,silu,subq_ops,skip,,,,,,,,no update
+nemotron3-super-tp4,update,2560,4,64,1,bdl,1,silu,torch_conv1d,ok,0.5,0.00377,24.145,24.095,24.255,23.935,108.6,
+nemotron3-super-tp4,update,2560,4,256,1,bdl,1,silu,cute,ok,0.502,0.00384,3.872,3.872,3.904,2.528,2708.1,
+nemotron3-super-tp4,update,2560,4,256,1,bdl,1,silu,cute_pad,ok,0.502,0.00384,4.065,4.032,4.096,2.400,2579.8,
+nemotron3-super-tp4,update,2560,4,256,1,bdl,1,silu,cute_ring,ok,0.502,0.00384,4.096,4.080,4.128,2.400,2560.0,
+nemotron3-super-tp4,update,2560,4,256,1,bdl,1,silu,dao,ok,0.5,0.00384,10.304,10.286,10.352,7.487,1017.6,
+nemotron3-super-tp4,update,2560,4,256,1,bdl,1,silu,fla_triton,ok,0.5,0.00384,8.096,8.064,8.128,6.624,1295.2,
+nemotron3-super-tp4,update,2560,4,256,1,bdl,1,silu,cudnn,ok,0.502,0.00384,5.248,5.248,5.264,3.936,1998.0,
+nemotron3-super-tp4,update,2560,4,256,1,bdl,1,silu,cudnn_st4,ok,0.502,0.00384,5.057,5.008,5.119,3.232,2073.7,
+nemotron3-super-tp4,update,2560,4,256,1,bdl,1,silu,cudnn_nwh,skip,,,,,,,,no update
+nemotron3-super-tp4,update,2560,4,256,1,bdl,1,silu,subq_ops,skip,,,,,,,,no update
+nemotron3-super-tp4,update,2560,4,256,1,bdl,1,silu,torch_conv1d,ok,0.5,0.00384,51.890,51.839,51.935,50.689,202.1,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,btd,0,silu,cute,ok,0.502,0.00382,3.680,3.648,3.712,2.479,1139.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,btd,0,silu,cute_pad,ok,0.502,0.00382,3.680,3.649,3.712,2.464,1139.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,btd,0,silu,cute_ring,ok,0.502,0.00382,3.568,3.440,3.615,2.464,1175.5,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,btd,0,silu,dao,ok,0.5,0.00382,4.304,4.288,4.320,3.233,974.4,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,btd,0,silu,fla_triton,ok,0.5,0.00382,3.936,3.904,3.952,3.104,1065.6,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,btd,0,silu,cudnn,ok,0.502,0.00382,7.904,7.840,7.985,4.224,530.7,route=native-inference
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,btd,0,silu,cudnn_nwh,ok,0.5,0.00382,9.408,9.345,9.696,6.720,445.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,btd,0,silu,torch_conv1d,lowprec,1.58,0.00693,22.878,22.861,22.912,21.327,183.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,btd,0,silu,cute,ok,0.502,0.00388,6.401,6.336,6.432,4.128,2621.0,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,btd,0,silu,cute_pad,ok,0.502,0.00388,6.400,6.368,6.431,4.128,2621.4,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,btd,0,silu,cute_ring,ok,0.502,0.00388,6.400,6.352,6.400,4.128,2621.4,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,btd,0,silu,dao,ok,0.5,0.00388,7.264,7.264,7.296,5.344,2309.6,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,btd,0,silu,fla_triton,ok,0.5,0.00388,8.192,8.176,8.240,7.008,2048.0,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,btd,0,silu,cudnn,ok,0.502,0.00388,9.313,9.232,9.345,5.633,1801.5,route=native-inference
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,btd,0,silu,cudnn_nwh,ok,0.5,0.00388,27.409,27.183,27.521,17.745,612.1,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,69.418,69.227,69.457,68.295,241.7,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,btd,0,silu,cute,ok,0.503,0.00388,15.456,15.424,15.473,10.175,4341.9,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,btd,0,silu,cute_pad,ok,0.503,0.00388,15.664,15.615,15.760,10.128,4284.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,btd,0,silu,cute_ring,ok,0.503,0.00388,15.504,15.457,15.584,10.158,4328.6,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,btd,0,silu,dao,ok,0.5,0.00388,20.146,20.029,20.224,16.480,3331.1,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,btd,0,silu,fla_triton,ok,0.5,0.00388,24.096,24.017,24.128,22.112,2785.1,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,btd,0,silu,cudnn,ok,0.503,0.00388,23.552,23.454,23.681,14.626,2849.4,route=native-inference
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,btd,0,silu,cudnn_nwh,ok,0.5,0.00388,96.193,96.111,96.354,64.906,697.6,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,249.123,249.041,249.250,248.817,269.4,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,btd,0,silu,cute,ok,0.503,0.00389,28.561,28.512,28.720,27.105,4699.4,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,btd,0,silu,cute_pad,ok,0.503,0.00389,28.605,28.512,28.672,27.025,4692.1,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,btd,0,silu,cute_ring,ok,0.503,0.00389,28.561,28.499,28.674,27.072,4699.4,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,btd,0,silu,dao,ok,0.5,0.00389,35.536,35.520,35.744,35.007,3776.9,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,btd,0,silu,fla_triton,ok,0.5,0.00389,45.248,45.215,45.293,43.881,2966.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,btd,0,silu,cudnn,ok,0.503,0.00389,39.345,39.297,39.502,38.015,3411.3,route=native-inference
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,btd,0,silu,cudnn_nwh,ok,0.5,0.00389,65.553,65.472,65.670,62.477,2047.5,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,512.378,512.211,512.671,512.084,262.0,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,btd,0,silu,cute,ok,0.503,0.00389,28.576,28.512,28.577,27.067,4696.9,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,btd,0,silu,cute_pad,ok,0.503,0.00389,28.655,28.591,28.768,27.077,4683.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,btd,0,silu,cute_ring,ok,0.503,0.00389,28.640,28.562,28.659,27.008,4686.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,btd,0,silu,dao,ok,0.5,0.00389,35.280,35.153,35.340,34.576,3804.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,btd,0,silu,fla_triton,ok,0.5,0.00389,45.120,45.089,45.184,43.824,2974.7,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,btd,0,silu,cudnn,ok,0.503,0.00389,39.329,39.328,39.425,37.956,3412.7,route=native-inference
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,btd,0,silu,cudnn_nwh,ok,0.5,0.00389,62.896,62.744,63.012,60.560,2134.0,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,522.311,522.296,522.436,521.704,257.0,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,btd,0,silu,cute,ok,0.502,0.00388,6.288,6.271,6.320,4.144,2666.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,btd,0,silu,cute_pad,ok,0.502,0.00388,6.287,6.241,6.336,4.129,2667.0,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,btd,0,silu,cute_ring,ok,0.502,0.00388,6.272,6.272,6.320,4.160,2673.4,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,btd,0,silu,dao,ok,0.5,0.00388,7.216,7.200,7.232,5.345,2323.9,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,btd,0,silu,fla_triton,ok,0.5,0.00388,8.064,8.049,8.096,7.040,2079.5,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,btd,0,silu,cudnn,ok,0.502,0.00388,9.024,9.023,9.055,5.632,1858.3,route=native-inference
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,btd,0,silu,cudnn_nwh,ok,0.5,0.00388,28.528,28.366,28.723,18.323,587.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2048, we don't support this kernel size!
+"
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,69.473,69.404,69.617,68.303,241.4,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,bdl,0,silu,cute,ok,0.502,0.00388,2.752,2.736,2.784,1.824,1524.1,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,bdl,0,silu,cute_pad,ok,0.502,0.00388,2.720,2.704,2.752,1.824,1542.0,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,bdl,0,silu,cute_ring,ok,0.502,0.00388,2.784,2.768,2.816,1.824,1506.6,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,bdl,0,silu,dao,ok,0.5,0.00388,3.776,3.776,3.872,3.072,1110.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,bdl,0,silu,fla_triton,ok,0.5,0.00388,3.936,3.935,3.937,3.104,1065.6,"input pre-copied to [B,T,D] outside the timed region"
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,bdl,0,silu,cudnn,ok,0.5,0.00388,5.280,5.152,5.408,3.904,794.4,route=generic-cudnn
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,bdl,0,silu,subq_ops,ok,0.5,0.00388,5.264,5.120,5.472,3.904,796.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,512,bdl,0,silu,torch_conv1d,lowprec,1.58,0.0069,16.209,16.033,16.240,15.823,258.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,bdl,0,silu,cute,ok,0.502,0.00388,4.704,4.672,4.736,3.024,3566.6,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,bdl,0,silu,cute_pad,ok,0.502,0.00388,4.768,4.720,4.784,3.008,3518.7,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,bdl,0,silu,cute_ring,ok,0.502,0.00388,4.704,4.704,4.720,3.025,3566.6,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,bdl,0,silu,dao,ok,0.5,0.00388,6.128,6.128,6.176,4.544,2737.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,bdl,0,silu,fla_triton,ok,0.5,0.00388,8.352,8.352,8.400,7.009,2008.8,"input pre-copied to [B,T,D] outside the timed region"
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,bdl,0,silu,cudnn,ok,0.5,0.00388,11.336,11.232,11.408,6.880,1480.0,route=generic-cudnn
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,bdl,0,silu,subq_ops,ok,0.5,0.00388,11.328,11.232,11.416,7.008,1481.0,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2048,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00693,50.593,50.461,50.623,49.692,331.6,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,bdl,0,silu,cute,ok,0.503,0.00388,12.609,12.591,12.617,8.191,5322.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,bdl,0,silu,cute_pad,ok,0.503,0.00388,12.720,12.643,12.734,8.240,5275.6,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,bdl,0,silu,cute_ring,ok,0.503,0.00388,12.583,12.528,12.641,8.192,5333.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,bdl,0,silu,dao,ok,0.5,0.00388,15.936,15.920,16.002,12.098,4211.0,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,bdl,0,silu,fla_triton,ok,0.5,0.00388,24.094,24.061,24.130,22.145,2785.3,"input pre-copied to [B,T,D] outside the timed region"
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,bdl,0,silu,cudnn,ok,0.5,0.00388,30.638,30.575,30.739,20.561,2190.4,route=generic-cudnn
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,bdl,0,silu,subq_ops,ok,0.5,0.00388,30.688,30.594,30.784,20.574,2186.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,8192,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,185.674,185.641,185.914,184.993,361.4,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,bdl,0,silu,cute,ok,0.503,0.00389,22.512,22.479,22.593,20.560,5962.1,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,bdl,0,silu,cute_pad,ok,0.503,0.00389,22.174,22.067,22.274,20.829,6052.8,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,bdl,0,silu,cute_ring,ok,0.503,0.00389,22.622,22.528,22.704,20.637,5933.1,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,bdl,0,silu,dao,ok,0.5,0.00389,28.838,28.831,28.893,27.636,4654.2,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,bdl,0,silu,fla_triton,ok,0.5,0.00389,45.076,45.037,45.104,43.889,2977.6,"input pre-copied to [B,T,D] outside the timed region"
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,bdl,0,silu,cudnn,ok,0.5,0.00389,34.545,34.464,34.656,32.596,3885.3,route=generic-cudnn
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,bdl,0,silu,subq_ops,ok,0.5,0.00389,34.479,34.349,34.575,32.620,3892.7,
+glm5.3-flash-kda-tp4,fwd,2048,4,8,2048,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,382.689,382.510,382.832,382.643,350.7,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,bdl,0,silu,cute,ok,0.503,0.00388,22.481,22.466,22.560,20.449,5970.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,bdl,0,silu,cute_pad,ok,0.503,0.00388,22.576,22.527,22.818,20.493,5945.2,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,bdl,0,silu,cute_ring,ok,0.503,0.00388,22.496,22.478,22.734,20.448,5966.2,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,bdl,0,silu,dao,ok,0.5,0.00388,59.120,59.104,59.233,58.993,2270.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,bdl,0,silu,fla_triton,ok,0.5,0.00388,45.278,45.247,45.359,43.815,2964.3,"input pre-copied to [B,T,D] outside the timed region"
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,bdl,0,silu,cudnn,ok,0.5,0.00388,35.614,35.553,35.697,34.413,3768.7,route=generic-cudnn
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,bdl,0,silu,subq_ops,ok,0.5,0.00388,35.694,35.616,35.901,34.508,3760.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,32,512,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,390.020,389.955,390.305,389.923,344.1,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,bdl,0,silu,cute,ok,0.503,0.00387,7.295,7.264,7.328,6.368,2298.7,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,bdl,0,silu,cute_pad,ok,0.503,0.00387,7.296,7.296,7.329,6.367,2298.2,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,bdl,0,silu,cute_ring,ok,0.503,0.00387,7.280,7.264,7.328,6.369,2303.4,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,bdl,0,silu,dao,ok,0.5,0.00387,9.985,9.920,10.016,7.392,1679.5,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,bdl,0,silu,fla_triton,ok,0.5,0.00387,8.304,8.303,8.336,7.008,2019.3,"input pre-copied to [B,T,D] outside the timed region"
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,bdl,0,silu,cudnn,ok,0.5,0.00387,12.672,12.463,12.944,9.056,1323.3,route=generic-cudnn
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,bdl,0,silu,subq_ops,ok,0.5,0.00387,12.672,12.576,12.768,9.056,1323.3,
+glm5.3-flash-kda-tp4,fwd,2048,4,1,2047,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,50.530,50.386,50.689,49.628,331.9,
+glm5.3-flash-kda-tp4,update,2048,4,1,1,bdl,0,silu,cute,ok,0.5,0.00341,1.856,1.824,1.920,1.216,17.7,
+glm5.3-flash-kda-tp4,update,2048,4,1,1,bdl,0,silu,cute_pad,ok,0.5,0.00341,1.744,1.697,1.824,1.184,18.8,
+glm5.3-flash-kda-tp4,update,2048,4,1,1,bdl,0,silu,cute_ring,ok,0.5,0.00341,1.936,1.856,1.984,1.248,16.9,
+glm5.3-flash-kda-tp4,update,2048,4,1,1,bdl,0,silu,dao,ok,0.5,0.00341,3.345,3.328,3.377,2.176,9.8,
+glm5.3-flash-kda-tp4,update,2048,4,1,1,bdl,0,silu,fla_triton,ok,0.5,0.00341,1.920,1.888,2.016,1.280,17.1,
+glm5.3-flash-kda-tp4,update,2048,4,1,1,bdl,0,silu,cudnn,ok,0.5,0.00341,1.968,1.856,2.016,1.440,16.7,
+glm5.3-flash-kda-tp4,update,2048,4,1,1,bdl,0,silu,cudnn_st4,ok,0.5,0.00341,1.856,1.824,1.936,1.280,17.7,
+glm5.3-flash-kda-tp4,update,2048,4,1,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4,update,2048,4,1,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4,update,2048,4,1,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00341,14.752,14.529,14.816,14.112,2.2,
+glm5.3-flash-kda-tp4,update,2048,4,8,1,bdl,0,silu,cute,ok,0.501,0.0036,2.016,1.984,2.048,1.248,130.0,
+glm5.3-flash-kda-tp4,update,2048,4,8,1,bdl,0,silu,cute_pad,ok,0.501,0.0036,1.984,1.952,1.984,1.184,132.1,
+glm5.3-flash-kda-tp4,update,2048,4,8,1,bdl,0,silu,cute_ring,ok,0.501,0.0036,2.016,2.016,2.048,1.248,130.0,
+glm5.3-flash-kda-tp4,update,2048,4,8,1,bdl,0,silu,dao,ok,0.5,0.0036,3.520,3.520,3.552,2.336,74.5,
+glm5.3-flash-kda-tp4,update,2048,4,8,1,bdl,0,silu,fla_triton,ok,0.5,0.0036,2.161,2.144,2.208,1.344,121.3,
+glm5.3-flash-kda-tp4,update,2048,4,8,1,bdl,0,silu,cudnn,ok,0.501,0.0036,2.000,1.936,2.064,1.408,131.0,
+glm5.3-flash-kda-tp4,update,2048,4,8,1,bdl,0,silu,cudnn_st4,ok,0.501,0.0036,2.016,1.969,2.048,1.280,130.0,
+glm5.3-flash-kda-tp4,update,2048,4,8,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4,update,2048,4,8,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4,update,2048,4,8,1,bdl,0,silu,torch_conv1d,ok,0.5,0.0036,15.873,15.804,16.033,15.360,16.5,
+glm5.3-flash-kda-tp4,update,2048,4,64,1,bdl,0,silu,cute,ok,0.501,0.00376,2.336,2.333,2.368,1.440,897.8,
+glm5.3-flash-kda-tp4,update,2048,4,64,1,bdl,0,silu,cute_pad,ok,0.501,0.00376,2.368,2.352,2.385,1.408,885.6,
+glm5.3-flash-kda-tp4,update,2048,4,64,1,bdl,0,silu,cute_ring,ok,0.501,0.00376,2.352,2.336,2.400,1.408,891.6,
+glm5.3-flash-kda-tp4,update,2048,4,64,1,bdl,0,silu,dao,ok,0.5,0.00376,4.576,4.544,4.593,3.209,458.3,
+glm5.3-flash-kda-tp4,update,2048,4,64,1,bdl,0,silu,fla_triton,ok,0.5,0.00376,2.976,2.976,2.976,2.368,704.7,
+glm5.3-flash-kda-tp4,update,2048,4,64,1,bdl,0,silu,cudnn,ok,0.501,0.00376,2.480,2.448,2.512,1.696,845.6,
+glm5.3-flash-kda-tp4,update,2048,4,64,1,bdl,0,silu,cudnn_st4,ok,0.501,0.00376,2.432,2.400,2.464,1.472,862.1,
+glm5.3-flash-kda-tp4,update,2048,4,64,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4,update,2048,4,64,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4,update,2048,4,64,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00376,20.048,19.905,20.064,19.395,104.6,
+glm5.3-flash-kda-tp4,update,2048,4,256,1,bdl,0,silu,cute,ok,0.502,0.00389,3.312,3.296,3.360,1.936,2532.8,
+glm5.3-flash-kda-tp4,update,2048,4,256,1,bdl,0,silu,cute_pad,ok,0.502,0.00389,3.616,3.616,3.663,2.016,2319.9,
+glm5.3-flash-kda-tp4,update,2048,4,256,1,bdl,0,silu,cute_ring,ok,0.502,0.00389,3.744,3.680,3.760,2.016,2240.5,
+glm5.3-flash-kda-tp4,update,2048,4,256,1,bdl,0,silu,dao,ok,0.5,0.00389,8.513,8.417,8.560,6.209,985.4,
+glm5.3-flash-kda-tp4,update,2048,4,256,1,bdl,0,silu,fla_triton,ok,0.5,0.00389,6.368,6.368,6.400,5.632,1317.3,
+glm5.3-flash-kda-tp4,update,2048,4,256,1,bdl,0,silu,cudnn,ok,0.502,0.00389,4.416,4.352,4.416,3.072,1899.6,
+glm5.3-flash-kda-tp4,update,2048,4,256,1,bdl,0,silu,cudnn_st4,ok,0.502,0.00389,4.288,4.256,4.336,2.784,1956.3,
+glm5.3-flash-kda-tp4,update,2048,4,256,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4,update,2048,4,256,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4,update,2048,4,256,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00389,40.768,40.609,40.882,40.001,205.8,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,btd,0,silu,cute,ok,0.502,0.00382,3.120,3.104,3.136,2.353,1008.2,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,btd,0,silu,cute_pad,ok,0.502,0.00382,3.136,3.136,3.232,2.304,1003.1,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,btd,0,silu,cute_ring,ok,0.502,0.00382,3.136,3.104,3.200,2.336,1003.1,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,btd,0,silu,dao,ok,0.5,0.00382,4.224,4.208,4.224,3.231,744.7,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,btd,0,silu,fla_triton,ok,0.5,0.00382,4.192,4.159,4.224,3.168,750.4,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,btd,0,silu,cudnn,ok,0.502,0.00382,7.968,7.904,8.000,4.512,394.8,route=native-inference
+kimi-k3-kda-tp8,fwd,1536,4,1,512,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,1,512,btd,0,silu,cudnn_nwh,ok,0.5,0.00382,9.264,9.200,9.584,6.752,339.6,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1536, we don't support this kernel size!
+"
+kimi-k3-kda-tp8,fwd,1536,4,1,512,btd,0,silu,torch_conv1d,lowprec,1.57,0.00692,18.769,18.752,18.833,18.305,167.6,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,btd,0,silu,cute,ok,0.502,0.00382,5.328,5.248,5.360,3.552,2361.7,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,btd,0,silu,cute_pad,ok,0.502,0.00382,5.376,5.312,5.408,3.521,2340.6,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,btd,0,silu,cute_ring,ok,0.502,0.00382,5.313,5.280,5.424,3.552,2368.3,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,btd,0,silu,dao,ok,0.5,0.00382,6.367,6.337,6.368,4.768,1976.3,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,btd,0,silu,fla_triton,ok,0.5,0.00382,9.360,9.232,9.393,7.104,1344.3,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,btd,0,silu,cudnn,ok,0.502,0.00382,8.912,8.864,8.928,5.760,1411.8,route=native-inference
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,btd,0,silu,cudnn_nwh,ok,0.5,0.00382,26.961,26.769,27.233,17.794,466.7,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1536, we don't support this kernel size!
+"
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,53.984,53.919,54.016,53.570,233.1,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,btd,0,silu,cute,ok,0.502,0.00388,11.393,11.392,11.408,7.696,4417.8,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,btd,0,silu,cute_pad,ok,0.502,0.00388,11.392,11.297,11.424,7.712,4418.2,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,btd,0,silu,cute_ring,ok,0.502,0.00388,11.392,11.296,11.392,7.697,4418.4,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,btd,0,silu,dao,ok,0.5,0.00388,16.721,16.640,16.784,13.057,3010.1,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,btd,0,silu,fla_triton,ok,0.5,0.00388,26.145,26.081,26.177,22.530,1925.1,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,btd,0,silu,cudnn,ok,0.502,0.00388,22.161,22.096,22.480,13.889,2271.2,route=native-inference
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,btd,0,silu,cudnn_nwh,ok,0.5,0.00388,94.401,94.322,94.529,62.050,533.2,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1536, we don't support this kernel size!
+"
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,190.497,190.368,190.582,189.840,264.2,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,btd,0,silu,cute,ok,0.503,0.00388,20.160,20.112,20.336,15.744,4993.1,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,btd,0,silu,cute_pad,ok,0.503,0.00388,20.193,20.128,20.225,16.031,4985.1,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,btd,0,silu,cute_ring,ok,0.503,0.00388,20.225,20.191,20.496,15.311,4977.2,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,btd,0,silu,dao,ok,0.5,0.00388,28.560,28.495,28.657,25.824,3524.6,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,btd,0,silu,fla_triton,ok,0.5,0.00388,49.615,49.569,49.760,47.522,2028.9,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,btd,0,silu,cudnn,ok,0.503,0.00388,36.208,36.144,36.225,31.872,2780.1,route=native-inference
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,btd,0,silu,cudnn_nwh,ok,0.5,0.00388,59.121,58.753,59.136,56.129,1702.7,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1536, we don't support this kernel size!
+"
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,386.472,386.369,386.595,386.227,260.5,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,btd,0,silu,cute,ok,0.503,0.00388,20.384,20.224,20.640,15.935,4938.3,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,btd,0,silu,cute_pad,ok,0.503,0.00388,20.288,20.160,20.768,15.776,4961.7,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,btd,0,silu,cute_ring,ok,0.503,0.00388,20.225,20.145,20.433,15.969,4977.2,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,btd,0,silu,dao,ok,0.5,0.00388,28.816,28.544,28.880,25.696,3493.3,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,btd,0,silu,fla_triton,ok,0.5,0.00388,49.424,49.216,49.521,47.777,2036.7,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,btd,0,silu,cudnn,ok,0.503,0.00388,36.192,36.160,36.223,31.711,2781.4,route=native-inference
+kimi-k3-kda-tp8,fwd,1536,4,32,512,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,32,512,btd,0,silu,cudnn_nwh,ok,0.5,0.00388,49.120,48.992,49.215,46.849,2049.3,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1536, we don't support this kernel size!
+"
+kimi-k3-kda-tp8,fwd,1536,4,32,512,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,392.675,392.611,392.690,392.291,256.4,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,btd,0,silu,cute,ok,0.502,0.00382,4.992,4.992,5.024,3.328,2519.4,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,btd,0,silu,cute_pad,ok,0.502,0.00382,5.056,5.024,5.056,3.360,2487.5,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,btd,0,silu,cute_ring,ok,0.502,0.00382,5.024,4.992,5.056,3.329,2503.3,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,btd,0,silu,dao,ok,0.5,0.00382,6.368,6.352,6.400,4.800,1975.0,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,btd,0,silu,fla_triton,ok,0.5,0.00382,9.232,9.216,9.280,7.104,1362.2,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,btd,0,silu,cudnn,ok,0.502,0.00382,8.912,8.896,8.960,5.793,1411.1,route=native-inference
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,btd,0,silu,cudnn_nwh,ok,0.5,0.00382,28.255,28.129,28.416,18.241,445.1,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 1536, we don't support this kernel size!
+"
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,54.193,54.114,54.257,53.636,232.1,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,bdl,0,silu,cute,ok,0.502,0.00388,2.528,2.497,2.528,1.728,1244.4,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,bdl,0,silu,cute_pad,ok,0.502,0.00388,2.496,2.496,2.528,1.728,1260.3,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,bdl,0,silu,cute_ring,ok,0.502,0.00388,2.496,2.496,2.528,1.728,1260.3,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,bdl,0,silu,dao,ok,0.5,0.00388,3.440,3.409,3.504,2.752,914.5,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,bdl,0,silu,fla_triton,ok,0.5,0.00388,4.224,4.144,4.272,3.136,744.7,"input pre-copied to [B,T,D] outside the timed region"
+kimi-k3-kda-tp8,fwd,1536,4,1,512,bdl,0,silu,cudnn,ok,0.5,0.00388,5.216,5.072,5.328,3.648,603.1,route=generic-cudnn
+kimi-k3-kda-tp8,fwd,1536,4,1,512,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,1,512,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+kimi-k3-kda-tp8,fwd,1536,4,1,512,bdl,0,silu,subq_ops,ok,0.5,0.00388,5.104,5.088,5.216,3.744,616.3,
+kimi-k3-kda-tp8,fwd,1536,4,1,512,bdl,0,silu,torch_conv1d,lowprec,1.58,0.0069,13.968,13.952,14.112,13.440,225.2,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,bdl,0,silu,cute,ok,0.502,0.00388,4.064,4.032,4.096,2.688,3096.2,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,bdl,0,silu,cute_pad,ok,0.502,0.00388,4.096,4.064,4.160,2.656,3072.0,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,bdl,0,silu,cute_ring,ok,0.502,0.00388,4.064,4.064,4.096,2.688,3096.2,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,bdl,0,silu,dao,ok,0.5,0.00388,5.344,5.296,5.409,3.936,2354.6,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,bdl,0,silu,fla_triton,ok,0.5,0.00388,9.153,9.120,9.200,7.104,1374.8,"input pre-copied to [B,T,D] outside the timed region"
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,bdl,0,silu,cudnn,ok,0.5,0.00388,10.768,10.705,10.816,6.624,1168.5,route=generic-cudnn
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,bdl,0,silu,subq_ops,ok,0.5,0.00388,10.752,10.593,10.784,6.752,1170.3,
+kimi-k3-kda-tp8,fwd,1536,4,1,2048,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00693,39.137,38.992,39.201,38.303,321.5,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,bdl,0,silu,cute,ok,0.503,0.00385,10.272,10.240,10.304,6.400,4899.9,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,bdl,0,silu,cute_pad,ok,0.503,0.00385,9.936,9.920,9.952,6.400,5065.6,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,bdl,0,silu,cute_ring,ok,0.503,0.00385,10.256,10.225,10.271,6.400,4907.8,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,bdl,0,silu,dao,ok,0.5,0.00385,13.600,13.536,13.616,10.144,3700.9,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,bdl,0,silu,fla_triton,ok,0.5,0.00385,26.273,26.192,26.369,22.592,1915.8,"input pre-copied to [B,T,D] outside the timed region"
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,bdl,0,silu,cudnn,ok,0.5,0.00385,28.771,28.752,29.056,17.727,1749.4,route=generic-cudnn
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,bdl,0,silu,subq_ops,ok,0.5,0.00385,28.881,28.816,28.944,17.744,1742.8,
+kimi-k3-kda-tp8,fwd,1536,4,1,8192,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,140.242,140.162,140.319,138.275,358.9,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,bdl,0,silu,cute,ok,0.503,0.00389,17.344,17.280,17.345,13.761,5803.9,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,bdl,0,silu,cute_pad,ok,0.503,0.00389,17.697,17.696,17.760,14.049,5688.2,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,bdl,0,silu,cute_ring,ok,0.503,0.00389,17.984,17.937,18.048,13.984,5597.4,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,bdl,0,silu,dao,ok,0.5,0.00389,22.320,22.272,22.384,20.512,4510.0,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,bdl,0,silu,fla_triton,ok,0.5,0.00389,49.617,49.616,49.681,47.984,2028.8,"input pre-copied to [B,T,D] outside the timed region"
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,bdl,0,silu,cudnn,ok,0.5,0.00389,26.608,26.384,26.656,24.543,3783.2,route=generic-cudnn
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,bdl,0,silu,subq_ops,ok,0.5,0.00389,26.528,26.401,26.640,24.656,3794.6,
+kimi-k3-kda-tp8,fwd,1536,4,8,2048,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,285.029,284.868,285.218,284.903,353.2,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,bdl,0,silu,cute,ok,0.503,0.00388,17.664,17.648,17.761,13.760,5698.8,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,bdl,0,silu,cute_pad,ok,0.503,0.00388,17.696,17.664,17.728,13.857,5688.5,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,bdl,0,silu,cute_ring,ok,0.503,0.00388,17.696,17.632,17.824,13.728,5688.5,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,bdl,0,silu,dao,ok,0.5,0.00388,44.943,44.927,44.994,44.671,2239.8,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,bdl,0,silu,fla_triton,ok,0.5,0.00388,49.600,49.488,49.760,47.601,2029.5,"input pre-copied to [B,T,D] outside the timed region"
+kimi-k3-kda-tp8,fwd,1536,4,32,512,bdl,0,silu,cudnn,ok,0.5,0.00388,27.777,27.632,27.872,25.457,3624.0,route=generic-cudnn
+kimi-k3-kda-tp8,fwd,1536,4,32,512,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,32,512,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+kimi-k3-kda-tp8,fwd,1536,4,32,512,bdl,0,silu,subq_ops,ok,0.5,0.00388,27.584,27.488,27.664,25.407,3649.3,
+kimi-k3-kda-tp8,fwd,1536,4,32,512,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,290.182,290.151,290.355,290.276,346.9,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,bdl,0,silu,cute,ok,0.503,0.00387,6.144,6.112,6.160,5.408,2047.0,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,bdl,0,silu,cute_pad,ok,0.503,0.00387,6.112,6.080,6.176,5.408,2057.7,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,bdl,0,silu,cute_ring,ok,0.503,0.00387,6.144,6.080,6.176,5.408,2047.0,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,bdl,0,silu,dao,ok,0.5,0.00387,7.600,7.553,7.664,6.080,1654.7,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,bdl,0,silu,fla_triton,ok,0.5,0.00387,9.168,9.120,9.184,7.104,1371.8,"input pre-copied to [B,T,D] outside the timed region"
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,bdl,0,silu,cudnn,ok,0.5,0.00387,12.223,12.112,12.320,8.128,1028.9,route=generic-cudnn
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,bdl,0,silu,subq_ops,ok,0.5,0.00387,12.097,12.065,12.193,8.160,1039.7,
+kimi-k3-kda-tp8,fwd,1536,4,1,2047,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00693,39.041,38.975,39.120,38.401,322.1,
+kimi-k3-kda-tp8,update,1536,4,1,1,bdl,0,silu,cute,ok,0.5,0.00341,1.856,1.840,1.856,1.248,13.2,
+kimi-k3-kda-tp8,update,1536,4,1,1,bdl,0,silu,cute_pad,ok,0.5,0.00341,1.824,1.792,1.824,1.184,13.5,
+kimi-k3-kda-tp8,update,1536,4,1,1,bdl,0,silu,cute_ring,ok,0.5,0.00341,1.856,1.824,1.873,1.248,13.2,
+kimi-k3-kda-tp8,update,1536,4,1,1,bdl,0,silu,dao,ok,0.5,0.00341,3.312,3.296,3.376,2.112,7.4,
+kimi-k3-kda-tp8,update,1536,4,1,1,bdl,0,silu,fla_triton,ok,0.5,0.00341,1.840,1.792,1.855,1.248,13.4,
+kimi-k3-kda-tp8,update,1536,4,1,1,bdl,0,silu,cudnn,ok,0.5,0.00341,1.856,1.824,1.920,1.440,13.2,
+kimi-k3-kda-tp8,update,1536,4,1,1,bdl,0,silu,cudnn_st4,ok,0.5,0.00341,1.824,1.824,1.825,1.280,13.5,
+kimi-k3-kda-tp8,update,1536,4,1,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+kimi-k3-kda-tp8,update,1536,4,1,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+kimi-k3-kda-tp8,update,1536,4,1,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00341,14.673,14.657,14.882,14.131,1.7,
+kimi-k3-kda-tp8,update,1536,4,8,1,bdl,0,silu,cute,ok,0.5,0.00354,2.048,2.016,2.075,1.248,96.0,
+kimi-k3-kda-tp8,update,1536,4,8,1,bdl,0,silu,cute_pad,ok,0.5,0.00354,1.984,1.952,2.016,1.216,99.1,
+kimi-k3-kda-tp8,update,1536,4,8,1,bdl,0,silu,cute_ring,ok,0.5,0.00354,2.048,2.016,2.112,1.280,96.0,
+kimi-k3-kda-tp8,update,1536,4,8,1,bdl,0,silu,dao,ok,0.5,0.00354,3.552,3.520,3.584,2.433,55.4,
+kimi-k3-kda-tp8,update,1536,4,8,1,bdl,0,silu,fla_triton,ok,0.5,0.00354,2.080,2.032,2.111,1.280,94.5,
+kimi-k3-kda-tp8,update,1536,4,8,1,bdl,0,silu,cudnn,ok,0.5,0.00354,2.048,2.017,2.080,1.440,96.0,
+kimi-k3-kda-tp8,update,1536,4,8,1,bdl,0,silu,cudnn_st4,ok,0.5,0.00354,2.017,1.984,2.048,1.280,97.5,
+kimi-k3-kda-tp8,update,1536,4,8,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+kimi-k3-kda-tp8,update,1536,4,8,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+kimi-k3-kda-tp8,update,1536,4,8,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00354,16.065,15.872,16.128,15.585,12.2,
+kimi-k3-kda-tp8,update,1536,4,64,1,bdl,0,silu,cute,ok,0.501,0.00373,2.224,2.192,2.256,1.472,707.1,
+kimi-k3-kda-tp8,update,1536,4,64,1,bdl,0,silu,cute_pad,ok,0.501,0.00373,2.336,2.320,2.368,1.376,673.3,
+kimi-k3-kda-tp8,update,1536,4,64,1,bdl,0,silu,cute_ring,ok,0.501,0.00373,2.304,2.272,2.352,1.440,682.7,
+kimi-k3-kda-tp8,update,1536,4,64,1,bdl,0,silu,dao,ok,0.5,0.00373,4.288,4.240,4.352,3.057,366.8,
+kimi-k3-kda-tp8,update,1536,4,64,1,bdl,0,silu,fla_triton,ok,0.5,0.00373,2.352,2.304,2.384,1.568,668.7,
+kimi-k3-kda-tp8,update,1536,4,64,1,bdl,0,silu,cudnn,ok,0.501,0.00373,2.369,2.368,2.432,1.664,664.1,
+kimi-k3-kda-tp8,update,1536,4,64,1,bdl,0,silu,cudnn_st4,ok,0.501,0.00373,2.337,2.273,2.368,1.472,673.2,
+kimi-k3-kda-tp8,update,1536,4,64,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+kimi-k3-kda-tp8,update,1536,4,64,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+kimi-k3-kda-tp8,update,1536,4,64,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00373,18.815,18.753,18.944,18.529,83.6,
+kimi-k3-kda-tp8,update,1536,4,256,1,bdl,0,silu,cute,ok,0.502,0.0038,3.008,2.976,3.040,1.888,2091.6,
+kimi-k3-kda-tp8,update,1536,4,256,1,bdl,0,silu,cute_pad,ok,0.502,0.0038,3.297,3.280,3.327,1.920,1908.2,
+kimi-k3-kda-tp8,update,1536,4,256,1,bdl,0,silu,cute_ring,ok,0.502,0.0038,3.506,3.471,3.520,1.952,1794.7,
+kimi-k3-kda-tp8,update,1536,4,256,1,bdl,0,silu,dao,ok,0.5,0.0038,7.472,7.409,7.520,5.264,842.0,
+kimi-k3-kda-tp8,update,1536,4,256,1,bdl,0,silu,fla_triton,ok,0.5,0.0038,3.792,3.744,3.808,2.880,1659.1,
+kimi-k3-kda-tp8,update,1536,4,256,1,bdl,0,silu,cudnn,ok,0.502,0.0038,3.936,3.904,3.936,2.817,1598.4,
+kimi-k3-kda-tp8,update,1536,4,256,1,bdl,0,silu,cudnn_st4,ok,0.502,0.0038,3.840,3.809,3.920,2.385,1638.4,
+kimi-k3-kda-tp8,update,1536,4,256,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+kimi-k3-kda-tp8,update,1536,4,256,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+kimi-k3-kda-tp8,update,1536,4,256,1,bdl,0,silu,torch_conv1d,ok,0.5,0.0038,34.258,34.194,34.384,33.681,183.6,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,btd,0,silu,cute,ok,0.502,0.00385,6.479,6.429,6.608,4.176,2589.3,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,btd,0,silu,cute_pad,ok,0.502,0.00385,6.561,6.432,6.639,4.160,2557.3,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,btd,0,silu,cute_ring,ok,0.502,0.00385,6.528,6.400,6.577,4.191,2570.0,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,btd,0,silu,dao,ok,0.5,0.00385,7.232,7.201,7.264,5.407,2319.9,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,btd,0,silu,fla_triton,ok,0.5,0.00385,8.384,8.352,8.401,7.071,2001.1,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,btd,0,silu,cudnn,ok,0.502,0.00385,9.552,9.536,9.632,5.664,1756.4,route=native-inference
+qwen3.5-9b-gdn,fwd,8192,4,1,512,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,1,512,btd,0,silu,cudnn_nwh,ok,0.5,0.00385,12.032,11.840,12.096,9.409,1394.4,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 8192, we don't support this kernel size!
+"
+qwen3.5-9b-gdn,fwd,8192,4,1,512,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,71.868,71.641,71.888,70.113,233.4,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,btd,0,silu,cute,ok,0.502,0.00389,15.585,15.584,15.636,10.305,4306.0,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,btd,0,silu,cute_pad,ok,0.502,0.00389,15.537,15.505,15.650,10.209,4319.3,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,btd,0,silu,cute_ring,ok,0.502,0.00389,15.554,15.551,15.649,10.239,4314.7,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,btd,0,silu,dao,ok,0.5,0.00389,20.574,20.543,20.992,16.546,3261.8,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,btd,0,silu,fla_triton,ok,0.5,0.00389,24.383,24.335,24.387,22.303,2752.3,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,btd,0,silu,cudnn,ok,0.502,0.00389,23.489,23.456,23.554,14.911,2857.0,route=native-inference
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,btd,0,silu,cudnn_nwh,ok,0.5,0.00389,35.264,35.023,35.441,27.567,1903.0,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 8192, we don't support this kernel size!
+"
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,251.596,251.490,251.683,251.244,266.7,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,btd,0,silu,cute,ok,0.503,0.00389,50.062,50.000,50.110,48.530,5362.1,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,btd,0,silu,cute_pad,ok,0.503,0.00389,50.064,49.934,50.193,48.624,5361.8,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,btd,0,silu,cute_ring,ok,0.503,0.00389,50.113,49.903,50.211,48.673,5356.6,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,btd,0,silu,dao,ok,0.5,0.00389,67.762,67.632,67.809,66.306,3961.4,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,btd,0,silu,fla_triton,ok,0.5,0.00389,86.709,86.580,86.814,85.010,3095.8,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,btd,0,silu,cudnn,ok,0.503,0.00389,74.011,73.968,74.100,72.752,3627.0,route=native-inference
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,btd,0,silu,cudnn_nwh,ok,0.5,0.00389,123.744,123.189,124.240,120.051,2169.3,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 8192, we don't support this kernel size!
+"
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,1011.744,1011.572,1011.976,1011.337,265.3,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,btd,0,silu,cute,ok,0.503,0.00389,93.952,93.937,93.968,92.343,5714.3,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,btd,0,silu,cute_pad,ok,0.503,0.00389,93.952,93.922,94.047,92.394,5714.3,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,btd,0,silu,cute_ring,ok,0.503,0.00389,93.914,93.865,94.002,92.418,5716.6,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,btd,0,silu,dao,ok,0.5,0.00389,126.615,126.497,126.781,125.138,4240.2,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,btd,0,silu,fla_triton,ok,0.5,0.00389,168.107,168.047,168.179,166.459,3193.6,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,btd,0,silu,cudnn,ok,0.503,0.00389,138.994,138.962,139.049,137.802,3862.5,route=native-inference
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,btd,0,silu,cudnn_nwh,ok,0.5,0.00389,218.982,218.956,219.631,215.400,2451.7,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 8192, we don't support this kernel size!
+"
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,2020.764,2020.444,2021.025,2020.381,265.7,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,btd,0,silu,cute,ok,0.503,0.00389,93.858,93.820,93.901,92.258,5720.0,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,btd,0,silu,cute_pad,ok,0.503,0.00389,93.856,93.729,93.953,92.245,5720.2,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,btd,0,silu,cute_ring,ok,0.503,0.00389,93.914,93.722,93.985,92.257,5716.6,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,btd,0,silu,dao,ok,0.5,0.00389,125.362,125.281,125.424,124.334,4282.6,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,btd,0,silu,fla_triton,ok,0.5,0.00389,168.144,167.911,168.154,166.454,3192.9,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,btd,0,silu,cudnn,ok,0.503,0.00389,138.947,138.912,139.008,137.753,3863.9,route=native-inference
+qwen3.5-9b-gdn,fwd,8192,4,32,512,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,32,512,btd,0,silu,cudnn_nwh,ok,0.5,0.00389,229.822,229.538,230.108,226.931,2336.0,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 8192, we don't support this kernel size!
+"
+qwen3.5-9b-gdn,fwd,8192,4,32,512,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,2055.262,2054.785,2055.725,2054.976,261.2,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,btd,0,silu,cute,ok,0.502,0.00389,15.617,15.521,15.663,10.143,4295.1,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,btd,0,silu,cute_pad,ok,0.502,0.00389,15.585,15.552,15.630,10.178,4303.8,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,btd,0,silu,cute_ring,ok,0.502,0.00389,15.569,15.551,15.598,10.177,4308.4,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,btd,0,silu,dao,ok,0.5,0.00389,20.625,20.545,20.734,16.495,3252.2,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,btd,0,silu,fla_triton,ok,0.5,0.00389,24.369,24.321,24.386,22.222,2752.6,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,btd,0,silu,cudnn,ok,0.502,0.00389,23.344,23.327,23.377,14.944,2873.3,route=native-inference
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,btd,0,silu,cudnn_nwh,ok,0.5,0.00389,36.048,35.951,36.157,28.128,1860.7,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 8192, we don't support this kernel size!
+"
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,251.505,251.413,251.609,250.866,266.7,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,bdl,0,silu,cute,ok,0.502,0.00388,4.784,4.752,4.800,3.008,3506.9,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,bdl,0,silu,cute_pad,ok,0.502,0.00388,4.641,4.623,4.672,3.024,3615.4,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,bdl,0,silu,cute_ring,ok,0.502,0.00388,4.608,4.592,4.640,3.009,3640.5,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,bdl,0,silu,dao,ok,0.5,0.00388,9.504,9.456,9.535,8.480,1765.3,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,bdl,0,silu,fla_triton,ok,0.5,0.00388,8.353,8.351,8.448,7.072,2008.5,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.5-9b-gdn,fwd,8192,4,1,512,bdl,0,silu,cudnn,ok,0.5,0.00388,8.560,8.449,8.623,6.176,1960.0,route=generic-cudnn
+qwen3.5-9b-gdn,fwd,8192,4,1,512,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,1,512,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.5-9b-gdn,fwd,8192,4,1,512,bdl,0,silu,subq_ops,ok,0.5,0.00388,8.607,8.512,8.704,6.145,1949.3,
+qwen3.5-9b-gdn,fwd,8192,4,1,512,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,51.423,51.296,51.488,50.944,326.3,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,bdl,0,silu,cute,ok,0.502,0.00388,12.720,12.672,12.736,8.193,5275.9,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,bdl,0,silu,cute_pad,ok,0.502,0.00388,12.480,12.401,12.527,8.271,5377.5,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,bdl,0,silu,cute_ring,ok,0.502,0.00388,12.719,12.688,12.767,8.160,5276.3,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,bdl,0,silu,dao,ok,0.5,0.00388,15.984,15.888,16.001,13.375,4198.5,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,bdl,0,silu,fla_triton,ok,0.5,0.00388,24.351,24.289,24.386,22.208,2755.9,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,bdl,0,silu,cudnn,ok,0.5,0.00388,21.760,21.664,21.952,16.527,3084.0,route=generic-cudnn
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,bdl,0,silu,subq_ops,ok,0.5,0.00388,21.761,21.698,21.889,16.592,3083.9,
+qwen3.5-9b-gdn,fwd,8192,4,1,2048,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,186.776,186.680,186.847,186.028,359.3,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,bdl,0,silu,cute,ok,0.503,0.00388,42.233,42.206,42.496,40.732,6356.1,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,bdl,0,silu,cute_pad,ok,0.503,0.00388,41.909,41.843,41.924,40.452,6405.2,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,bdl,0,silu,cute_ring,ok,0.503,0.00388,42.240,42.180,42.370,40.613,6355.0,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,bdl,0,silu,dao,ok,0.5,0.00388,50.988,50.941,51.088,49.690,5264.7,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,bdl,0,silu,fla_triton,ok,0.5,0.00388,86.738,86.641,86.868,84.907,3094.8,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,bdl,0,silu,cudnn,ok,0.5,0.00388,71.107,70.895,71.121,69.068,3775.1,route=generic-cudnn
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,bdl,0,silu,subq_ops,ok,0.5,0.00388,71.151,70.859,71.201,69.023,3772.8,
+qwen3.5-9b-gdn,fwd,8192,4,1,8192,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,755.863,755.780,756.067,755.942,355.1,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,bdl,0,silu,cute,ok,0.503,0.00389,80.467,80.317,80.642,79.166,6671.9,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,bdl,0,silu,cute_pad,ok,0.503,0.00389,80.457,80.401,80.528,79.367,6672.8,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,bdl,0,silu,cute_ring,ok,0.503,0.00389,80.449,80.381,80.560,79.418,6673.4,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,bdl,0,silu,dao,ok,0.5,0.00389,102.178,102.080,102.239,101.105,5254.3,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,bdl,0,silu,fla_triton,ok,0.5,0.00389,168.122,168.067,168.374,166.302,3193.3,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,bdl,0,silu,cudnn,ok,0.5,0.00389,109.891,109.754,109.992,108.293,4885.5,route=generic-cudnn
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,bdl,0,silu,subq_ops,ok,0.5,0.00389,109.856,109.737,109.963,108.289,4887.0,
+qwen3.5-9b-gdn,fwd,8192,4,8,2048,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,1513.643,1513.479,1513.705,1513.677,354.7,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,bdl,0,silu,cute,ok,0.503,0.00388,80.780,80.706,80.897,79.636,6646.1,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,bdl,0,silu,cute_pad,ok,0.503,0.00388,81.233,80.976,81.429,79.769,6609.0,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,bdl,0,silu,cute_ring,ok,0.503,0.00388,80.768,80.724,80.834,79.675,6647.1,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,bdl,0,silu,dao,ok,0.5,0.00388,227.925,227.843,227.963,227.792,2355.5,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,bdl,0,silu,fla_triton,ok,0.5,0.00388,167.995,167.788,168.131,166.241,3195.8,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.5-9b-gdn,fwd,8192,4,32,512,bdl,0,silu,cudnn,ok,0.5,0.00388,128.177,128.034,128.350,127.424,4188.5,route=generic-cudnn
+qwen3.5-9b-gdn,fwd,8192,4,32,512,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,32,512,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.5-9b-gdn,fwd,8192,4,32,512,bdl,0,silu,subq_ops,ok,0.5,0.00388,128.389,128.321,128.448,127.456,4181.6,
+qwen3.5-9b-gdn,fwd,8192,4,32,512,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,1544.124,1544.014,1544.890,1543.863,347.7,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,bdl,0,silu,cute,ok,0.503,0.00388,15.776,15.615,15.808,11.360,4251.8,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,bdl,0,silu,cute_pad,ok,0.503,0.00388,15.904,15.760,15.969,11.297,4217.6,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,bdl,0,silu,cute_ring,ok,0.503,0.00388,15.744,15.584,15.807,11.393,4260.4,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,bdl,0,silu,dao,ok,0.5,0.00388,26.577,26.543,26.704,23.039,2523.8,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,bdl,0,silu,fla_triton,ok,0.5,0.00388,24.368,24.352,24.400,22.176,2752.6,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,bdl,0,silu,cudnn,ok,0.5,0.00388,26.622,26.495,26.689,21.743,2519.6,route=generic-cudnn
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,bdl,0,silu,subq_ops,ok,0.5,0.00388,26.785,26.590,26.817,21.794,2504.2,
+qwen3.5-9b-gdn,fwd,8192,4,1,2047,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,186.625,186.513,186.732,186.160,359.4,
+qwen3.5-9b-gdn,update,8192,4,1,1,bdl,0,silu,cute,ok,0.5,0.00348,1.920,1.889,2.000,1.120,68.2,
+qwen3.5-9b-gdn,update,8192,4,1,1,bdl,0,silu,cute_pad,ok,0.5,0.00348,1.920,1.888,1.952,1.088,68.3,
+qwen3.5-9b-gdn,update,8192,4,1,1,bdl,0,silu,cute_ring,ok,0.5,0.00348,1.984,1.984,2.015,1.152,66.1,
+qwen3.5-9b-gdn,update,8192,4,1,1,bdl,0,silu,dao,ok,0.5,0.00348,3.424,3.358,3.472,2.272,38.3,
+qwen3.5-9b-gdn,update,8192,4,1,1,bdl,0,silu,fla_triton,ok,0.5,0.00348,2.080,2.047,2.096,1.248,63.0,
+qwen3.5-9b-gdn,update,8192,4,1,1,bdl,0,silu,cudnn,ok,0.5,0.00348,1.984,1.968,2.016,1.376,66.1,
+qwen3.5-9b-gdn,update,8192,4,1,1,bdl,0,silu,cudnn_st4,ok,0.5,0.00348,1.952,1.920,1.984,1.184,67.1,
+qwen3.5-9b-gdn,update,8192,4,1,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.5-9b-gdn,update,8192,4,1,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.5-9b-gdn,update,8192,4,1,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00348,14.591,14.528,14.720,13.920,9.0,
+qwen3.5-9b-gdn,update,8192,4,8,1,bdl,0,silu,cute,ok,0.501,0.00372,2.144,2.112,2.176,1.375,489.1,
+qwen3.5-9b-gdn,update,8192,4,8,1,bdl,0,silu,cute_pad,ok,0.501,0.00372,2.144,2.096,2.159,1.280,489.1,
+qwen3.5-9b-gdn,update,8192,4,8,1,bdl,0,silu,cute_ring,ok,0.501,0.00372,2.208,2.144,2.208,1.312,474.9,
+qwen3.5-9b-gdn,update,8192,4,8,1,bdl,0,silu,dao,ok,0.5,0.00372,3.968,3.936,4.016,2.753,264.3,
+qwen3.5-9b-gdn,update,8192,4,8,1,bdl,0,silu,fla_triton,ok,0.5,0.00372,2.400,2.336,2.464,1.583,436.9,
+qwen3.5-9b-gdn,update,8192,4,8,1,bdl,0,silu,cudnn,ok,0.501,0.00372,2.224,2.192,2.240,1.536,471.4,
+qwen3.5-9b-gdn,update,8192,4,8,1,bdl,0,silu,cudnn_st4,ok,0.501,0.00372,2.176,2.176,2.208,1.312,481.9,
+qwen3.5-9b-gdn,update,8192,4,8,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.5-9b-gdn,update,8192,4,8,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.5-9b-gdn,update,8192,4,8,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00372,17.247,17.184,17.281,16.638,60.8,
+qwen3.5-9b-gdn,update,8192,4,64,1,bdl,0,silu,cute,ok,0.502,0.00379,3.328,3.296,3.425,1.984,2520.6,
+qwen3.5-9b-gdn,update,8192,4,64,1,bdl,0,silu,cute_pad,ok,0.502,0.00379,3.616,3.600,3.712,2.080,2319.9,
+qwen3.5-9b-gdn,update,8192,4,64,1,bdl,0,silu,cute_ring,ok,0.502,0.00379,3.616,3.584,3.663,2.048,2319.9,
+qwen3.5-9b-gdn,update,8192,4,64,1,bdl,0,silu,dao,ok,0.5,0.00379,8.543,8.495,8.623,6.289,981.9,
+qwen3.5-9b-gdn,update,8192,4,64,1,bdl,0,silu,fla_triton,ok,0.5,0.00379,6.400,6.351,6.465,5.056,1310.7,
+qwen3.5-9b-gdn,update,8192,4,64,1,bdl,0,silu,cudnn,ok,0.502,0.00379,4.320,4.320,4.352,3.103,1941.8,
+qwen3.5-9b-gdn,update,8192,4,64,1,bdl,0,silu,cudnn_st4,ok,0.502,0.00379,4.288,4.287,4.320,2.784,1956.3,
+qwen3.5-9b-gdn,update,8192,4,64,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.5-9b-gdn,update,8192,4,64,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.5-9b-gdn,update,8192,4,64,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00379,40.672,40.640,40.829,39.858,206.3,
+qwen3.5-9b-gdn,update,8192,4,256,1,bdl,0,silu,cute,ok,0.502,0.00386,7.295,7.200,7.327,5.280,4599.3,
+qwen3.5-9b-gdn,update,8192,4,256,1,bdl,0,silu,cute_pad,ok,0.502,0.00386,8.544,8.528,8.591,5.152,3927.3,
+qwen3.5-9b-gdn,update,8192,4,256,1,bdl,0,silu,cute_ring,ok,0.502,0.00386,7.055,7.007,7.105,4.063,4756.1,
+qwen3.5-9b-gdn,update,8192,4,256,1,bdl,0,silu,dao,ok,0.5,0.00386,22.994,22.896,23.137,18.946,1459.3,
+qwen3.5-9b-gdn,update,8192,4,256,1,bdl,0,silu,fla_triton,ok,0.5,0.00386,19.040,19.040,19.104,15.937,1762.3,
+qwen3.5-9b-gdn,update,8192,4,256,1,bdl,0,silu,cudnn,ok,0.502,0.00386,11.136,11.104,11.154,8.255,3013.1,
+qwen3.5-9b-gdn,update,8192,4,256,1,bdl,0,silu,cudnn_st4,ok,0.502,0.00386,11.105,11.088,11.120,7.201,3021.6,
+qwen3.5-9b-gdn,update,8192,4,256,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.5-9b-gdn,update,8192,4,256,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.5-9b-gdn,update,8192,4,256,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00386,125.887,125.863,125.991,125.608,266.5,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,btd,0,silu,cute,ok,0.503,0.00387,6.369,6.336,6.432,4.512,3292.7,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,btd,0,silu,cute_pad,ok,0.503,0.00387,6.367,6.337,6.401,4.545,3293.8,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,btd,0,silu,cute_ring,ok,0.503,0.00387,6.353,6.337,6.369,4.512,3301.3,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,btd,0,silu,dao,ok,0.5,0.00387,8.336,8.288,8.353,6.368,2515.8,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,btd,0,silu,fla_triton,ok,0.5,0.00387,10.143,10.073,10.177,8.480,2067.5,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,btd,0,silu,cudnn,ok,0.503,0.00387,10.082,10.065,10.145,6.560,2080.2,route=native-inference
+qwen3.8-27b-gdn,fwd,10240,4,1,512,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,1,512,btd,0,silu,cudnn_nwh,ok,0.5,0.00387,18.031,17.920,18.208,12.544,1163.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 10240, we don't support this kernel size!
+"
+qwen3.8-27b-gdn,fwd,10240,4,1,512,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,88.578,88.412,88.705,86.286,236.8,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,btd,0,silu,cute,ok,0.503,0.00387,17.505,17.457,17.552,12.382,4792.3,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,btd,0,silu,cute_pad,ok,0.503,0.00387,17.520,17.506,17.567,12.207,4788.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,btd,0,silu,cute_ring,ok,0.503,0.00387,17.472,17.440,17.537,12.449,4801.2,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,btd,0,silu,dao,ok,0.5,0.00387,24.958,24.896,24.992,20.546,3361.1,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,btd,0,silu,fla_triton,ok,0.5,0.00387,30.384,30.335,30.414,28.771,2760.9,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,btd,0,silu,cudnn,ok,0.503,0.00387,27.232,27.168,27.353,19.648,3080.4,route=native-inference
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,btd,0,silu,cudnn_nwh,ok,0.5,0.00387,57.280,57.217,57.364,47.215,1464.5,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 10240, we don't support this kernel size!
+"
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,320.147,320.071,320.304,319.654,262.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,btd,0,silu,cute,ok,0.503,0.00389,56.414,56.208,56.479,54.928,5947.9,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,btd,0,silu,cute_pad,ok,0.503,0.00389,56.508,56.451,56.570,54.895,5938.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,btd,0,silu,cute_ring,ok,0.503,0.00389,56.385,56.367,56.526,54.912,5951.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,btd,0,silu,dao,ok,0.5,0.00389,82.640,82.450,82.770,81.122,4060.3,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,btd,0,silu,fla_triton,ok,0.5,0.00389,108.271,108.215,108.350,106.591,3099.1,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,btd,0,silu,cudnn,ok,0.503,0.00389,92.929,92.771,92.998,91.586,3610.8,route=native-inference
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,btd,0,silu,cudnn_nwh,ok,0.5,0.00389,209.310,209.034,209.723,206.065,1603.1,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 10240, we don't support this kernel size!
+"
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,1290.969,1290.893,1291.148,1290.476,259.9,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,btd,0,silu,cute,ok,0.503,0.00389,106.593,106.546,106.749,105.057,6295.8,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,btd,0,silu,cute_pad,ok,0.503,0.00389,106.639,106.591,106.752,105.120,6293.1,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,btd,0,silu,cute_ring,ok,0.503,0.00389,106.633,106.552,106.658,105.058,6293.4,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,btd,0,silu,dao,ok,0.5,0.00389,156.418,156.176,156.480,155.163,4290.4,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,btd,0,silu,fla_triton,ok,0.5,0.00389,211.212,211.125,211.551,209.715,3177.3,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,btd,0,silu,cudnn,ok,0.503,0.00389,176.328,176.282,176.388,175.136,3805.9,route=native-inference
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,btd,0,silu,cudnn_nwh,ok,0.5,0.00389,273.250,272.945,273.297,269.899,2456.0,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 10240, we don't support this kernel size!
+"
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,2572.661,2572.039,2572.729,2572.122,260.9,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,btd,0,silu,cute,ok,0.503,0.00389,106.785,106.768,106.883,105.137,6284.5,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,btd,0,silu,cute_pad,ok,0.503,0.00389,106.705,106.687,106.753,105.118,6289.2,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,btd,0,silu,cute_ring,ok,0.503,0.00389,106.778,106.695,106.786,105.080,6284.9,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,btd,0,silu,dao,ok,0.5,0.00389,155.666,155.585,155.747,154.799,4311.1,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,btd,0,silu,fla_triton,ok,0.5,0.00389,211.209,210.811,211.460,209.994,3177.4,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,btd,0,silu,cudnn,ok,0.503,0.00389,176.577,176.528,176.683,175.426,3800.5,route=native-inference
+qwen3.8-27b-gdn,fwd,10240,4,32,512,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,32,512,btd,0,silu,cudnn_nwh,ok,0.5,0.00389,285.865,285.691,286.043,282.535,2347.6,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 10240, we don't support this kernel size!
+"
+qwen3.8-27b-gdn,fwd,10240,4,32,512,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,2599.782,2599.643,2600.791,2600.204,258.1,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,btd,0,silu,cute,ok,0.503,0.00387,17.440,17.409,17.535,12.512,4807.6,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,btd,0,silu,cute_pad,ok,0.503,0.00387,17.411,17.409,17.503,12.544,4815.6,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,btd,0,silu,cute_ring,ok,0.503,0.00387,17.439,17.424,17.552,12.542,4807.9,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,btd,0,silu,dao,ok,0.5,0.00387,24.865,24.768,24.896,20.832,3372.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,btd,0,silu,fla_triton,ok,0.5,0.00387,30.368,30.304,30.449,28.577,2761.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,btd,0,silu,cudnn,ok,0.503,0.00387,27.200,27.075,27.232,19.647,3082.6,route=native-inference
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,btd,0,silu,cudnn_nwh,ok,0.5,0.00387,59.165,58.893,59.381,49.319,1417.1,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 10240, we don't support this kernel size!
+"
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,319.180,319.155,319.336,318.964,262.7,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,bdl,0,silu,cute,ok,0.502,0.00388,5.568,5.553,5.585,3.488,3766.4,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,bdl,0,silu,cute_pad,ok,0.502,0.00388,5.697,5.696,5.791,3.488,3681.5,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,bdl,0,silu,cute_ring,ok,0.502,0.00388,5.568,5.537,5.600,3.488,3766.4,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,bdl,0,silu,dao,ok,0.5,0.00388,11.424,11.329,11.471,10.240,1835.7,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,bdl,0,silu,fla_triton,ok,0.5,0.00388,10.417,10.223,10.433,8.481,2013.3,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-27b-gdn,fwd,10240,4,1,512,bdl,0,silu,cudnn,ok,0.5,0.00388,9.440,9.264,9.472,6.768,2221.6,route=generic-cudnn
+qwen3.8-27b-gdn,fwd,10240,4,1,512,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,1,512,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-27b-gdn,fwd,10240,4,1,512,bdl,0,silu,subq_ops,ok,0.5,0.00388,9.375,9.343,9.452,6.753,2237.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,512,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,62.993,62.891,63.008,62.502,332.9,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,bdl,0,silu,cute,ok,0.502,0.00388,15.008,14.899,15.055,10.064,5589.6,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,bdl,0,silu,cute_pad,ok,0.502,0.00388,15.152,15.137,15.168,10.145,5536.3,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,bdl,0,silu,cute_ring,ok,0.502,0.00388,14.961,14.913,14.993,10.048,5607.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,bdl,0,silu,dao,ok,0.5,0.00388,19.247,19.198,19.344,16.512,4358.5,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,bdl,0,silu,fla_triton,ok,0.5,0.00388,30.384,30.365,30.481,28.674,2760.9,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,bdl,0,silu,cudnn,ok,0.5,0.00388,24.032,23.952,24.177,19.489,3490.6,route=generic-cudnn
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,bdl,0,silu,subq_ops,ok,0.5,0.00388,23.998,23.859,24.035,19.439,3495.5,
+qwen3.8-27b-gdn,fwd,10240,4,1,2048,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,233.731,233.624,233.859,233.551,358.9,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,bdl,0,silu,cute,ok,0.503,0.00389,51.710,51.474,51.794,50.417,6489.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,bdl,0,silu,cute_pad,ok,0.503,0.00389,51.312,51.197,51.396,50.012,6539.3,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,bdl,0,silu,cute_ring,ok,0.503,0.00389,51.679,51.646,51.789,50.361,6492.9,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,bdl,0,silu,dao,ok,0.5,0.00389,62.144,62.107,62.177,60.786,5399.5,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,bdl,0,silu,fla_triton,ok,0.5,0.00389,108.161,108.080,108.288,106.884,3102.3,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,bdl,0,silu,cudnn,ok,0.5,0.00389,78.622,78.362,78.722,76.360,4267.8,route=generic-cudnn
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,bdl,0,silu,subq_ops,ok,0.5,0.00389,78.582,78.374,78.657,76.576,4270.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,8192,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,943.180,942.959,943.811,943.032,355.8,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,bdl,0,silu,cute,ok,0.503,0.00389,99.362,99.212,99.606,98.347,6754.0,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,bdl,0,silu,cute_pad,ok,0.503,0.00389,100.146,99.972,100.405,98.402,6701.1,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,bdl,0,silu,cute_ring,ok,0.503,0.00389,99.582,99.468,99.647,98.195,6739.1,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,bdl,0,silu,dao,ok,0.5,0.00389,125.984,125.954,126.082,125.002,5326.8,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,bdl,0,silu,fla_triton,ok,0.5,0.00389,211.056,210.990,211.192,209.803,3179.7,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,bdl,0,silu,cudnn,ok,0.5,0.00389,135.120,135.056,135.263,133.712,4966.6,route=generic-cudnn
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,bdl,0,silu,subq_ops,ok,0.5,0.00389,135.234,135.072,135.265,133.725,4962.4,
+qwen3.8-27b-gdn,fwd,10240,4,8,2048,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,1891.845,1891.739,1891.999,1891.886,354.7,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,bdl,0,silu,cute,ok,0.503,0.00389,100.348,100.239,100.481,99.169,6687.6,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,bdl,0,silu,cute_pad,ok,0.503,0.00389,100.355,100.291,100.480,99.075,6687.2,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,bdl,0,silu,cute_ring,ok,0.503,0.00389,100.433,100.329,100.514,99.184,6682.0,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,bdl,0,silu,dao,ok,0.5,0.00389,284.116,284.019,284.223,284.017,2362.0,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,bdl,0,silu,fla_triton,ok,0.5,0.00389,210.998,210.786,211.150,209.586,3180.5,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-27b-gdn,fwd,10240,4,32,512,bdl,0,silu,cudnn,ok,0.5,0.00389,159.410,159.281,159.438,158.329,4209.8,route=generic-cudnn
+qwen3.8-27b-gdn,fwd,10240,4,32,512,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,32,512,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-27b-gdn,fwd,10240,4,32,512,bdl,0,silu,subq_ops,ok,0.5,0.00389,159.266,159.192,159.344,158.383,4213.6,
+qwen3.8-27b-gdn,fwd,10240,4,32,512,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,1929.289,1929.171,1929.344,1929.156,347.8,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,bdl,0,silu,cute,ok,0.503,0.00388,18.384,18.257,18.449,14.560,4560.6,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,bdl,0,silu,cute_pad,ok,0.503,0.00388,18.416,18.335,18.560,14.433,4552.8,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,bdl,0,silu,cute_ring,ok,0.503,0.00388,18.464,18.431,18.560,14.495,4541.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,bdl,0,silu,dao,ok,0.5,0.00388,32.323,32.303,32.350,28.786,2594.0,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,bdl,0,silu,fla_triton,ok,0.5,0.00388,30.303,30.272,30.351,28.704,2766.8,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,bdl,0,silu,cudnn,ok,0.5,0.00388,30.782,30.673,30.815,27.200,2723.8,route=generic-cudnn
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,bdl,0,silu,subq_ops,ok,0.5,0.00388,30.608,30.449,30.720,27.105,2739.4,
+qwen3.8-27b-gdn,fwd,10240,4,1,2047,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,233.548,233.306,233.731,233.453,359.0,
+qwen3.8-27b-gdn,update,10240,4,1,1,bdl,0,silu,cute,ok,0.5,0.00352,1.984,1.984,2.016,1.152,82.6,
+qwen3.8-27b-gdn,update,10240,4,1,1,bdl,0,silu,cute_pad,ok,0.5,0.00352,1.920,1.904,1.952,1.088,85.3,
+qwen3.8-27b-gdn,update,10240,4,1,1,bdl,0,silu,cute_ring,ok,0.5,0.00352,1.936,1.920,2.016,1.184,84.6,
+qwen3.8-27b-gdn,update,10240,4,1,1,bdl,0,silu,dao,ok,0.5,0.00352,3.536,3.504,3.553,2.208,46.3,
+qwen3.8-27b-gdn,update,10240,4,1,1,bdl,0,silu,fla_triton,ok,0.5,0.00352,2.112,2.080,2.144,1.344,77.6,
+qwen3.8-27b-gdn,update,10240,4,1,1,bdl,0,silu,cudnn,ok,0.5,0.00352,2.016,1.984,2.048,1.344,81.3,
+qwen3.8-27b-gdn,update,10240,4,1,1,bdl,0,silu,cudnn_st4,ok,0.5,0.00352,1.984,1.968,1.989,1.184,82.6,
+qwen3.8-27b-gdn,update,10240,4,1,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.8-27b-gdn,update,10240,4,1,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.8-27b-gdn,update,10240,4,1,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00352,14.048,13.952,14.145,13.344,11.7,
+qwen3.8-27b-gdn,update,10240,4,8,1,bdl,0,silu,cute,ok,0.502,0.00383,2.208,2.176,2.223,1.376,593.6,
+qwen3.8-27b-gdn,update,10240,4,8,1,bdl,0,silu,cute_pad,ok,0.502,0.00383,2.208,2.144,2.240,1.312,593.6,
+qwen3.8-27b-gdn,update,10240,4,8,1,bdl,0,silu,cute_ring,ok,0.502,0.00383,2.240,2.192,2.273,1.344,585.1,
+qwen3.8-27b-gdn,update,10240,4,8,1,bdl,0,silu,dao,ok,0.5,0.00383,4.160,4.096,4.160,2.945,315.1,
+qwen3.8-27b-gdn,update,10240,4,8,1,bdl,0,silu,fla_triton,ok,0.5,0.00383,3.344,3.328,3.392,2.592,392.0,
+qwen3.8-27b-gdn,update,10240,4,8,1,bdl,0,silu,cudnn,ok,0.502,0.00383,2.304,2.304,2.336,1.568,568.9,
+qwen3.8-27b-gdn,update,10240,4,8,1,bdl,0,silu,cudnn_st4,ok,0.502,0.00383,2.256,2.240,2.288,1.344,580.9,
+qwen3.8-27b-gdn,update,10240,4,8,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.8-27b-gdn,update,10240,4,8,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.8-27b-gdn,update,10240,4,8,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00383,18.448,18.336,18.465,17.701,71.0,
+qwen3.8-27b-gdn,update,10240,4,64,1,bdl,0,silu,cute,ok,0.502,0.00385,3.680,3.680,3.712,2.304,2849.0,
+qwen3.8-27b-gdn,update,10240,4,64,1,bdl,0,silu,cute_pad,ok,0.502,0.00385,4.000,3.968,4.001,2.336,2621.4,
+qwen3.8-27b-gdn,update,10240,4,64,1,bdl,0,silu,cute_ring,ok,0.502,0.00385,4.096,4.064,4.128,2.240,2560.0,
+qwen3.8-27b-gdn,update,10240,4,64,1,bdl,0,silu,dao,ok,0.5,0.00385,9.888,9.823,10.017,7.297,1060.5,
+qwen3.8-27b-gdn,update,10240,4,64,1,bdl,0,silu,fla_triton,ok,0.5,0.00385,12.640,12.577,12.705,11.968,829.6,
+qwen3.8-27b-gdn,update,10240,4,64,1,bdl,0,silu,cudnn,ok,0.502,0.00385,5.104,5.057,5.152,3.648,2054.4,
+qwen3.8-27b-gdn,update,10240,4,64,1,bdl,0,silu,cudnn_st4,ok,0.502,0.00385,4.944,4.928,4.960,3.040,2120.9,
+qwen3.8-27b-gdn,update,10240,4,64,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.8-27b-gdn,update,10240,4,64,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.8-27b-gdn,update,10240,4,64,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00385,48.078,48.002,48.225,47.043,218.1,
+qwen3.8-27b-gdn,update,10240,4,256,1,bdl,0,silu,cute,ok,0.502,0.00388,8.736,8.688,8.752,6.144,4801.4,
+qwen3.8-27b-gdn,update,10240,4,256,1,bdl,0,silu,cute_pad,ok,0.502,0.00388,10.112,10.080,10.145,5.888,4147.8,
+qwen3.8-27b-gdn,update,10240,4,256,1,bdl,0,silu,cute_ring,ok,0.502,0.00388,7.983,7.968,8.015,4.672,5253.7,
+qwen3.8-27b-gdn,update,10240,4,256,1,bdl,0,silu,dao,ok,0.5,0.00388,27.633,27.585,27.695,23.128,1517.9,
+qwen3.8-27b-gdn,update,10240,4,256,1,bdl,0,silu,fla_triton,ok,0.5,0.00388,44.227,44.207,44.289,43.425,948.4,
+qwen3.8-27b-gdn,update,10240,4,256,1,bdl,0,silu,cudnn,ok,0.502,0.00388,13.375,13.344,13.409,9.886,3136.0,
+qwen3.8-27b-gdn,update,10240,4,256,1,bdl,0,silu,cudnn_st4,ok,0.502,0.00388,13.073,13.056,13.088,8.449,3208.4,
+qwen3.8-27b-gdn,update,10240,4,256,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.8-27b-gdn,update,10240,4,256,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.8-27b-gdn,update,10240,4,256,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00388,156.017,155.873,156.130,155.827,268.8,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,btd,0,silu,cute,ok,0.502,0.00386,3.808,3.792,3.808,2.592,1376.8,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,btd,0,silu,cute_pad,ok,0.502,0.00386,3.776,3.760,3.808,2.592,1388.5,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,btd,0,silu,cute_ring,ok,0.502,0.00386,3.808,3.776,3.872,2.593,1376.8,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,btd,0,silu,dao,ok,0.5,0.00386,4.640,4.608,4.641,3.521,1129.9,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,btd,0,silu,fla_triton,ok,0.5,0.00386,4.256,4.256,4.304,3.488,1231.7,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,btd,0,silu,cudnn,ok,0.502,0.00386,8.064,8.032,8.096,4.736,650.2,route=native-inference
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,btd,0,silu,cudnn_nwh,ok,0.5,0.00386,10.032,9.952,10.272,7.103,522.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,btd,0,silu,torch_conv1d,lowprec,1.58,0.00693,30.752,30.448,30.866,26.890,170.5,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,btd,0,silu,cute,ok,0.502,0.00386,6.464,6.383,6.497,4.289,3244.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,btd,0,silu,cute_pad,ok,0.502,0.00386,6.463,6.367,6.495,4.258,3244.9,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,btd,0,silu,cute_ring,ok,0.502,0.00386,6.431,6.400,6.480,4.288,3261.0,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,btd,0,silu,dao,ok,0.5,0.00386,8.352,8.351,8.383,6.336,2511.0,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,btd,0,silu,fla_triton,ok,0.5,0.00386,9.952,9.919,9.968,8.417,2107.4,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,btd,0,silu,cudnn,ok,0.502,0.00386,10.145,10.128,10.239,7.102,2067.2,route=native-inference
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,btd,0,silu,cudnn_nwh,ok,0.5,0.00386,27.428,27.223,27.567,17.952,764.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,85.375,85.243,85.449,83.412,245.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,btd,0,silu,cute,ok,0.502,0.00388,17.456,17.360,17.505,11.072,4805.4,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,btd,0,silu,cute_pad,ok,0.502,0.00388,17.489,17.423,17.616,11.328,4796.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,btd,0,silu,cute_ring,ok,0.502,0.00388,17.506,17.439,17.574,11.136,4791.8,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,btd,0,silu,dao,ok,0.5,0.00388,25.457,25.344,25.489,20.767,3295.2,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,btd,0,silu,fla_triton,ok,0.5,0.00388,29.793,29.758,29.888,28.289,2815.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,btd,0,silu,cudnn,ok,0.502,0.00388,30.784,30.753,30.815,21.920,2725.0,route=native-inference
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,btd,0,silu,cudnn_nwh,ok,0.5,0.00388,98.336,98.185,98.513,79.472,853.1,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,313.877,313.567,314.079,313.762,267.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,btd,0,silu,cute,ok,0.503,0.00388,30.481,30.464,30.529,29.231,5504.2,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,btd,0,silu,cute_pad,ok,0.503,0.00388,30.561,30.513,30.607,29.185,5489.7,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,btd,0,silu,cute_ring,ok,0.503,0.00388,30.480,30.385,30.530,29.151,5504.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,btd,0,silu,dao,ok,0.5,0.00388,44.331,44.273,44.432,43.233,3784.5,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,btd,0,silu,fla_triton,ok,0.5,0.00388,55.841,55.776,56.068,54.561,3004.5,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,btd,0,silu,cudnn,ok,0.503,0.00388,52.864,52.814,52.927,51.544,3173.7,route=native-inference
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,btd,0,silu,cudnn_nwh,ok,0.5,0.00388,86.511,86.240,86.816,83.489,1939.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,640.807,640.611,640.850,640.535,261.8,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,btd,0,silu,cute,ok,0.503,0.00388,30.496,30.368,30.562,29.210,5501.4,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,btd,0,silu,cute_pad,ok,0.503,0.00388,30.464,30.384,30.510,29.104,5507.2,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,btd,0,silu,cute_ring,ok,0.503,0.00388,30.432,30.400,30.465,29.185,5513.0,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,btd,0,silu,dao,ok,0.5,0.00388,43.180,43.075,43.474,42.144,3885.4,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,btd,0,silu,fla_triton,ok,0.5,0.00388,55.808,55.759,55.855,54.496,3006.2,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,btd,0,silu,cudnn,ok,0.503,0.00388,52.768,52.754,52.834,51.393,3179.4,route=native-inference
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,btd,0,silu,cudnn_nwh,ok,0.5,0.00388,77.233,77.200,77.295,74.706,2172.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,652.929,652.690,653.231,652.741,257.0,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,btd,0,silu,cute,ok,0.502,0.00386,6.320,6.273,6.369,4.512,3316.7,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,btd,0,silu,cute_pad,ok,0.502,0.00386,6.273,6.256,6.336,4.512,3341.5,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,btd,0,silu,cute_ring,ok,0.502,0.00386,6.304,6.273,6.321,4.512,3324.8,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,btd,0,silu,dao,ok,0.5,0.00386,8.320,8.288,8.352,6.336,2519.4,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,btd,0,silu,fla_triton,ok,0.5,0.00386,9.984,9.953,10.001,8.384,2099.5,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,btd,0,silu,cudnn,ok,0.502,0.00386,9.969,9.952,10.018,7.072,2102.6,route=native-inference
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,btd,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,btd,0,silu,cudnn_nwh,ok,0.5,0.00386,28.624,28.573,28.702,18.108,732.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,btd,0,silu,subq_ops,skip,,,,,,,,"RuntimeError: Unsupported kernel size : 2560, we don't support this kernel size!
+"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,btd,0,silu,torch_conv1d,lowprec,1.58,0.00694,85.297,85.249,85.506,83.281,245.7,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,bdl,0,silu,cute,ok,0.502,0.00388,2.992,2.944,3.041,2.048,1752.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,bdl,0,silu,cute_pad,ok,0.502,0.00388,2.976,2.944,2.992,2.048,1761.7,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,bdl,0,silu,cute_ring,ok,0.502,0.00388,2.976,2.960,3.008,2.048,1761.7,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,bdl,0,silu,dao,ok,0.5,0.00388,4.544,4.495,4.575,3.615,1153.8,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,bdl,0,silu,fla_triton,ok,0.5,0.00388,4.288,4.255,4.288,3.519,1222.7,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,bdl,0,silu,cudnn,ok,0.5,0.00388,5.760,5.567,5.792,3.952,910.2,route=generic-cudnn
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,bdl,0,silu,subq_ops,ok,0.5,0.00388,5.728,5.632,5.793,4.095,915.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,512,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00692,19.617,19.599,19.809,19.377,267.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,bdl,0,silu,cute,ok,0.502,0.00388,5.536,5.504,5.568,3.488,3788.2,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,bdl,0,silu,cute_pad,ok,0.502,0.00388,5.568,5.536,5.632,3.488,3766.4,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,bdl,0,silu,cute_ring,ok,0.502,0.00388,5.568,5.536,5.568,3.488,3766.4,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,bdl,0,silu,dao,ok,0.5,0.00388,7.328,7.295,7.360,5.534,2861.8,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,bdl,0,silu,fla_triton,ok,0.5,0.00388,10.033,9.999,10.048,8.448,2090.3,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,bdl,0,silu,cudnn,ok,0.5,0.00388,11.488,11.456,11.648,7.360,1825.5,route=generic-cudnn
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,bdl,0,silu,subq_ops,ok,0.5,0.00388,11.520,11.488,11.648,7.488,1820.5,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2048,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00693,61.984,61.824,62.097,61.136,338.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,bdl,0,silu,cute,ok,0.503,0.00388,15.056,15.040,15.073,10.209,5571.4,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,bdl,0,silu,cute_pad,ok,0.503,0.00388,15.056,14.975,15.136,10.176,5571.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,bdl,0,silu,cute_ring,ok,0.503,0.00388,15.024,15.008,15.056,10.208,5583.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,bdl,0,silu,dao,ok,0.5,0.00388,21.407,21.329,21.424,15.713,3918.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,bdl,0,silu,fla_triton,ok,0.5,0.00388,29.887,29.855,29.888,28.096,2806.8,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,bdl,0,silu,cudnn,ok,0.5,0.00388,32.816,32.752,32.896,27.693,2556.3,route=generic-cudnn
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,bdl,0,silu,subq_ops,ok,0.5,0.00388,32.865,32.705,32.896,27.599,2552.4,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,8192,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,232.371,232.200,232.694,232.343,361.0,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,bdl,0,silu,cute,ok,0.503,0.00389,27.680,27.616,27.761,26.527,6061.1,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,bdl,0,silu,cute_pad,ok,0.503,0.00389,27.456,27.376,27.472,26.320,6110.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,bdl,0,silu,cute_ring,ok,0.503,0.00389,27.665,27.582,27.777,26.512,6064.4,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,bdl,0,silu,dao,ok,0.5,0.00389,35.045,34.992,35.073,33.807,4787.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,bdl,0,silu,fla_triton,ok,0.5,0.00389,55.745,55.681,55.812,54.465,3009.6,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,bdl,0,silu,cudnn,ok,0.5,0.00389,39.708,39.566,39.836,38.446,4225.2,route=generic-cudnn
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,bdl,0,silu,subq_ops,ok,0.5,0.00389,39.761,39.725,39.870,38.359,4219.5,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,8,2048,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,476.844,476.674,476.870,476.719,351.8,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,bdl,0,silu,cute,ok,0.503,0.00388,27.342,27.281,27.360,26.303,6135.9,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,bdl,0,silu,cute_pad,ok,0.503,0.00388,27.552,27.485,27.601,26.529,6089.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,bdl,0,silu,cute_ring,ok,0.503,0.00388,27.408,27.313,27.519,26.368,6121.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,bdl,0,silu,dao,ok,0.5,0.00388,73.183,73.150,73.238,73.105,2292.5,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,bdl,0,silu,fla_triton,ok,0.5,0.00388,55.940,55.935,56.041,54.557,2999.2,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,bdl,0,silu,cudnn,ok,0.5,0.00388,43.327,43.275,43.473,42.142,3872.2,route=generic-cudnn
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,bdl,0,silu,subq_ops,ok,0.5,0.00388,43.394,43.266,43.521,42.143,3866.3,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,32,512,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,486.114,486.081,486.548,486.175,345.1,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,bdl,0,silu,cute,ok,0.503,0.00387,7.760,7.680,7.840,5.952,2701.2,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,bdl,0,silu,cute_pad,ok,0.503,0.00387,7.776,7.713,7.936,5.952,2695.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,bdl,0,silu,cute_ring,ok,0.503,0.00387,7.713,7.680,7.840,5.952,2717.8,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,bdl,0,silu,dao,ok,0.5,0.00387,10.976,10.961,10.992,8.736,1909.7,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,bdl,0,silu,fla_triton,ok,0.5,0.00387,9.968,9.952,10.049,8.384,2103.0,"input pre-copied to [B,T,D] outside the timed region"
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,bdl,0,silu,cudnn,ok,0.5,0.00387,13.472,13.312,13.504,10.176,1555.9,route=generic-cudnn
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,bdl,0,silu,cudnn_st4,skip,,,,,,,,decode-only variant
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,bdl,0,silu,cudnn_nwh,skip,,,,,,,,NWH storage only
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,bdl,0,silu,subq_ops,ok,0.5,0.00387,13.295,13.247,13.471,10.112,1576.6,
+qwen3.8-2.4t-gdn-tp8,fwd,2560,4,1,2047,bdl,0,silu,torch_conv1d,lowprec,1.58,0.00694,61.936,61.851,62.026,60.926,338.4,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,1,1,bdl,0,silu,cute,ok,0.5,0.00341,1.825,1.793,1.904,1.248,22.4,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,1,1,bdl,0,silu,cute_pad,ok,0.5,0.00341,1.888,1.856,1.920,1.184,21.7,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,1,1,bdl,0,silu,cute_ring,ok,0.5,0.00341,1.952,1.952,1.968,1.248,21.0,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,1,1,bdl,0,silu,dao,ok,0.5,0.00341,3.328,3.312,3.360,2.080,12.3,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,1,1,bdl,0,silu,fla_triton,ok,0.5,0.00341,1.888,1.872,1.983,1.248,21.7,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,1,1,bdl,0,silu,cudnn,ok,0.5,0.00341,1.952,1.936,2.000,1.440,21.0,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,1,1,bdl,0,silu,cudnn_st4,ok,0.5,0.00341,1.968,1.856,1.984,1.248,20.8,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,1,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.8-2.4t-gdn-tp8,update,2560,4,1,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.8-2.4t-gdn-tp8,update,2560,4,1,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00341,14.689,14.641,14.848,14.016,2.8,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,8,1,bdl,0,silu,cute,ok,0.5,0.00376,2.000,1.952,2.048,1.248,163.8,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,8,1,bdl,0,silu,cute_pad,ok,0.5,0.00376,1.984,1.888,2.032,1.184,165.2,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,8,1,bdl,0,silu,cute_ring,ok,0.5,0.00376,2.048,2.000,2.112,1.248,160.0,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,8,1,bdl,0,silu,dao,ok,0.5,0.00376,3.584,3.520,3.600,2.432,91.4,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,8,1,bdl,0,silu,fla_triton,ok,0.5,0.00376,2.080,2.079,2.080,1.280,157.5,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,8,1,bdl,0,silu,cudnn,ok,0.5,0.00376,2.048,2.048,2.144,1.440,160.0,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,8,1,bdl,0,silu,cudnn_st4,ok,0.5,0.00376,2.016,1.984,2.048,1.280,162.5,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,8,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.8-2.4t-gdn-tp8,update,2560,4,8,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.8-2.4t-gdn-tp8,update,2560,4,8,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00376,16.226,16.079,16.319,15.709,20.2,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,64,1,bdl,0,silu,cute,ok,0.502,0.0038,2.416,2.353,2.464,1.504,1085.3,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,64,1,bdl,0,silu,cute_pad,ok,0.502,0.0038,2.496,2.464,2.512,1.536,1050.3,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,64,1,bdl,0,silu,cute_ring,ok,0.502,0.0038,2.464,2.463,2.496,1.536,1063.9,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,64,1,bdl,0,silu,dao,ok,0.5,0.0038,4.880,4.847,4.912,3.488,537.2,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,64,1,bdl,0,silu,fla_triton,ok,0.5,0.0038,2.624,2.591,2.624,1.664,999.0,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,64,1,bdl,0,silu,cudnn,ok,0.502,0.0038,2.528,2.528,2.560,1.824,1037.0,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,64,1,bdl,0,silu,cudnn_st4,ok,0.502,0.0038,2.528,2.496,2.560,1.536,1037.0,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,64,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.8-2.4t-gdn-tp8,update,2560,4,64,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.8-2.4t-gdn-tp8,update,2560,4,64,1,bdl,0,silu,torch_conv1d,ok,0.5,0.0038,21.602,21.599,21.760,21.264,121.4,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,256,1,bdl,0,silu,cute,ok,0.502,0.00385,3.744,3.712,3.759,2.272,2800.7,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,256,1,bdl,0,silu,cute_pad,ok,0.502,0.00385,4.064,4.032,4.064,2.304,2580.2,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,256,1,bdl,0,silu,cute_ring,ok,0.502,0.00385,4.064,4.063,4.096,2.208,2580.2,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,256,1,bdl,0,silu,dao,ok,0.5,0.00385,9.856,9.808,9.968,7.266,1063.9,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,256,1,bdl,0,silu,fla_triton,ok,0.5,0.00385,4.928,4.913,4.960,3.424,2127.8,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,256,1,bdl,0,silu,cudnn,ok,0.502,0.00385,5.055,5.024,5.072,3.584,2074.1,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,256,1,bdl,0,silu,cudnn_st4,ok,0.502,0.00385,4.960,4.896,4.960,3.072,2114.1,
+qwen3.8-2.4t-gdn-tp8,update,2560,4,256,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+qwen3.8-2.4t-gdn-tp8,update,2560,4,256,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+qwen3.8-2.4t-gdn-tp8,update,2560,4,256,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00385,48.157,48.034,48.196,47.236,217.7,
+glm5.3-flash-kda-tp4-fused,update,6144,4,1,1,bdl,0,silu,cute,ok,0.5,0.00344,1.872,1.856,1.904,1.120,52.5,
+glm5.3-flash-kda-tp4-fused,update,6144,4,1,1,bdl,0,silu,cute_pad,ok,0.5,0.00344,1.920,1.841,1.952,1.088,51.2,
+glm5.3-flash-kda-tp4-fused,update,6144,4,1,1,bdl,0,silu,cute_ring,ok,0.5,0.00344,1.983,1.888,1.984,1.152,49.6,
+glm5.3-flash-kda-tp4-fused,update,6144,4,1,1,bdl,0,silu,dao,ok,0.5,0.00344,3.456,3.408,3.488,2.208,28.4,
+glm5.3-flash-kda-tp4-fused,update,6144,4,1,1,bdl,0,silu,fla_triton,ok,0.5,0.00344,1.936,1.888,2.016,1.152,50.8,
+glm5.3-flash-kda-tp4-fused,update,6144,4,1,1,bdl,0,silu,cudnn,ok,0.5,0.00344,1.889,1.888,2.016,1.344,52.1,
+glm5.3-flash-kda-tp4-fused,update,6144,4,1,1,bdl,0,silu,cudnn_st4,ok,0.5,0.00344,1.888,1.856,1.920,1.184,52.1,
+glm5.3-flash-kda-tp4-fused,update,6144,4,1,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4-fused,update,6144,4,1,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4-fused,update,6144,4,1,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00344,14.302,14.239,14.383,13.536,6.9,
+glm5.3-flash-kda-tp4-fused,update,6144,4,8,1,bdl,0,silu,cute,ok,0.502,0.00363,2.080,2.048,2.080,1.328,378.1,
+glm5.3-flash-kda-tp4-fused,update,6144,4,8,1,bdl,0,silu,cute_pad,ok,0.502,0.00363,2.064,2.032,2.112,1.216,380.9,
+glm5.3-flash-kda-tp4-fused,update,6144,4,8,1,bdl,0,silu,cute_ring,ok,0.502,0.00363,2.112,2.080,2.160,1.248,372.3,
+glm5.3-flash-kda-tp4-fused,update,6144,4,8,1,bdl,0,silu,dao,ok,0.5,0.00363,3.873,3.871,3.904,2.720,203.1,
+glm5.3-flash-kda-tp4-fused,update,6144,4,8,1,bdl,0,silu,fla_triton,ok,0.5,0.00363,2.175,2.127,2.208,1.344,361.5,
+glm5.3-flash-kda-tp4-fused,update,6144,4,8,1,bdl,0,silu,cudnn,ok,0.502,0.00363,2.144,2.112,2.160,1.472,366.8,
+glm5.3-flash-kda-tp4-fused,update,6144,4,8,1,bdl,0,silu,cudnn_st4,ok,0.502,0.00363,2.112,2.080,2.112,1.280,372.4,
+glm5.3-flash-kda-tp4-fused,update,6144,4,8,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4-fused,update,6144,4,8,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4-fused,update,6144,4,8,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00363,16.608,16.576,16.720,16.146,47.4,
+glm5.3-flash-kda-tp4-fused,update,6144,4,64,1,bdl,0,silu,cute,ok,0.502,0.0038,2.976,2.944,3.008,1.792,2114.1,
+glm5.3-flash-kda-tp4-fused,update,6144,4,64,1,bdl,0,silu,cute_pad,ok,0.502,0.0038,3.137,3.136,3.152,1.856,2005.6,
+glm5.3-flash-kda-tp4-fused,update,6144,4,64,1,bdl,0,silu,cute_ring,ok,0.502,0.0038,3.168,3.104,3.231,2.112,1985.6,
+glm5.3-flash-kda-tp4-fused,update,6144,4,64,1,bdl,0,silu,dao,ok,0.5,0.0038,7.359,7.312,7.377,5.295,854.9,
+glm5.3-flash-kda-tp4-fused,update,6144,4,64,1,bdl,0,silu,fla_triton,ok,0.5,0.0038,3.776,3.775,3.792,2.816,1666.2,
+glm5.3-flash-kda-tp4-fused,update,6144,4,64,1,bdl,0,silu,cudnn,ok,0.502,0.0038,3.904,3.872,3.904,2.815,1611.5,
+glm5.3-flash-kda-tp4-fused,update,6144,4,64,1,bdl,0,silu,cudnn_st4,ok,0.502,0.0038,3.777,3.776,3.792,2.335,1665.7,
+glm5.3-flash-kda-tp4-fused,update,6144,4,64,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4-fused,update,6144,4,64,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4-fused,update,6144,4,64,1,bdl,0,silu,torch_conv1d,ok,0.5,0.0038,34.048,34.018,34.193,33.439,184.8,
+glm5.3-flash-kda-tp4-fused,update,6144,4,256,1,bdl,0,silu,cute,ok,0.502,0.00383,6.047,6.016,6.080,4.224,4161.7,
+glm5.3-flash-kda-tp4-fused,update,6144,4,256,1,bdl,0,silu,cute_pad,ok,0.502,0.00383,7.040,7.008,7.103,4.048,3574.7,
+glm5.3-flash-kda-tp4-fused,update,6144,4,256,1,bdl,0,silu,cute_ring,ok,0.502,0.00383,5.505,5.472,5.601,3.168,4571.9,
+glm5.3-flash-kda-tp4-fused,update,6144,4,256,1,bdl,0,silu,dao,ok,0.5,0.00383,18.304,18.224,18.354,14.752,1374.9,
+glm5.3-flash-kda-tp4-fused,update,6144,4,256,1,bdl,0,silu,fla_triton,ok,0.5,0.00383,8.800,8.737,8.864,7.712,2859.9,
+glm5.3-flash-kda-tp4-fused,update,6144,4,256,1,bdl,0,silu,cudnn,ok,0.502,0.00383,8.992,8.959,9.024,6.560,2798.8,
+glm5.3-flash-kda-tp4-fused,update,6144,4,256,1,bdl,0,silu,cudnn_st4,ok,0.502,0.00383,8.832,8.832,8.911,5.663,2849.4,
+glm5.3-flash-kda-tp4-fused,update,6144,4,256,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4-fused,update,6144,4,256,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+glm5.3-flash-kda-tp4-fused,update,6144,4,256,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00383,96.257,96.203,96.368,95.647,261.4,
+kimi-k3-kda-tp8-fused,update,4608,4,1,1,bdl,0,silu,cute,ok,0.5,0.00344,1.888,1.856,1.952,1.152,39.1,
+kimi-k3-kda-tp8-fused,update,4608,4,1,1,bdl,0,silu,cute_pad,ok,0.5,0.00344,1.920,1.884,1.952,1.088,38.4,
+kimi-k3-kda-tp8-fused,update,4608,4,1,1,bdl,0,silu,cute_ring,ok,0.5,0.00344,1.920,1.920,1.936,1.088,38.4,
+kimi-k3-kda-tp8-fused,update,4608,4,1,1,bdl,0,silu,dao,ok,0.5,0.00344,3.472,3.376,3.504,2.080,21.2,
+kimi-k3-kda-tp8-fused,update,4608,4,1,1,bdl,0,silu,fla_triton,ok,0.5,0.00344,2.048,2.047,2.076,1.216,36.0,
+kimi-k3-kda-tp8-fused,update,4608,4,1,1,bdl,0,silu,cudnn,ok,0.5,0.00344,2.000,1.984,2.048,1.344,36.9,
+kimi-k3-kda-tp8-fused,update,4608,4,1,1,bdl,0,silu,cudnn_st4,ok,0.5,0.00344,2.016,1.889,2.016,1.152,36.6,
+kimi-k3-kda-tp8-fused,update,4608,4,1,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+kimi-k3-kda-tp8-fused,update,4608,4,1,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+kimi-k3-kda-tp8-fused,update,4608,4,1,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00344,14.562,14.495,14.688,13.968,5.1,
+kimi-k3-kda-tp8-fused,update,4608,4,8,1,bdl,0,silu,cute,ok,0.502,0.00364,2.048,2.048,2.080,1.264,288.0,
+kimi-k3-kda-tp8-fused,update,4608,4,8,1,bdl,0,silu,cute_pad,ok,0.502,0.00364,2.016,1.984,2.048,1.184,292.6,
+kimi-k3-kda-tp8-fused,update,4608,4,8,1,bdl,0,silu,cute_ring,ok,0.502,0.00364,2.080,2.048,2.112,1.216,283.6,
+kimi-k3-kda-tp8-fused,update,4608,4,8,1,bdl,0,silu,dao,ok,0.5,0.00364,3.752,3.744,3.776,2.591,157.2,
+kimi-k3-kda-tp8-fused,update,4608,4,8,1,bdl,0,silu,fla_triton,ok,0.5,0.00364,2.224,2.176,2.272,1.408,265.2,
+kimi-k3-kda-tp8-fused,update,4608,4,8,1,bdl,0,silu,cudnn,ok,0.502,0.00364,2.048,2.048,2.080,1.440,288.0,
+kimi-k3-kda-tp8-fused,update,4608,4,8,1,bdl,0,silu,cudnn_st4,ok,0.502,0.00364,2.112,2.080,2.144,1.248,279.2,
+kimi-k3-kda-tp8-fused,update,4608,4,8,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+kimi-k3-kda-tp8-fused,update,4608,4,8,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+kimi-k3-kda-tp8-fused,update,4608,4,8,1,bdl,0,silu,torch_conv1d,ok,0.5,0.00364,16.705,16.640,16.786,16.095,35.3,
+kimi-k3-kda-tp8-fused,update,4608,4,64,1,bdl,0,silu,cute,ok,0.502,0.0038,2.768,2.736,2.832,1.664,1704.7,
+kimi-k3-kda-tp8-fused,update,4608,4,64,1,bdl,0,silu,cute_pad,ok,0.502,0.0038,2.896,2.848,2.912,1.728,1629.3,
+kimi-k3-kda-tp8-fused,update,4608,4,64,1,bdl,0,silu,cute_ring,ok,0.502,0.0038,2.832,2.816,2.881,1.856,1666.2,
+kimi-k3-kda-tp8-fused,update,4608,4,64,1,bdl,0,silu,dao,ok,0.5,0.0038,6.207,6.145,6.319,4.575,760.1,
+kimi-k3-kda-tp8-fused,update,4608,4,64,1,bdl,0,silu,fla_triton,ok,0.5,0.0038,4.224,4.224,4.272,3.410,1117.1,
+kimi-k3-kda-tp8-fused,update,4608,4,64,1,bdl,0,silu,cudnn,ok,0.502,0.0038,3.168,3.136,3.200,2.304,1489.5,
+kimi-k3-kda-tp8-fused,update,4608,4,64,1,bdl,0,silu,cudnn_st4,ok,0.502,0.0038,3.105,3.104,3.136,2.016,1519.7,
+kimi-k3-kda-tp8-fused,update,4608,4,64,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+kimi-k3-kda-tp8-fused,update,4608,4,64,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+kimi-k3-kda-tp8-fused,update,4608,4,64,1,bdl,0,silu,torch_conv1d,ok,0.5,0.0038,27.490,27.426,27.647,26.894,171.6,
+kimi-k3-kda-tp8-fused,update,4608,4,256,1,bdl,0,silu,cute,ok,0.502,0.0038,5.071,5.008,5.088,3.679,3721.7,
+kimi-k3-kda-tp8-fused,update,4608,4,256,1,bdl,0,silu,cute_pad,ok,0.502,0.0038,5.616,5.601,5.632,3.552,3360.8,
+kimi-k3-kda-tp8-fused,update,4608,4,256,1,bdl,0,silu,cute_ring,ok,0.502,0.0038,4.960,4.928,4.992,2.657,3805.3,
+kimi-k3-kda-tp8-fused,update,4608,4,256,1,bdl,0,silu,dao,ok,0.5,0.0038,14.721,14.625,14.722,11.490,1282.1,
+kimi-k3-kda-tp8-fused,update,4608,4,256,1,bdl,0,silu,fla_triton,ok,0.5,0.0038,11.744,11.743,11.841,9.810,1607.1,
+kimi-k3-kda-tp8-fused,update,4608,4,256,1,bdl,0,silu,cudnn,ok,0.502,0.0038,7.329,7.295,7.360,5.216,2575.5,
+kimi-k3-kda-tp8-fused,update,4608,4,256,1,bdl,0,silu,cudnn_st4,ok,0.502,0.0038,7.137,7.136,7.152,4.576,2644.8,
+kimi-k3-kda-tp8-fused,update,4608,4,256,1,bdl,0,silu,cudnn_nwh,skip,,,,,,,,no update
+kimi-k3-kda-tp8-fused,update,4608,4,256,1,bdl,0,silu,subq_ops,skip,,,,,,,,no update
+kimi-k3-kda-tp8-fused,update,4608,4,256,1,bdl,0,silu,torch_conv1d,ok,0.5,0.0038,75.233,75.164,75.293,74.586,250.9,

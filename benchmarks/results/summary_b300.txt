@@ -1,0 +1,38 @@
+lowprec rows (timed, flagged): {'torch_conv1d': 84}
+
+================ COLD L2 (flushed before every replay) | cute: drop-in, standard conv state ================
+  prefill channel-last n=54  win  54  tie   0  loss   0   speedup vs best other: min 1.07x  median 1.35x  max 1.50x
+  prefill contiguous   n=54  win  54  tie   0  loss   0   speedup vs best other: min 1.06x  median 1.30x  max 1.75x
+  decode B<=8           n=22  win   9  tie  13  loss   0   speedup vs best other: min 0.99x  median 1.03x  max 1.27x
+  decode B>=64          n=22  win  22  tie   0  loss   0   speedup vs best other: min 1.05x  median 1.33x  max 2.31x
+  TOTAL: win 139  tie 13  loss 0  of 152
+
+================ COLD L2 (flushed before every replay) | cute_pad: padded conv state, decode only, vs everyone incl. cudnn_st4 ================
+  decode B<=8           n=22  win   7  tie  15  loss   0   speedup vs best other: min 0.97x  median 1.02x  max 1.19x
+  decode B>=64          n=22  win  21  tie   1  loss   0   speedup vs best other: min 1.00x  median 1.24x  max 1.86x
+  TOTAL: win 28  tie 16  loss 0  of 44
+
+================ COLD L2 (flushed before every replay) | cute_ring: ring conv state, decode only, vs everyone incl. cudnn_st4 ================
+  decode B<=8           n=22  win   4  tie  18  loss   0   speedup vs best other: min 0.93x  median 0.99x  max 1.21x
+  decode B>=64          n=22  win  20  tie   2  loss   0   speedup vs best other: min 1.01x  median 1.21x  max 2.00x
+  TOTAL: win 24  tie 20  loss 0  of 44
+
+================ WARM L2 | cute: drop-in, standard conv state ================
+  prefill channel-last n=54  win  54  tie   0  loss   0   speedup vs best other: min 1.06x  median 1.45x  max 1.91x
+  prefill contiguous   n=54  win  53  tie   1  loss   0   speedup vs best other: min 1.01x  median 1.50x  max 2.04x
+  decode B<=8           n=22  win  19  tie   3  loss   0   speedup vs best other: min 1.00x  median 1.10x  max 1.62x
+  decode B>=64          n=22  win  22  tie   0  loss   0   speedup vs best other: min 1.07x  median 1.56x  max 3.16x
+  TOTAL: win 148  tie 4  loss 0  of 152
+
+================ WARM L2 | cute_pad: padded conv state, decode only, vs everyone incl. cudnn_st4 ================
+  decode B<=8           n=22  win  20  tie   2  loss   0   speedup vs best other: min 1.00x  median 1.06x  max 1.49x
+  decode B>=64          n=22  win  21  tie   1  loss   0   speedup vs best other: min 1.00x  median 1.34x  max 2.76x
+  TOTAL: win 41  tie 3  loss 0  of 44
+
+================ WARM L2 | cute_ring: ring conv state, decode only, vs everyone incl. cudnn_st4 ================
+  decode B<=8           n=22  win  11  tie   8  loss   3   speedup vs best other: min 0.95x  median 1.03x  max 1.49x
+  decode B>=64          n=22  win  20  tie   2  loss   0   speedup vs best other: min 1.00x  median 1.38x  max 3.05x
+  TOTAL: win 31  tie 10  loss 3  of 44
+    LOSS 0.95x  nemotron3-super-tp4 update - B8 L1: ours 1.31 vs cudnn_st4 1.25
+    LOSS 0.95x  nemotron3-nano-30b update - B8 L1: ours 1.34 vs cudnn_st4 1.28
+    LOSS 0.97x  nemotron3-super-tp4 update - B1 L1: ours 1.28 vs cudnn_st4 1.25

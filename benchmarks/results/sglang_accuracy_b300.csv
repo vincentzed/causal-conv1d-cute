@@ -1,0 +1,5 @@
+check,stock,plugin,unit
+gsm8k_1319_questions,95.2,95.0,percent correct
+conv_outputs_within_half_ulp_of_fp64,64.5,99.99,percent
+conv_outputs_within_one_ulp_of_fp64,86.2,100.0,percent
+conv_states_bit_identical_to_stock,100.0,100.0,percent of 64 randomized batches

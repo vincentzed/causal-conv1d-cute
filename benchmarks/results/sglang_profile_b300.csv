@@ -1,0 +1,73 @@
+session,arm,window,category,gpu_ms,share_pct,calls,mean_us
+stock_s1,stock,decode,activation and elementwise,23.274,2.678,5960,3.905
+stock_s1,stock,decode,other,15.405,1.772,3446,4.47
+stock_s1,stock,decode,state and cache management,46.605,5.362,360,129.459
+stock_s1,stock,decode,normalization,80.214,9.229,8440,9.504
+stock_s1,stock,decode,GEMM,538.242,61.925,17640,30.513
+stock_s1,stock,decode,attention,8.207,0.944,760,10.798
+stock_s1,stock,decode,sampling and speculative,0.72,0.083,200,3.598
+stock_s1,stock,decode,conv,16.262,1.871,1920,8.47
+stock_s1,stock,decode,delta-rule recurrence,140.26,16.137,1920,73.052
+stock_s1,stock,prefill,other,9.833,0.92,1775,5.54
+stock_s1,stock,prefill,activation and elementwise,98.84,9.247,7831,12.622
+stock_s1,stock,prefill,normalization,59.872,5.601,2400,24.946
+stock_s1,stock,prefill,GEMM,707.104,66.15,3881,182.196
+stock_s1,stock,prefill,conv,22.44,2.099,576,38.958
+stock_s1,stock,prefill,delta-rule recurrence,128.616,12.032,3216,39.992
+stock_s1,stock,prefill,attention,41.928,3.922,206,203.535
+stock_s1,stock,prefill,state and cache management,0.283,0.026,38,7.443
+stock_s1,stock,prefill,sampling and speculative,0.019,0.002,5,3.738
+cute_s1,plugin,decode,activation and elementwise,23.417,2.747,5960,3.929
+cute_s1,plugin,decode,other,15.415,1.808,3446,4.473
+cute_s1,plugin,decode,state and cache management,46.558,5.462,360,129.329
+cute_s1,plugin,decode,normalization,81.396,9.549,8440,9.644
+cute_s1,plugin,decode,GEMM,538.092,63.123,17640,30.504
+cute_s1,plugin,decode,attention,8.106,0.951,760,10.665
+cute_s1,plugin,decode,sampling and speculative,0.72,0.084,200,3.599
+cute_s1,plugin,decode,conv,7.621,0.894,1920,3.969
+cute_s1,plugin,decode,delta-rule recurrence,131.126,15.382,1920,68.295
+cute_s1,plugin,prefill,other,9.988,0.935,1775,5.627
+cute_s1,plugin,prefill,activation and elementwise,99.608,9.328,7831,12.72
+cute_s1,plugin,prefill,normalization,60.326,5.649,2400,25.136
+cute_s1,plugin,prefill,GEMM,714.106,66.874,3881,184.001
+cute_s1,plugin,prefill,conv,11.145,1.044,576,19.349
+cute_s1,plugin,prefill,delta-rule recurrence,129.686,12.145,3216,40.325
+cute_s1,plugin,prefill,attention,42.67,3.996,206,207.138
+cute_s1,plugin,prefill,state and cache management,0.283,0.027,38,7.455
+cute_s1,plugin,prefill,sampling and speculative,0.018,0.002,5,3.565
+stock_s2,stock,decode,activation and elementwise,23.244,2.675,5960,3.9
+stock_s2,stock,decode,other,15.408,1.773,3446,4.471
+stock_s2,stock,decode,state and cache management,46.62,5.366,360,129.5
+stock_s2,stock,decode,normalization,80.216,9.232,8440,9.504
+stock_s2,stock,decode,GEMM,538.285,61.952,17640,30.515
+stock_s2,stock,decode,attention,7.861,0.905,760,10.343
+stock_s2,stock,decode,sampling and speculative,0.72,0.083,200,3.6
+stock_s2,stock,decode,conv,16.257,1.871,1920,8.467
+stock_s2,stock,decode,delta-rule recurrence,140.269,16.144,1920,73.057
+stock_s2,stock,prefill,other,9.759,0.918,1775,5.498
+stock_s2,stock,prefill,activation and elementwise,98.358,9.252,7831,12.56
+stock_s2,stock,prefill,normalization,59.46,5.593,2400,24.775
+stock_s2,stock,prefill,GEMM,703.586,66.183,3881,181.29
+stock_s2,stock,prefill,conv,22.241,2.092,576,38.612
+stock_s2,stock,prefill,delta-rule recurrence,127.524,11.996,3216,39.653
+stock_s2,stock,prefill,attention,41.867,3.938,206,203.236
+stock_s2,stock,prefill,state and cache management,0.283,0.027,38,7.438
+stock_s2,stock,prefill,sampling and speculative,0.018,0.002,5,3.603
+cute_s2,plugin,decode,other,15.417,1.811,3446,4.474
+cute_s2,plugin,decode,activation and elementwise,23.426,2.751,5960,3.93
+cute_s2,plugin,decode,state and cache management,46.085,5.412,360,128.014
+cute_s2,plugin,decode,normalization,81.228,9.54,8440,9.624
+cute_s2,plugin,decode,GEMM,538.141,63.202,17640,30.507
+cute_s2,plugin,decode,attention,7.772,0.913,760,10.227
+cute_s2,plugin,decode,sampling and speculative,0.719,0.084,200,3.593
+cute_s2,plugin,decode,conv,7.622,0.895,1920,3.97
+cute_s2,plugin,decode,delta-rule recurrence,131.049,15.391,1920,68.255
+cute_s2,plugin,prefill,other,9.982,0.937,1775,5.624
+cute_s2,plugin,prefill,activation and elementwise,99.376,9.331,7831,12.69
+cute_s2,plugin,prefill,normalization,60.381,5.67,2400,25.159
+cute_s2,plugin,prefill,GEMM,712.132,66.868,3881,183.492
+cute_s2,plugin,prefill,conv,11.104,1.043,576,19.278
+cute_s2,plugin,prefill,delta-rule recurrence,129.242,12.136,3216,40.187
+cute_s2,plugin,prefill,attention,42.469,3.988,206,206.158
+cute_s2,plugin,prefill,state and cache management,0.284,0.027,38,7.473
+cute_s2,plugin,prefill,sampling and speculative,0.018,0.002,5,3.693
