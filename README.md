@@ -304,46 +304,122 @@ python explore_export.py explore results/explore_decode.csv
 **License:** Apache-2.0.
 
 ---
-
 ## Optimization Log
 
-This section records how the kernels described above were actually arrived at, roughly in the order the work happened, including the measurements that turned out to be misleading and the ideas that did not survive contact with the hardware. Unless stated otherwise, every number below was produced on the same B300 with the timing protocol described in the benchmarks section. Where a figure comes from a single timing round or from an instrumented run rather than the full protocol, it is labelled as such, because those were the numbers that misled us most often.
+In this section, I'll walk you through how the kernels above were actually arrived at, roughly in the order the work happened. That includes the measurements that fooled us and the ideas that did not survive contact with the hardware. A clean list of final results would be shorter, but the dead ends are where most of the learning happened.
 
-### How These Numbers Were Taken
+This log is structured into a few parts:
 
-Every kernel time reported in this repository is CUPTI activity measured on the device for a single call captured in a CUDA graph and then replayed: 10 replays to warm up, 40 replays timed, the median of each round, and the median of five rounds reported alongside the fastest and slowest round. Host-side launch cost falls outside that window, which matters a great deal when the kernel itself runs for 2 µs and the launch path costs roughly the same. Timing a loop of back-to-back launches with a wall clock measures launch-to-launch throughput instead of per-call latency, which is a different physical quantity, so it was never used here.
+* How we measure (and why the measurement matters more than you'd think)
+* The two budgets every kernel here lives under: a copy and a launch
+* The decode kernels: padded, ordered and ring conv states, plus a 13,360-configuration detour
+* The prefill kernels, audited through their generated PTX
+* What changes once you drop a kernel into a live server
+* What didn't work, what the compiler did to us, and what's still open
 
-Both cache states are reported because neither one is the truth on its own. The cold-cache column zeroes a buffer twice the size of the L2 cache and synchronizes the device before every replay, always outside the timed window. Inside a real server neither extreme holds: the input tensor was just written by the projection that precedes the convolution and is therefore warm, while the filter weights and the conv state genuinely are cold. Cold-cache absolute times are consequently pessimistic for every implementation in the tables, and the small-batch decode ties are the rows most likely to move under different conditions. One further caution is worth recording: two container images carrying different flashinfer versions timed the same small kernel as much as 1.8x apart, so every comparison here was produced inside a single image, and numbers measured in different images are never placed in the same table.
+> 📝 **Note:**
+> Unless stated otherwise, every number below comes from the same B300 using the timing protocol from the benchmarks section. Where a figure comes from a single timing round or from an instrumented run, I'll label it as such, because those were exactly the numbers that misled us most often.
 
-### What a Copy Costs, and What a Launch Costs
+### How these numbers were taken
 
-The first two measurements in this project were not kernels at all. A device-to-device copy of the same number of bytes peaks at roughly 6 TB/s on this GPU, and because a depthwise convolution performs only about `2 * width` floating-point operations for each element it moves, that copy is the entire budget. An early version of the channel-first kernel appeared to beat the copy, which told us the baseline was weak rather than that the kernel was extraordinary, so the baseline was rebuilt properly with tuned copy kernels measured next to `torch.clone` over 10 rounds with the spread reported ([`benchmarks/copy_baseline.py`](benchmarks/copy_baseline.py)). Measured against that rebuilt baseline, the shipped channel-first prefill runs at 0.95x to 1.04x the time of a pure copy. From that point the interesting question stopped being how much faster we were than another library and became how much of the copy was left to claim.
+Let's start with the boring part, because it quietly decides whether everything after it is true.
 
-Decode has a second budget, and it is not bandwidth at all. At batch 1, an empty kernel launch costs 1.06 µs, adding a single cold load takes it to 1.66 µs, and loading everything a decode step genuinely needs takes it to 1.98 µs. Flash-linear-attention was already running at 2.0 µs. No implementation can gain more than roughly 15% at batch 1, no matter how it is written. Every small-batch tie in the tables above is that measurement rather than a tuning failure, and knowing it early prevented a considerable amount of work that could never have paid for itself.
+Every kernel time in this repository is CUPTI activity measured on the device, for a single call captured in a CUDA graph and then replayed:
 
-One more quantity is worth measuring once. This GPU has 148 streaming multiprocessors, each holding 8 co-resident warps, so 1,184 warps execute concurrently at saturation. The large prefill launches do reach that figure, which is why their throughput is set by how long a warp lives rather than by instruction count. The batch-1 decode kernel, by contrast, occupies 8 multiprocessors and 64 warps, so its result does not depend on having the whole chip to itself.
+* 10 replays to warm up
+* 40 replays timed, taking the median of each round
+* 5 rounds, reporting the median alongside the fastest and slowest round
 
-### The Hour We Lost to a Build Flag
+Why go to this trouble? Host-side launch cost falls outside that window. That matters a lot when the kernel itself runs for 2 µs and the launch path costs roughly the same.
 
-The first comparison against the upstream CUDA implementation showed our predecessor kernel losing by as much as 1.75x. The cause was not the kernel. Upstream's `setup.py` passes `--use_fast_math` and our build did not. On shapes with a SiLU activation that flag alone is worth a median of 1.30x and as much as 1.44x, while shapes without an activation are entirely unaffected. An hour of careful measurement had been describing a compiler flag.
+> 📝 **Latency vs throughput**
+> Timing a loop of back-to-back launches with a wall clock measures *launch-to-launch throughput*, not *per-call latency*. They're different physical quantities, so the former was never used here.
 
-Two lasting practices came out of that hour. Both sides of every comparison are now built here from recorded commits with recorded flags, and [`benchmarks/BASELINES.md`](benchmarks/BASELINES.md) states exactly how each implementation is called so that any number can be challenged. The same question was then asked of every other implementation in the comparison, which is how the note in the SGLang section came about: SGLang's kernel loader passes that flag only on Hopper, so the convolution a B300 server actually executes is the precise-math build.
+We report both cache states because neither one is the truth on its own:
 
-### The First Decode Kernel: a Padded Conv State
+* **Cold cache:** we zero a buffer twice the size of L2 and synchronize the device before every replay (always outside the timed window).
+* **Warm cache:** replays run back to back on the same buffers.
 
-cuDNN's native kernel is width 4 and reads a 4-element conv state in a single load, an idea that generalizes cleanly: pad the state to the next power of two and an entire channel's state becomes one aligned load and one aligned store regardless of the kernel width. At width 7 that is 4 loads and 2 stores where the ordered state requires 15 and 7. This kernel holds the best record of any decode kernel here, winning 41 and tying 3 of 44 warm-cache cases against every other implementation, and it is still not the default, because it asks the calling engine to store something other than what it already stores.
+Inside a real server, neither extreme holds. The input tensor was just written by the projection that precedes the convolution, so it's warm. The filter weights and the conv state, on the other hand, genuinely are cold. So cold-cache absolute times are pessimistic for *every* implementation in the tables, and the small-batch decode ties are the rows most likely to move under different conditions.
 
-### The Conv State the Engine Already Has
+One more gotcha worth recording: two container images carrying different flashinfer versions timed the same small kernel as much as **1.8x** apart. So every comparison here was produced inside a single image, and numbers from different images never share a table.
 
-A drop-in replacement cannot require a serving engine to change its cache layout, so the ordered `[B, D, K - 1]` state needed a kernel of its own. Each thread takes a tile of channels, loads the state, the filter weights and the incoming token, accumulates in `float32`, and then stores the shifted state and the output. This is the kernel selected by all 44 ordered-state entries in `tuned.json`. Two earlier decode kernels remain in the package and are still reachable through `update_candidates`, a scalar variant and a two-dimensional variant, and the tuner has never once chosen either of them on this GPU.
+### What a copy costs, and what a launch costs
 
-### 13,360 Configurations, and What They Were Actually Good For
+The first two measurements in this project weren't kernels at all. They were ceilings.
 
-The decode kernel was then rewritten once with every structural choice exposed as a parameter: channels per thread, tiles per thread, block size, grid shape, weight layout, accumulation order, conv state layout, the order of the loads, the order of the stores, and the `min_blocks_per_mp` launch hint. The full cross product was compiled, checked against a `float32` reference and timed at four batch sizes with both a warm and a cold cache, producing 13,360 configurations sharded across four GPUs with no compile errors and no correctness failures ([raw data](benchmarks/results/explore_decode_qwen3.8-27b_b300.csv)).
+**Ceiling #1: the copy.** A device-to-device copy of the same number of bytes peaks at roughly 6 TB/s on this GPU. Recall that a depthwise convolution performs only about `2 * width` FLOPs per element it moves. In roofline terms, we sit so deep in the memory-bound region that the copy *is* the entire budget.
 
-The search improved the shipped kernel by 0% to 8%. Only two small wins survived re-timing, a block size at batch 8 and time-major weights at large batch, and the genuine gain of that day had come earlier from a hand-written change to how few channels a thread handles at small batch. It is also worth stating plainly that the sweep's own best numbers are single-round minima selected from thousands of candidates and are therefore biased low, by as much as 8% at batch 1, which is why anything retained from the search was re-timed under the full five-round protocol before it was believed.
+An early version of the channel-first kernel appeared to beat the copy. Exciting? No. That told us the baseline was weak, not that the kernel was extraordinary. So we rebuilt the baseline properly: tuned copy kernels, measured next to `torch.clone` over 10 rounds with the spread reported ([`benchmarks/copy_baseline.py`](benchmarks/copy_baseline.py)). Against that rebuilt baseline, the shipped channel-first prefill runs at **0.95x to 1.04x** the time of a pure copy.
 
-What the sweep was genuinely good for is the main effects, which are worth considerably more than its winner. Taking the best configuration containing each value and expressing it relative to the best configuration overall (single-round sweep timings, Qwen3.8-27B decode, warm cache):
+From that point on, the interesting question stopped being *"how much faster are we than another library?"* and became *"how much of the copy is left to claim?"*
+
+**Ceiling #2: the launch.** Decode has a second budget, and it isn't bandwidth at all. At batch 1:
+
+| What the kernel does | Latency |
+| --- | --- |
+| Nothing (empty launch) | 1.06 µs |
+| A single cold load | 1.66 µs |
+| Everything a decode step genuinely needs | 1.98 µs |
+
+Flash-linear-attention was already running at 2.0 µs. Do the arithmetic and you'll see that **no implementation can gain more than ~15% at batch 1**, no matter how it's written. Every small-batch tie in the tables above is this measurement showing through, not a tuning failure. Knowing it early saved a considerable amount of work that could never have paid for itself.
+
+One more quantity is worth measuring once. This GPU has 148 SMs, each holding 8 co-resident warps, so 1,184 warps execute concurrently at saturation. The large prefill launches do reach that, which is why their throughput is set by *how long a warp lives* rather than by instruction count. The batch-1 decode kernel, by contrast, occupies just 8 SMs and 64 warps, so its result doesn't depend on having the whole chip to itself.
+
+### The hour we lost to a build flag
+
+The first comparison against the upstream CUDA implementation showed our predecessor kernel losing by as much as **1.75x**. Ouch.
+
+The cause was not the kernel. Upstream's `setup.py` passes `--use_fast_math`, and our build did not. On shapes with a SiLU activation, that flag alone is worth a median of 1.30x and up to 1.44x. Shapes without an activation are entirely unaffected. In other words, an hour of careful measurement had been describing a compiler flag.
+
+> 📝 **Note:**
+> Recall what `--use_fast_math` does: it swaps standard math functions for fast approximate intrinsics and enables flush-to-zero. SiLU contains an exponential, so it's precisely the kind of op that flag speeds up.
+
+Two lasting practices came out of that hour:
+
+1. Both sides of every comparison are now built here, from recorded commits with recorded flags. [`benchmarks/BASELINES.md`](benchmarks/BASELINES.md) states exactly how each implementation is called, so any number can be challenged.
+2. We asked the same question of every other implementation. That's how the note in the SGLang section came about: SGLang's kernel loader passes the flag *only on Hopper*, so the convolution a B300 server actually executes is the precise-math build.
+
+### The first decode kernel: a padded conv state
+
+cuDNN's native kernel is width 4 and reads its 4-element conv state in a single load. That idea generalizes cleanly: pad the state to the next power of two, and an entire channel's state becomes one aligned load and one aligned store, regardless of kernel width.
+
+How much does that buy? At width 7, it's **4 loads and 2 stores**, where the ordered state needs **15 and 7**.
+
+This kernel holds the best record of any decode kernel here: 41 wins and 3 ties out of 44 warm-cache cases against every other implementation. And yet it's still not the default. Why? Because it asks the serving engine to store something other than what it already stores.
+
+### The conv state the engine already has
+
+A drop-in replacement can't require a serving engine to change its cache layout, so the ordered `[B, D, K - 1]` state needed a kernel of its own.
+
+The structure is simple. Each thread takes a tile of channels and:
+
+1. loads the state, the filter weights and the incoming token,
+2. accumulates in `float32`,
+3. stores the shifted state and the output.
+
+This is the kernel selected by all 44 ordered-state entries in `tuned.json`. Two earlier decode kernels are still in the package and reachable through `update_candidates`, a scalar variant and a two-dimensional variant. The tuner has never once picked either of them on this GPU.
+
+### 13,360 configurations, and what they were actually good for
+
+Next, we rewrote the decode kernel once more, this time exposing every structural choice as a parameter:
+
+* channels per thread, tiles per thread
+* block size, grid shape
+* weight layout, accumulation order, conv state layout
+* load order, store order
+* the `min_blocks_per_mp` launch hint
+
+We compiled the full cross product, checked each against a `float32` reference, and timed it at four batch sizes with both a warm and a cold cache. That's 13,360 configurations sharded across four GPUs, with zero compile errors and zero correctness failures ([raw data](benchmarks/results/explore_decode_qwen3.8-27b_b300.csv)).
+
+So how much did the search improve the shipped kernel? **0% to 8%.**
+
+Only two small wins survived re-timing: a block size at batch 8, and time-major weights at large batch. The genuine gain of that day had come earlier, from a hand-written change to how few channels a thread handles at small batch.
+
+> 📝 **Winner's curse**
+> The sweep's best numbers are single-round minima picked out of thousands of candidates, so they're biased low, by as much as 8% at batch 1. Anything we kept from the search was re-timed under the full five-round protocol before we believed it.
+
+What the sweep *was* good for is the main effects, which are worth much more than its winner. For each value, take the best configuration containing it and express it relative to the best configuration overall (single-round sweep timings, Qwen3.8-27B decode, warm cache):
 
 | Structural choice | Values explored | Cost at B = 1 | Cost at B = 256 |
 | --- | --- | --- | --- |
@@ -356,75 +432,159 @@ What the sweep was genuinely good for is the main effects, which are worth consi
 | Weight layout, grid shape, accumulation order, load order | | ≤ 1.01x | ≤ 1.03x |
 | Launch hint `min_blocks_per_mp` | unset, 4 | 1.00x | 1.02x |
 
-Reading down that table, what actually matters is whether the launch requires a bounds check at all, how many channels a single thread handles, and keeping one tile per thread. Weight layout, grid shape, load order and accumulation order are effectively noise, and the launch hint is worth nothing at the optimum, although averaged across the whole space leaving it unset is 7% to 12% better; the package never passes it. Issuing every load before the first store does not appear in the table because that choice only exists when a thread handles more than one tile, and in that situation it is worth 1.10x with two tiles and 1.21x with four at batch 1.
+Reading down the table, only three things really matter:
 
-![Design space](docs/figures/explore_decode.png)  
+1. whether the launch needs a bounds check at all,
+2. how many channels a single thread handles,
+3. keeping one tile per thread.
+
+Weight layout, grid shape, load order and accumulation order are effectively noise. The launch hint is worth nothing at the optimum (though averaged over the whole space, leaving it unset is 7% to 12% better, so the package never passes it).
+
+You might wonder why "issue every load before the first store" isn't in the table. That choice only exists when a thread handles more than one tile, and in that situation it's worth 1.10x with two tiles and 1.21x with four at batch 1.
+
+![Design space](docs/figures/explore_decode.png)
 **Figure 13 |** Warm decode latency across 13,360 configurations of a parametric kernel (Qwen3.8-27B shape). Black markers denote the best configurations for the ordered state (dashed), padded state (dotted), and the ring-state kernel (solid). The slowest 10% are excluded. Essentially the entire spread is produced by the first four rows of the table above.
 
-At that point the brute-force search had run its course, and the valuable part of its output turned out to be the PTX instruction histogram recorded beside every configuration rather than the ranking. Two configurations with the same instruction counts differed by more than 2x: two adjacent 8-byte tiles handled by one thread took 12.4 µs, while the same tile taken across two batch rows took 5.8 µs. That difference is invisible in any instruction count and visible only in the addresses, and it became the cost model that every subsequent kernel was designed against:
+At this point the brute-force search had run its course. And here's the twist: the most valuable output wasn't the ranking at all, it was the **PTX instruction histogram** we'd recorded beside every configuration.
 
-1. A kernel launch costs approximately 1.1 µs warm and 1.75 µs cold, plus a fraction of a nanosecond per thread block. With tens of thousands of blocks, the block count alone sets the latency.
-2. At large batch sizes the time is simply bytes moved divided by bandwidth, so only moving fewer bytes helps. This is exactly what the ring state does, moving 6 elements per channel and step instead of 8.
-3. Memory transactions issued by one thread to the same cache line execute one after another, while transactions to different lines overlap.
-4. A load issued after a store waits for that store, so every kernel here issues all of its loads first.
-5. A load whose address is produced by another load costs a second memory round trip. The first ring kernel looked up rotated weights by sequence position and lost 15% at batch 8 and below; it now loads position-independent weights alongside everything else and selects the per-row weights in registers.
-6. Arithmetic is nearly free next to memory transactions, except that at batch 8 and below the latency of the kernel is the latency of a single thread, so threads handle 2 to 4 channels there and 4 to 8 at large batch.
-7. The bias needs a load of its own. Packed into the weight row it doubled that row to two transactions on a single cache line and cost 19% at batch 256.
+Two configurations with *identical* instruction counts differed by more than 2x:
 
-From this point onward the working method changed: state a hypothesis, predict the resulting number, read the generated program, and only then run the kernel.
+* two adjacent 8-byte tiles handled by one thread: **12.4 µs**
+* the same tile taken across two batch rows: **5.8 µs**
 
-### The Ring Conv State
+That difference is invisible in any instruction count. It only shows up in the *addresses*. It's the same lesson as GMEM coalescing, one level down: what matters is which memory you touch, and in what order.
 
-Rule 2 explains why the ordered state loses at large batch, since every step rewrites all of it. A ring state overwrites only the oldest row, which moves 6 elements per channel and step instead of 8. The gain was predicted from the rule and confirmed in the exploration harness before the layout was written into the package: batch 256 with a warm cache went from 6.21 µs to 4.32 µs, and to 4.00 µs when a thread handled two batch rows, a variant that requires an even batch size and is not in the shipped kernel. Inside the package proper, on Qwen3.8-27B at batch 256 warm, the ring kernel runs at 4.67 µs against 6.14 µs for the ordered state.
+Those two dumps became the cost model every subsequent kernel was designed against:
 
-The first version of that kernel lost 15% at batch 8 and below, and rule 5 explains why: it looked up the rotated weights by sequence position, so the address of the weight load depended on the result of another load. Loading position-independent weights alongside everything else and selecting the correct row in registers took batch 1 from 1.31 µs warm and 2.30 µs cold to 1.15 µs and 1.98 µs.
+1. **A launch costs ~1.1 µs warm and ~1.75 µs cold**, plus a fraction of a nanosecond per thread block. With tens of thousands of blocks, the block count alone sets the latency.
+2. **At large batch, time = bytes moved / bandwidth.** Only moving fewer bytes helps. That's exactly what the ring state does: 6 elements per channel per step instead of 8.
+3. **Transactions from one thread to the same cache line serialize**, while transactions to different lines overlap.
+4. **A load issued after a store waits for that store**, so every kernel here issues all of its loads first.
+5. **A load whose address comes from another load costs a second memory round trip.** The first ring kernel looked up rotated weights by sequence position and lost 15% at batch 8 and below. It now loads position-independent weights alongside everything else and selects per-row weights in registers.
+6. **Arithmetic is nearly free next to memory transactions**, except that at batch 8 and below the kernel's latency *is* the latency of a single thread. So threads handle 2 to 4 channels there, and 4 to 8 at large batch.
+7. **The bias needs a load of its own.** Packed into the weight row, it doubled that row to two transactions on one cache line and cost 19% at batch 256.
 
-Two further predictions came out of rule 3, and they are worth reporting in the order they happened rather than as conclusions. The bias had been packed into the weight row, which produced two transactions on a single cache line; giving it a load of its own was predicted in advance to land between 3.6 µs and 3.8 µs, and measured 3.78 µs, down from 4.51 µs, on Nemotron-3 Nano at batch 256 warm. The second prediction was refuted without running anything at all. Three 4-element state loads on one cache line ought to serialize, so a single 12-element transaction should have won at small batch, except that the widest memory transaction the instruction set offers is 32 bytes, which means a 12-element tile compiles to three 8-byte loads however it is sliced. Reading the generated PTX answered that question in ten minutes and consumed no GPU time.
+From here on, the working method changed: **state a hypothesis, predict the resulting number, read the generated program, and only then run the kernel.**
 
-### Prefill, Read From the Generated Code
+### The ring conv state
 
-The prefill kernels were given an audit of their own generated code before they were given a benchmark. The channel-first kernel contained a genuine `div.s32` plus six instructions correcting its rounding ahead of every single load, and it recomputed the thread index from scratch for the store. Replacing the division with a multiply-high leaves no divides at all and places the first load at instruction 14 rather than around instruction 34, which is worth 3% to 5% on small shapes and essentially nothing on the large ones, where the kernel was already running at the speed of a copy.
+Rule 2 explains why the ordered state loses at large batch: every step rewrites all of it. A ring state overwrites only the oldest row, which moves 6 elements per channel per step instead of 8.
 
-The channel-last kernel walks a strip of tokens per thread, and interleaving its stores with its loads cost 1.6x: issuing every load before the first store took width 7 from 42 µs to 26 µs, which is rule 4 discovered before rule 4 was written down. Sequence lengths that are not a multiple of the tile size are handled by a pass with no bounds checks across the interior followed by a small second launch over the boundary tiles of each row, and that change took a 2047-token case from 41 µs to 21.3 µs where cuDNN took 35.3 µs.
+We predicted the gain from the rule and confirmed it in the exploration harness before writing the layout into the package. Batch 256, warm cache:
 
-Strip length is the one prefill parameter we still cannot explain. At width 7, five tokens per strip takes 23.6 µs, six takes 28.4 µs and seven takes 25.9 µs, and there are no register spills at any of those settings. Rather than continue guessing, the tuner now measures every strip length from 2 to 12, which is also what finally took the width-3 channel-last kernel to the speed of a copy. The degenerate strip of a single token still wins in 6 of the 54 channel-last entries in the tuned table, all of them at 1024 or 2048 channels and batch 1.
+* ordered: 6.21 µs
+* ring: 4.32 µs
+* ring, two batch rows per thread: 4.00 µs (requires an even batch size, not in the shipped kernel)
 
-Intra-kernel profiling agrees with all of the above and adds one useful detail. Instrumenting the phases of the width-7 strip kernel shows a warp spending 65% of its lifetime waiting on loads, 26% computing and 2% storing. In decode the loads issue within 98 ns, compute is close to zero, and the stores absorb 564 ns waiting for the loaded values to arrive, which restates "a launch plus one cold memory round trip" from the opposite direction. Those runs execute eagerly with instrumentation active, so the 30.5 µs span they report for a kernel that CUPTI measures at 26.1 µs is not a time worth quoting, but the split between the phases is trustworthy.
+Inside the package proper, on Qwen3.8-27B at batch 256 warm, the ring kernel runs at **4.67 µs** against **6.14 µs** for the ordered state.
 
-### What Changes Inside a Live Server
+The first version of that kernel lost 15% at batch 8 and below, and rule 5 tells you why: it looked up the rotated weights by sequence position, so the weight load's address depended on another load's result. Loading position-independent weights alongside everything else and picking the right row in registers took batch 1 from **1.31 µs warm / 2.30 µs cold** to **1.15 µs / 1.98 µs**.
 
-The kernel comparisons above replay recorded tensor layouts. A live server is a different measurement, and it begins with finding out what the engine's own kernel actually does. Without speculative decoding, SGLang does not call a convolution kernel at all: it calls one fused kernel per layer that reads the convolution input in place from the leading 10,240 columns of a `[Q | K | V | Z]` projection row, updates the conv state, and copies Z, B and A into tensors of their own. Replacing only the convolution would have left three copies behind, so our kernel performs the copies as well, in a single launch, with every store ordered after every load. At batch 1 the fused kernel takes the same 1.79 µs as the convolution alone, so the copies are free there; at 64 concurrent requests the call drops from 7.72 µs to 3.79 µs.
+Two more predictions came out of rule 3. I'll report them in the order they happened rather than as tidy conclusions.
 
-The end-to-end serving numbers then refused to move, and the kernel was not the reason. With the plugin installed but SGLang's own kernels still running, which is the dry-run control described earlier, decode remained 0.3% slower than stock. The plugin's allocations were shifting the server's memory layout: 12 MB of packed weight copies made while CUDA graphs were being captured, and a prefill output buffer one row larger than the stock operator's, which lands in a different allocator size class and costs 0.34% on its own. Compiling and loading kernels had no measurable effect whatsoever.
+**Prediction 1 (confirmed).** The bias had been packed into the weight row, producing two transactions on a single cache line. Giving it a load of its own was predicted to land between 3.6 and 3.8 µs. It measured **3.78 µs**, down from 4.51 µs (Nemotron-3 Nano, batch 256, warm).
 
-Fixing that meant shipping a slower kernel deliberately. The serving path now reads the model's own weight tensor in place, which costs roughly 0.5 µs per call at 64 concurrent requests: the convolution call in the server settles at 4.3 µs where a packed copy would have made it 3.8 µs. The packed copy was the source of a penalty ten times larger than the half microsecond it saved, so the kernel gives up that half microsecond and the server gets considerably more back. This is the kind of trade that only appears when the dry-run control exists, which is why it is worth running one before attributing a change of a few tenths of a percent to any kernel.
+**Prediction 2 (refuted without touching the GPU).** Three 4-element state loads on one cache line ought to serialize, so a single 12-element transaction should win at small batch. Except... the widest memory transaction in the instruction set is 32 bytes, so a 12-element tile compiles to three 8-byte loads however you slice it. Reading the generated PTX answered the question in ten minutes and cost zero GPU time. Fun!
 
-### Ideas That Did Not Work
+### Prefill, read from the generated code
 
-The 13,360-configuration search is the largest entry on this list. It produced two small wins, a main-effects table worth keeping and a cost model that emerged from two of its PTX dumps rather than from its ranking, and none of that required the last ten thousand configurations.
+The prefill kernels got an audit of their generated code before they got a benchmark.
 
-SiLU was first implemented with an exponential and a divide, which is the entire reason shapes with an activation initially lost by 1.04x to 1.29x. The `tanh` formulation borrowed from cuDNN's source fixed that, and then had to be qualified: the hardware's approximate `tanh` is 3.8e-6 off in `float32`, so `float32` outputs use the exact instruction instead.
+**Channel-first.** The kernel contained a genuine `div.s32`, plus six instructions correcting its rounding, ahead of *every single load*. It also recomputed the thread index from scratch for the store. Replacing the division with a multiply-high leaves no divides at all and moves the first load from around instruction 34 to instruction 14. That's worth 3% to 5% on small shapes and essentially nothing on large ones, which were already running at copy speed.
 
-Handling more than one tile per thread never won at any batch size, and the `min_blocks_per_mp` launch hint never won at the optimum. A decode kernel operating on a `[B, K - 1, D]` state that still shifted the state on every step was written, never selected by anything, and has now been deleted; the ring kernel is what that storage order is genuinely good for. Time-major filter weights, which are a different thing entirely, did ship. Two older decode kernels remain in the package because they cost nothing to keep, with the caveat noted above that the tuner never selects them.
+**Channel-last.** This kernel walks a strip of tokens per thread, and interleaving its stores with its loads cost **1.6x**. Issuing every load before the first store took width 7 from 42 µs to 26 µs. That's rule 4, discovered before rule 4 was written down.
 
-A 20480-channel shape was added to the benchmark, tuned, measured and drawn into a figure, then removed together with that figure once it became clear that nobody serves that model on a single GPU. Tuning and plotting a shape that cannot be deployed is a way of publishing a number that is simultaneously true and useless.
+Ragged sequence lengths (not a multiple of the tile size) are handled in two parts: a pass with no bounds checks across the interior, then a small second launch over each row's boundary tiles. That took a 2047-token case from 41 µs to **21.3 µs**, where cuDNN takes 35.3 µs.
 
-Two correctness bugs deserve recording, because both of them passed a test suite first. The strip kernel read out of bounds whenever a strip was shorter than `width - 1`, and one shape passed anyway purely because of how it happened to be laid out in memory. Separately, out-of-range threads were being mapped onto the last channel group, which is harmless when the output cannot alias the input and is a race when the conv state is updated in place, since a duplicate thread can read a state that its twin has already shifted. That one passed two consecutive runs and failed on the third. Decode kernels now launch exactly as many threads as there is work, or carry a real bounds check, and both cases have regression tests.
+> 📝 **Tile quantization, again**
+> This is the same tile quantization problem from matmul kernels: the last tile of each row is partially empty. Rather than paying for a bounds check on every tile, we pay for it only on the tiles that need it.
 
-### Compiler Behaviour We Had to Design Around
+**Strip length** is the one prefill parameter we still can't explain. At width 7:
 
-The fused `bfloat16` multiply-add is only formed in the final block of a kernel. A rarely taken branch placed after the hot path therefore turns every multiply-add inside that path into a conversion followed by a `float32` multiply-add, which is 1.7x slower and leaves every test passing, so all conditional work is evaluated first.
+| Tokens per strip | Latency |
+| --- | --- |
+| 5 | 23.6 µs |
+| 6 | 28.4 µs |
+| 7 | 25.9 µs |
 
-In the channel-last variable-length kernel the filter weights are passed twice, once as `wtm` and once as `wtail`, because the thread that handles the conv state has to load them through an argument of its own. Loading them through the same argument allows the compiler to merge both loads, keep the converted weights alive into the conditional state block, and silently lose the fused multiply-add in every strip.
+No register spills at any of those settings. Rather than keep guessing, the tuner now measures every strip length from 2 to 12, which is also what finally took the width-3 channel-last kernel to copy speed. The degenerate single-token strip still wins in 6 of the 54 channel-last entries in the tuned table, all at 1024 or 2048 channels and batch 1.
 
-### Open Questions
+Intra-kernel profiling agrees with all of the above and adds one useful detail. Instrumenting the phases of the width-7 strip kernel, a warp spends:
 
-Strip length is not monotonic in the way described above, and we have no mechanism for it, only a tuner that measures it.
+* **65%** of its lifetime waiting on loads
+* **26%** computing
+* **2%** storing
 
-GLM-5.3-Flash at TP = 4 is the one prefill shape that is nowhere near the speed of a copy, at 1.26x, while the two 2560-channel shapes with the same width and activation sit at 1.12x and the 10240-channel shape sits at 1.06x. This remains unexplained.
+In decode, the loads issue within 98 ns, compute is close to zero, and the stores absorb 564 ns waiting for the loaded values to arrive. That's "a launch plus one cold memory round trip", seen from the opposite direction.
 
-Everything here is tuned for a single GPU architecture, and the design space was explored on exactly one shape, 10240 channels at width 4. Whether the seven rules hold at 1024 channels, or on a GPU with a different ratio of launch cost to memory bandwidth, is untested.
+> 📝 **Note:**
+> These runs execute eagerly with instrumentation active. The 30.5 µs span they report for a kernel CUPTI measures at 26.1 µs is not a number worth quoting, but the split between phases is trustworthy.
 
-The ring conv state is the largest decode win in the package and is not what the SGLang plugin uses, because it requires the engine to allocate and carry its cache in that layout. Handling two batch rows per thread is worth a further 7% on top of it and is likewise absent from the shipped kernel.
+### What changes inside a live server
 
-There is no backward pass, several sequences in a single variable-length prefill still require two launches, and at batch 1 the fused serving kernel costs exactly what the convolution alone costs, which means those threads are waiting on memory with room for more work that nothing has yet been given to them.
+Kernel comparisons replay recorded tensor layouts. A live server is a different measurement, and it starts with finding out what the engine's own kernel actually does.
+
+Without speculative decoding, SGLang doesn't call a convolution kernel at all. It calls one fused kernel per layer that:
+
+1. reads the conv input in place from the leading 10,240 columns of a `[Q | K | V | Z]` projection row,
+2. updates the conv state,
+3. copies Z, B and A into tensors of their own.
+
+Replacing only the convolution would have left three copies behind. So our kernel does the copies too, in a single launch, with every store ordered after every load. At batch 1 the fused kernel takes the same 1.79 µs as the convolution alone, so the copies are free. At 64 concurrent requests the call drops from 7.72 µs to 3.79 µs.
+
+Then the end-to-end serving numbers refused to move, and the kernel wasn't the reason.
+
+With the plugin installed but SGLang's own kernels still running (the dry-run control), decode remained **0.3% slower** than stock. The plugin's allocations were shifting the server's memory layout:
+
+* 12 MB of packed weight copies made during CUDA graph capture
+* a prefill output buffer one row larger than the stock operator's, which lands in a different allocator size class and costs **0.34%** on its own
+
+Compiling and loading kernels had no measurable effect whatsoever.
+
+Fixing that meant deliberately shipping a slower kernel. The serving path now reads the model's own weight tensor in place, which costs about 0.5 µs per call at 64 concurrent requests: the conv call settles at 4.3 µs where a packed copy would have made it 3.8 µs. But the packed copy caused a penalty ten times larger than the half microsecond it saved. So the kernel gives up half a microsecond, and the server gets considerably more back.
+
+> 💡 **Takeaway:**
+> This trade only becomes visible once the dry-run control exists. Run one before attributing a change of a few tenths of a percent to any kernel.
+
+### Ideas that did not work
+
+**The 13,360-configuration search** is the biggest entry on this list. It produced two small wins, a main-effects table worth keeping, and a cost model that came from two of its PTX dumps rather than its ranking. None of that needed the last ten thousand configurations.
+
+**SiLU via exponential and divide.** That's the entire reason shapes with an activation initially lost by 1.04x to 1.29x. The `tanh` formulation borrowed from cuDNN's source fixed it, and then needed a caveat: the hardware's approximate `tanh` is 3.8e-6 off in `float32`, so `float32` outputs use the exact instruction instead.
+
+**More than one tile per thread** never won at any batch size. **The `min_blocks_per_mp` hint** never won at the optimum.
+
+**A `[B, K - 1, D]` decode kernel that still shifted the state every step** was written, never selected by anything, and has been deleted. The ring kernel is what that storage order is actually good for. (Time-major *filter weights*, which are a different thing entirely, did ship.) Two older decode kernels remain in the package because they cost nothing to keep, with the caveat above that the tuner never picks them.
+
+**A 20480-channel shape** was added, tuned, measured and drawn into a figure, then removed along with that figure once it was clear nobody serves that model on a single GPU. Tuning and plotting a shape that can't be deployed is a way of publishing a number that is simultaneously true and useless.
+
+Two correctness bugs deserve recording, because **both passed a test suite first**:
+
+1. **Out-of-bounds strip reads.** The strip kernel read out of bounds whenever a strip was shorter than `width - 1`. One shape passed anyway, purely because of how it happened to sit in memory.
+2. **A race from duplicate threads.** Out-of-range threads were being mapped onto the last channel group. That's harmless when the output can't alias the input, and a race when the conv state is updated in place: a duplicate thread can read a state its twin has already shifted. This one passed two consecutive runs and failed on the third.
+
+Decode kernels now launch exactly as many threads as there is work, or carry a real bounds check, and both cases have regression tests.
+
+### Compiler behaviour we had to design around
+
+Two compiler quirks shaped the code more than you'd guess from reading it.
+
+**Quirk #1: the fused `bfloat16` multiply-add is only formed in a kernel's final block.** Put a rarely taken branch *after* the hot path, and every multiply-add inside that path turns into a conversion followed by a `float32` multiply-add. That's **1.7x slower**, and every test still passes. So all conditional work is evaluated first.
+
+**Quirk #2: the weights are passed twice on purpose.** In the channel-last variable-length kernel, the filter weights arrive as both `wtm` and `wtail`, because the thread handling the conv state must load them through an argument of its own. Load them through the same argument, and the compiler merges both loads, keeps the converted weights alive into the conditional state block, and silently loses the fused multiply-add in every strip.
+
+> 📝 **Note:**
+> Neither of these shows up in the CuTe DSL source. You only see them by reading the generated PTX/SASS, which is exactly why every kernel here was audited that way.
+
+### Open questions
+
+We don't have every answer. Here's what's still unresolved:
+
+* **Strip length isn't monotonic**, and we have no mechanism for it, only a tuner that measures it.
+* **GLM-5.3-Flash at TP = 4** is the one prefill shape nowhere near copy speed, at 1.26x. The two 2560-channel shapes with the same width and activation sit at 1.12x, and the 10240-channel shape at 1.06x. This remains unexplained.
+* **Everything is tuned for one GPU architecture**, and the design space was explored on exactly one shape: 10240 channels at width 4. Whether the seven rules hold at 1024 channels, or on a GPU with a different ratio of launch cost to memory bandwidth, is untested.
+* **The ring conv state is the biggest decode win in the package, and the SGLang plugin doesn't use it**, because it requires the engine to allocate and carry its cache in that layout. Handling two batch rows per thread is worth another 7% on top and is likewise absent from the shipped kernel.
+* **There's no backward pass**, and several sequences in a single variable-length prefill still need two launches.
+* **At batch 1, the fused serving kernel costs exactly what the convolution alone costs.** Those threads are waiting on memory with room for more work, and nothing has been given to them yet.
+
+If you've got ideas on any of these, we'd love to hear them.
